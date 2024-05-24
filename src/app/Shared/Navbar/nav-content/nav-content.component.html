@@ -1,0 +1,26 @@
+<div class="w-full">
+    <div class="bg-gray-950 text-white w-full h-1/2 shadow-lg p-6">
+        <div class="flex justify-around pt-7" >
+            <div class="flex flex-col" *ngFor="let item of category[selectedSection].sections">
+                <h1 class="text center">{{item.name}}</h1>
+                <button (click)="handleNavigate('/'+selectedSection+'/'+item.id+'/'+section.id)" mat-button *ngFor="let section of item.items" class="py-1">
+                {{section.name}}
+                </button>
+            </div>
+            <div class="hidden lg:block">
+                <div class="mb-5">
+                    <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md" src="https://uproxx.com/wp-content/uploads/2016/12/snl_well.jpg?w=640" alt="Hasbro Well for Boys">             
+                </div>
+                <p class="text-gray-600 font-bold">Fisher Price: Well for Boys</p>
+                <p class="text-gray-600">New Arrival!</p>
+            </div>
+            <div class="hidden lg:block">
+                <div class="mb-5">
+                    <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md" src="https://i.pinimg.com/474x/1c/3f/81/1c3f817e530b83150ba340bb58ea7f2a.jpg" alt="Teapot">             
+                </div>
+                <p class="text-gray-600 font-bold">Poorly Designed Teapot</p>
+                <p class="text-gray-600">New Arrival!</p>
+            </div>
+        </div>
+    </div>
+</div>
