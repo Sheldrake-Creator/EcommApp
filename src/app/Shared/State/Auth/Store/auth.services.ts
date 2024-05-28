@@ -11,19 +11,19 @@ import { LogoutRequestInterface } from "../Types/logoutRequest.interface";
 
 @Injectable({
     providedIn: 'root',
-
 })
 
 export class AuthService {
 
     private apiUrl = 'https://api.realworld.io/api';
-    constructor(private http: HttpClient, private store: Store) { }
+    constructor(
+        private http: HttpClient, 
+        private store: Store) { }
 
 
     register(data:RegisterRequestInterface):Observable<CurrentUserInterface>{
         return this.http
-        .post<AuthResponseInterface>(this.apiUrl + '/users',data)
-        .pipe(map((response)=>response.user))
+        .post<AuthResponseInterface>(this.apiUrl + '/users',data).pipe(map((response)=>response.user))
     }
     login(data:LoginRequestInterface):Observable<CurrentUserInterface>{
         return this.http

@@ -8,6 +8,7 @@ import { provideState, provideStore, } from '@ngrx/store';
 import { authFeatureKey, authReducer } from './Shared/State/Auth/Store/auth.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import * as authEffects from "./Shared/State/Auth/Store/auth.effects"
+import { userFeatureKey, userReducer } from './Shared/State/User/user.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), 
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(),
     provideState(authFeatureKey,authReducer),
+    provideState(userFeatureKey, userReducer),
     provideEffects(authEffects),
     provideStoreDevtools({
       maxAge: 25,
