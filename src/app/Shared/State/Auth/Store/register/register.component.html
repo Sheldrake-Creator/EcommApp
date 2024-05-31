@@ -1,16 +1,16 @@
 <ng-container *ngIf="data$ | async as data" >
 <div class="container">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registerForm">
         <h1>Shop With Silas</h1>
         <div>
             <!-- BACKEND ERRORS HERE -->
             <mc-backend-error-messages *ngIf="data.backendErrors" style="color: crimson; font-weight: 500;" [backendErrors]="data.backendErrors"></mc-backend-error-messages>
             <mat-form-field class="w-full">
                 <mat-label>First Name</mat-label>
-                <input matInput formControlName="username" required username>
-                <mat-error *ngIf="registerForm.controls['username'].hasError('required')">Username is
+                <input matInput formControlName="userName" required username>
+                <mat-error *ngIf="registerForm.controls['userName'].hasError('required')">Username is
                     Required</mat-error>
-                <mat-error *ngIf="registerForm.controls['username'].hasError('username')">Please enter a valid
+                <mat-error *ngIf="registerForm.controls['userName'].hasError('username')">Please enter a valid
                     firstName address</mat-error>
             </mat-form-field>
 
@@ -33,6 +33,7 @@
 
             <div>
                 <button style="padding : 1.7rem" mat-raised-button class="w-full" color="accent" 
+                (click)="onSubmit()"
                 >REGISTER</button>
             </div>
             <div class="pt-5">

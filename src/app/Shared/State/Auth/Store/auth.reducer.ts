@@ -1,6 +1,6 @@
 import { createFeature, createReducer, on } from "@ngrx/store";
 import { AuthStateInterface } from "../Types/authState.interface";
-import { authActions, logout} from "./auth.actions";
+import { authActions, logout } from "./auth.actions";
 
 const initialState:AuthStateInterface = {
     isSubmitting: false,

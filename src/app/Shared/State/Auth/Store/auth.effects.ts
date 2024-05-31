@@ -1,11 +1,11 @@
-import { HttpErrorResponse } from "@angular/common/http"
-import { CurrentUserInterface } from "../Types/currentUser.interface"
-import { authActions } from "./auth.actions"
-import { PersistenceService } from "./auth.persistence.service"
-import { AuthService } from "./auth.services";
+import { HttpErrorResponse } from "@angular/common/http";
 import { inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, switchMap, tap } from "rxjs";
+import { CurrentUserInterface } from "../Types/currentUser.interface";
+import { authActions } from "./auth.actions";
+import { PersistenceService } from "./auth.persistence.service";
+import { AuthService } from "./auth.services";
 
 
 export const registerEffect = createEffect(
@@ -20,7 +20,7 @@ export const registerEffect = createEffect(
                 }),
                 catchError((errorResponse :HttpErrorResponse) => {
                     return of(authActions.registerFailure({
-                        errors: errorResponse.error.errors
+                        errors: errorResponse.error
                     }))
                 }),
             )

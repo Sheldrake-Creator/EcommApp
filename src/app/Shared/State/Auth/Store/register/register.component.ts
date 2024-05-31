@@ -1,20 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { CommonModule } from '@angular/common';
-import { combineLatest } from 'rxjs';
-import { MatFormFieldModule, MatLabel, MatError } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { AuthStateInterface } from '../../Types/authState.interface';
+import { combineLatest } from 'rxjs';
+import { BacknedErrorMessages } from "../../../../ErrorHandling/BackendErrors/backendErrors.component";
+import { UserService } from '../../../User/user.services';
 import { selectIsSubmitting } from '../../../selectors';
-import { selectValidationErrors } from '../auth.reducer';
+import { AuthStateInterface } from '../../Types/authState.interface';
 import { RegisterRequestInterface } from '../../Types/registerRequest.interface';
 import { authActions } from '../auth.actions';
-import { MatDialog } from '@angular/material/dialog';
-import { BacknedErrorMessages } from "../../../../ErrorHandling/BackendErrors/backendErrors.component";
+import { selectValidationErrors } from '../auth.reducer';
 
 @Component({
     selector: 'app-register',
@@ -25,10 +26,12 @@ import { BacknedErrorMessages } from "../../../../ErrorHandling/BackendErrors/ba
 })
 export class RegisterComponent {
   @Input() changeTemplate:any;
+  @Output() onSubmitRegisterEvent= new EventEmitter();
 
   constructor(
     private fb: FormBuilder, 
-    private store: Store<{auth:AuthStateInterface}>){
+    private store: Store<{auth:AuthStateInterface}>,
+    private userService : UserService){
       this.fb = fb;
     }
 
@@ -38,7 +41,7 @@ export class RegisterComponent {
   })
 
   registerForm : FormGroup =this.fb.nonNullable.group({
-    username:["",[Validators.required]],
+    userName:["",[Validators.required]],
     email: ["", [Validators.required, Validators.email]],
     password: ["", [Validators.required, Validators.minLength(8)]]
   });
@@ -46,14 +49,18 @@ export class RegisterComponent {
 
   onSubmit(): void {
     console.log('form', this.registerForm.getRawValue())
-    const request: RegisterRequestInterface = {
-    user: this.registerForm.getRawValue(),
+    const request: RegisterRequestInterface =this.registerForm.getRawValue();
     //TO DO: Might have to change .getRawValue() to .value
-    }
+    
     this.store.dispatch(authActions.register({request}))
   }
-}
+  onSubmitRegister(){
+    const request:RegisterRequestInterface=this.registerForm.getRawValue();
+    
+    this.userService.onRegister(request);
+  }
 
+}
 
 
 

@@ -10,18 +10,15 @@ import { AuthComponent } from '../State/Auth/auth.component'
 // import { AdminComponent } from '../../admin/components/admin.component';
 // import { UserService } from '../State/User/user.services';
 // import { getUserProfile } from '../State/User/user.action';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from "../State/AppState";
-import { state } from '@angular/animations';
-import { selectIsSubmitting } from '../State/selectors';
+
 import { Actions, ofType } from '@ngrx/effects';
 // import { PersistenceService } from '../State/Auth/auth.persistence.service';
 import { merge, Observable, of, Subscription } from 'rxjs';
 import { authActions, logout } from '../State/Auth/Store/auth.actions';
 import { selectCurrentUser } from '../State/Auth/Store/auth.reducer';
 import { CurrentUserInterface } from '../State/Auth/Types/currentUser.interface';
-import { Action } from 'rxjs/internal/scheduler/Action';
-import { LogoutRequestInterface } from '../State/Auth/Types/logoutRequest.interface';
 // import { error } from 'console';,
 
 
@@ -50,6 +47,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
     private actions$: Actions) {
       this.currentUser$ = this.store.select(selectCurrentUser);
   }
+
 
   openNavbarContent(section: any) {
     this.isNavbarContentOpen = true;

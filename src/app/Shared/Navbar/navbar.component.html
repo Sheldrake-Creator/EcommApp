@@ -10,7 +10,7 @@
 
         <div class="">        
             <div class="flex space-x-4">
-                <a routerLink= "/" class="text-gray-800">
+                <a routerlink= "/" class="text-gray-800">
                 Shop with Silas
                 </a>
                 <div>
@@ -31,14 +31,14 @@
 
             <div *ngIf="currentUser$ | async as userProfile" class="relative ml-3 flex items-center">
                 <div class="flex items-center space-x-5">
-                    <span class="font-bold text-lg">{{userProfile.username}}</span> 
+                    <span class="font-bold text-lg">{{userProfile.userName}}</span> 
                     <button mat-button [matMenuTriggerFor]= "profileMenu">
                         <img class="h-7 w-7" src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt="">
                     </button>
                 
                     <mat-menu #profileMenu="matMenu">
                         <button (click)="navigateTo('account/orders')" mat-menu-item>Orders</button>
-                        <button (click)="navigateTo('profile')"mat-menu-item>Profile</button> 
+                        <button (click)="navigateTo('profile')" mat-menu-item>Profile</button> 
                         <button mat-menu-item (click)="handleLogOut()">Logout</button>
                     </mat-menu>
 

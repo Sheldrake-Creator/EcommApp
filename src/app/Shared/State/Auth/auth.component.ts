@@ -20,6 +20,7 @@ import { LogoutComponent } from "./Store/logout/logout.component";
     imports: [CommonModule, MatInputModule, MatButtonModule, MatFormFieldModule, ReactiveFormsModule, StoreModule, RegisterComponent, LoginComponent, LogoutComponent]
 })
 export class AuthComponent implements OnInit{
+  //Observables
   loginSwitch: any;
   isLoggedIn$: any;
 

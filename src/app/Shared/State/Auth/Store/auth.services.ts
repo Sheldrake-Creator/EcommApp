@@ -1,12 +1,12 @@
 import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable, map } from "rxjs";
 import { AuthResponseInterface } from "../Types/authResponse.interface";
 import { CurrentUserInterface } from "../Types/currentUser.interface";
-import { RegisterRequestInterface } from "../Types/registerRequest.interface";
-import { Store } from "@ngrx/store";
-import { Injectable } from "@angular/core";
-import { Observable, map } from "rxjs";
 import { LoginRequestInterface } from "../Types/loginRequest.interface";
 import { LogoutRequestInterface } from "../Types/logoutRequest.interface";
+import { RegisterRequestInterface } from "../Types/registerRequest.interface";
 
 
 @Injectable({
@@ -15,7 +15,8 @@ import { LogoutRequestInterface } from "../Types/logoutRequest.interface";
 
 export class AuthService {
 
-    private apiUrl = 'https://api.realworld.io/api';
+    // private apiUrl = 'https://api.realworld.io/api';
+    private apiUrl = 'http://localhost:4545';
     constructor(
         private http: HttpClient, 
         private store: Store) { }
@@ -23,12 +24,12 @@ export class AuthService {
 
     register(data:RegisterRequestInterface):Observable<CurrentUserInterface>{
         return this.http
-        .post<AuthResponseInterface>(this.apiUrl + '/users',data).pipe(map((response)=>response.user))
+        .post<AuthResponseInterface>(this.apiUrl + '/register',data).pipe(map((response)=>response))
     }
     login(data:LoginRequestInterface):Observable<CurrentUserInterface>{
         return this.http
         .post<AuthResponseInterface>(this.apiUrl + '/users/login',data)
-        .pipe(map((response) => response.user))
+        .pipe(map((response) => response))
     }
     logout(data:LogoutRequestInterface){
         localStorage.removeItem(data.user.token);
