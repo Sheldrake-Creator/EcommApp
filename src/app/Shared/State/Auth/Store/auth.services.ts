@@ -24,12 +24,12 @@ export class AuthService {
 
     register(data:RegisterRequestInterface):Observable<CurrentUserInterface>{
         return this.http
-        .post<AuthResponseInterface>(this.apiUrl + '/register',data).pipe(map((response)=>response))
+        .post<AuthResponseInterface>(this.apiUrl + '/register',data).pipe(map((response)=>response.user))
     }
     login(data:LoginRequestInterface):Observable<CurrentUserInterface>{
         return this.http
         .post<AuthResponseInterface>(this.apiUrl + '/users/login',data)
-        .pipe(map((response) => response))
+        .pipe(map((response) => response.user))
     }
     logout(data:LogoutRequestInterface){
         localStorage.removeItem(data.user.token);
