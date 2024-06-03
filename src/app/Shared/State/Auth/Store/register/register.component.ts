@@ -49,11 +49,7 @@ export class RegisterComponent {
 
   onSubmit(): void {
     console.log('form', this.registerForm.getRawValue())
-    const request: RegisterRequestInterface =
-      this.registerForm.getRawValue();
-      
-    //TO DO: Might have to change .getRawValue() to .value
-    
+    const request: RegisterRequestInterface = this.registerForm.getRawValue();
     this.store.dispatch(authActions.register({request}))
   }
   onSubmitRegister(){

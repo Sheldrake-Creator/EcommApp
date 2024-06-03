@@ -28,7 +28,7 @@ export class AuthService {
     }
     login(data:LoginRequestInterface):Observable<CurrentUserInterface>{
         return this.http
-        .post<AuthResponseInterface>(this.apiUrl + '/users/login',data)
+        .post<AuthResponseInterface>(this.apiUrl + '/login',data)
         .pipe(map((response) => response.user))
     }
     logout(data:LogoutRequestInterface){

@@ -1,9 +1,9 @@
 import { createAction, createActionGroup, emptyProps, props } from "@ngrx/store";
-import { RegisterRequestInterface } from "../Types/registerRequest.interface";
-import { CurrentUserInterface } from "../Types/currentUser.interface";
 import { BackendErrorsInterface } from "../../../ErrorHandling/BackendErrors/Types/backendErrors.interface";
+import { CurrentUserInterface } from "../Types/currentUser.interface";
 import { LoginRequestInterface } from "../Types/loginRequest.interface";
 import { LogoutRequestInterface } from "../Types/logoutRequest.interface";
+import { RegisterRequestInterface } from "../Types/registerRequest.interface";
 
 
 
@@ -20,5 +20,4 @@ export const authActions = createActionGroup({
     },
 })
 
-export const logout = createAction('[auth] Logout User'
-);
+export const logout = createAction('[auth] Logout User');

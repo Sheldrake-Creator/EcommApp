@@ -17,8 +17,7 @@ export const registerEffect = createEffect(
                 map((currentUser: CurrentUserInterface) => {
                     persistenceService.set('accessToken',currentUser.token)
                     return authActions.registerSuccess({ currentUser })
-                }),
-                catchError((errorResponse :HttpErrorResponse) => {
+                }),catchError((errorResponse :HttpErrorResponse) => {
                     return of(authActions.registerFailure({
                         errors: errorResponse.error
                     }))
@@ -35,7 +34,7 @@ export const loginEffect = createEffect(
     return actions$.pipe(
         ofType(authActions.login),
         switchMap(({request}) =>{
-             return authServices.login(request).pipe(
+            return authServices.login(request).pipe(
                 map((currentUser : CurrentUserInterface) =>{
                     persistenceService.set('accessToken',currentUser.token)
                     return authActions.loginSuccess({currentUser})

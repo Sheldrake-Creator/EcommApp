@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatError, MatLabel, MatFormFieldModule } from '@angular/material/form-field';
+import { MatError, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import {Store} from '@ngrx/store';
-import { AuthService } from '../auth.services';
+import { Store } from '@ngrx/store';
+import { combineLatest } from 'rxjs';
+import { BacknedErrorMessages } from "../../../../ErrorHandling/BackendErrors/backendErrors.component";
 import { LoginRequestInterface } from '../../Types/loginRequest.interface';
 import { authActions } from '../auth.actions';
-import { combineLatest } from 'rxjs';
 import { selectIsSubmitting, selectValidationErrors } from '../auth.reducer';
-import { BacknedErrorMessages } from "../../../../ErrorHandling/BackendErrors/backendErrors.component";
+import { AuthService } from '../auth.services';
 
 
 
@@ -28,7 +28,7 @@ export class LoginComponent {
 
   constructor(
     private fb:FormBuilder, 
-    private store: Store, ){
+    private store: Store,){
     this.fb=fb;
   }
   data$ = combineLatest({
@@ -37,15 +37,15 @@ export class LoginComponent {
   })
 
   loginForm : FormGroup =this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
+    userName: ['', [Validators.required, Validators.minLength(3)]],
+    password: ['', [Validators.required, Validators.minLength(3)]]
+    // TO DO Changed minLength to 3 here. Change back to 8 after testing.
   });
 
   submitForm():void{
     console.log('form', this.loginForm.getRawValue())
-    const request:LoginRequestInterface={
-      user: this.loginForm.getRawValue(),
-    }
+    const request:LoginRequestInterface= this.loginForm.getRawValue();
+    
     this.store.dispatch(authActions.login({request}))
   }
 }

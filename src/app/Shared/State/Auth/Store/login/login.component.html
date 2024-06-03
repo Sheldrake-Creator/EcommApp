@@ -6,10 +6,10 @@
                             <!-- BACKEND ERRORS HERE -->
             <mc-backend-error-messages *ngIf="data.backendErrors" style="color: crimson; font-weight: 500;" [backendErrors]="data.backendErrors"></mc-backend-error-messages>
                 <mat-form-field class="w-full">
-                    <mat-label>Email</mat-label>
-                    <input matInput formControlName="email" required email>
-                    <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is Required</mat-error>
-                    <mat-error *ngIf="loginForm.controls['email'].hasError('email')">Please enter a valid email address</mat-error>
+                    <mat-label>userName</mat-label>
+                    <input matInput formControlName="userName" required userName>
+                    <mat-error *ngIf="loginForm.controls['userName'].hasError('required')">User is Required</mat-error>
+                    <mat-error *ngIf="loginForm.controls['userName'].hasError('userName')">Please enter a valid email address</mat-error>
                 </mat-form-field>
     
                 <mat-form-field class="w-full">
