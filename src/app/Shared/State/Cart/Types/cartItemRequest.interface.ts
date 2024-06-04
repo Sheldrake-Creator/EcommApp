@@ -1,4 +1,1 @@
-export interface CartItemRequestInterface{
-      
-
-}
+export interface CartItemRequestInterface {}

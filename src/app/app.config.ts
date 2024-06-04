@@ -1,22 +1,25 @@
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ApplicationConfig, isDevMode } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideState, provideStore, } from '@ngrx/store';
-import { authFeatureKey, authReducer } from './Shared/State/Auth/Store/auth.reducer';
+import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import * as authEffects from "./Shared/State/Auth/Store/auth.effects"
+import * as authEffects from './Shared/State/Auth/Store/auth.effects';
+import {
+  authFeatureKey,
+  authReducer,
+} from './Shared/State/Auth/Store/auth.reducer';
 import { userFeatureKey, userReducer } from './Shared/State/User/user.reducer';
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), 
+  providers: [
+    provideRouter(routes),
     provideAnimationsAsync('noop'),
     provideHttpClient(withFetch()),
     provideStore(),
-    provideState(authFeatureKey,authReducer),
-    provideState(userFeatureKey, userReducer),
+    provideState(authFeatureKey, authReducer),
     provideEffects(authEffects),
     provideStoreDevtools({
       maxAge: 25,
@@ -25,7 +28,5 @@ export const appConfig: ApplicationConfig = {
       trace: true,
       traceLimit: 75,
     }),
-  ]
+  ],
 };
-
-

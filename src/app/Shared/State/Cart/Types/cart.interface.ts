@@ -1,5 +1,6 @@
 import { CurrentUserInterface } from '../../Auth/Types/currentUser.interface';
 
-export interface CartRequestInterface {
+export interface Cart {
   user: CurrentUserInterface;
+  CartId: string;
 }

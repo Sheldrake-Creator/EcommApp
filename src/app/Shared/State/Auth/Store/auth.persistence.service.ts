@@ -1,27 +1,24 @@
-import { Injectable } from "@angular/core";
-import { CurrentUserInterface } from "../Types/currentUser.interface";
+import { Injectable } from '@angular/core';
+import { CurrentUserInterface } from '../Types/currentUser.interface';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-    export class PersistenceService{
-        set(key : string, data:unknown):void{
-            try{
-                localStorage.setItem(key, JSON.stringify(data))
-            }catch(e){
-                console.error("error saving to local Storage", e);
-                
-            }
-        }
-        get(key : string): unknown{
-
-        try{
-            const localStorageItem = localStorage.getItem(key)
-            return localStorageItem ? JSON.parse(localStorageItem) : null
-        }catch(e){
-            console.error("error savign to local Storage", e);
-            return null;
-            
-        }
+export class PersistenceService {
+  set(key: string, data: unknown): void {
+    try {
+      localStorage.setItem(key, JSON.stringify(data));
+    } catch (e) {
+      console.error('error saving to local Storage', e);
     }
+  }
+  get(key: string): unknown {
+    try {
+      const localStorageItem = localStorage.getItem(key);
+      return localStorageItem ? JSON.parse(localStorageItem) : null;
+    } catch (e) {
+      console.error('error saving to local Storage', e);
+      return null;
+    }
+  }
 }
