@@ -16,7 +16,6 @@ export const authActions = createActionGroup({
         Login:props<{request : LoginRequestInterface}>(),
         "Login success" : props<{currentUser : CurrentUserInterface}>(),
         "Login failure" : props<{errors : BackendErrorsInterface}>(),
-        //TO DO This might be a fucked way of handling this situation 
     },
 })
 
