@@ -23,12 +23,8 @@ export class CartService {
 
   getCart() {
     const url = this.API_URL + '/cart/';
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + 'jwt',
-      'Content-Type': 'application/json',
-    });
     return this.http
-      .get(url, { headers })
+      .get(url)
       .pipe(
         map((data: any) => {
           console.log('cart : ', data);
@@ -47,31 +43,19 @@ export class CartService {
       .subscribe((action) => this.store.dispatch(action));
   }
   addCartItem(reqData: any) {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${'jwt'}`,
-      'Content-Type': 'application/json',
-    });
     this.http
-      .put(this.API_URL + '/addItem', reqData, { headers })
+      .put(this.API_URL + '/addItem', reqData)
       .pipe(map((response) => response));
   }
 
   removeCartItem(cartItemId: Number) {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${'jwt'}`,
-      'Content- Type': 'application/json',
-    });
     return this.http
-      .delete(this.API_URL + '/removeItem', { headers })
+      .delete(this.API_URL + '/removeItem')
       .pipe(map((response) => response));
   }
-  updateCartItem() {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${'jwt'}`,
-      'Content- Type': 'application/json',
-    });
+  updateCartItem(cartItemId: Number) {
     return this.http
-      .put(this.API_URL + '/updateItem', { headers })
+      .put(this.API_URL + '/updateItem', cartItemId)
       .pipe(map((response) => response));
   }
 }
