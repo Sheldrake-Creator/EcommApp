@@ -2,6 +2,7 @@ import {
   HTTP_INTERCEPTORS,
   provideHttpClient,
   withFetch,
+  withInterceptors,
 } from '@angular/common/http';
 import { ApplicationConfig, isDevMode } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -9,7 +10,7 @@ import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { AuthInterceptorComponent } from './Shared/Interceptors/auth-interceptor/auth-interceptor.component';
+import { AuthInterceptor } from './Shared/Interceptors/auth-interceptor/auth-interceptor.service';
 import * as authEffects from './Shared/State/Auth/Store/auth.effects';
 import {
   authFeatureKey,
@@ -21,12 +22,12 @@ export const appConfig: ApplicationConfig = {
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorComponent,
+      useClass: AuthInterceptor,
       multi: true,
     },
     provideRouter(routes),
     provideAnimationsAsync('noop'),
-    provideHttpClient(withFetch()),
+    provideHttpClient(),
     provideStore(),
     provideState(authFeatureKey, authReducer),
     provideEffects(authEffects),
