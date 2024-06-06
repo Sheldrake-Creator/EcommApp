@@ -6,7 +6,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'redux';
-import { catchError, map, of } from 'rxjs';
+import { catchError, map, of, tap } from 'rxjs';
 import { CartItemRequestInterface } from './Types/cartItemRequest.interface';
 import { cartActions, cartItemActions } from './cart.actions';
 
@@ -43,9 +43,10 @@ export class CartService {
       .subscribe((action) => this.store.dispatch(action));
   }
   addCartItem(reqData: any) {
-    this.http
-      .put(this.API_URL + '/addItem', reqData)
-      .pipe(map((response) => response));
+    return this.http.put(this.API_URL + '/addItem', reqData).pipe(
+      tap((cartItem) => console.log(cartItem)),
+      map((response) => response),
+    );
   }
 
   removeCartItem(cartItemId: Number) {
@@ -53,9 +54,12 @@ export class CartService {
       .delete(this.API_URL + '/removeItem')
       .pipe(map((response) => response));
   }
-  updateCartItem(cartItemId: Number) {
-    return this.http
-      .put(this.API_URL + '/updateItem', cartItemId)
-      .pipe(map((response) => response));
+  updateCartItem(reqData: any) {
+    console.log('Requset: ', reqData);
+
+    return this.http.put(this.API_URL + '/updateItem', reqData.data).pipe(
+      tap((response) => console.log('Response: ', response)),
+      map((response) => response),
+    );
   }
 }
