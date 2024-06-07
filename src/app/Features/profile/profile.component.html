@@ -1,16 +1,40 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Centered Button with Tailwind</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    </head>
-    <body class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div>
-            <!-- <button mat-button (click)="getProfile()">Orders</button> -->
-          </div>
-    </body>
-    </html>
-  
-  
- 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centered Button with Tailwind</title>
+  </head>
+  <body>
+    <section  *ngIf="currentUser$ | async as currentUser">
+      <div>
+        <div class="p-4 flex">
+          <h1 class="text-3xl py-5">{{currentUser.userName}}'s Profile</h1>
+        </div>
+        <div class="px-3 py-4 flex justify-center">
+          <table
+            class="w-full text-md shadow-md rounded mb-4"
+           >
+
+
+            <tbody>
+              <tr class="border-b font-bold">
+                <td scope="col" class="p-3 px-5">userId</td>
+                <td scope="col" class="p-3 px-5">email</td>
+                <td scope="col" class="p-3 px-5">Token</td>
+                <td scope="col" class="p-3 px-5">User Name</td>
+                <td scope="col" class="p-3 px-5">role</td>
+              </tr>
+              <tr class="border-b bg-gray-800">
+                <td class="p-3 px-5">{{ currentUser.userId }}</td>
+                <td class="p-3 px-5">{{ currentUser.email }}</td>
+                <td class="p-3 px-5">{{ currentUser.token?.length }}</td>
+                <td class="p-3 px-5">{{ currentUser.userName }}</td>
+                <td class="p-3 px-5">{{ currentUser.role }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
