@@ -1,53 +1,68 @@
-import { HttpErrorResponse } from "@angular/common/http";
-import { inject } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, mergeMap, of, switchMap, tap } from "rxjs";
-import { CurrentUserInterface } from "../Types/currentUser.interface";
-import { authActions } from "./auth.actions";
-import { PersistenceService } from "./auth.persistence.service";
-import { AuthService } from "./auth.services";
-
+import { HttpErrorResponse } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
+import { CurrentUserInterface } from '../Types/currentUser.interface';
+import { authActions } from './auth.actions';
+import { PersistenceService } from './auth.persistence.service';
+import { AuthService } from './auth.services';
 
 export const registerEffect = createEffect(
-    (actions$ = inject(Actions), authService = inject(AuthService), persistenceService = inject(PersistenceService)) => {
+  (
+    actions$ = inject(Actions),
+    authService = inject(AuthService),
+    persistenceService = inject(PersistenceService),
+  ) => {
     return actions$.pipe(
-        ofType(authActions.register),
-        switchMap(({ request }) => {
-            return authService.register(request).pipe(
-                map((currentUser: CurrentUserInterface) => {
-                    persistenceService.set('accessToken',currentUser.token)
-                    return authActions.registerSuccess({ currentUser })
-                }),catchError((errorResponse :HttpErrorResponse) => {
-                    return of(authActions.registerFailure({
-                        errors: errorResponse.error
-                    }))
-                }),
-            )
-        }) 
-    )
-}, { functional: true }
-)
+      ofType(authActions.register),
+      switchMap(({ request }) => {
+        return authService.register(request).pipe(
+          map((currentUser: CurrentUserInterface) => {
+            persistenceService.set('accessToken', currentUser.token);
+            return authActions.registerSuccess({ currentUser });
+          }),
+          catchError((errorResponse: HttpErrorResponse) => {
+            return of(
+              authActions.registerFailure({
+                errors: errorResponse.error,
+              }),
+            );
+          }),
+        );
+      }),
+    );
+  },
+  { functional: true },
+);
 
 export const loginEffect = createEffect(
-    (actions$ = inject (Actions), authServices = inject(AuthService),
-    persistenceService = inject(PersistenceService)) =>{
+  (
+    actions$ = inject(Actions),
+    authServices = inject(AuthService),
+    persistenceService = inject(PersistenceService),
+  ) => {
     return actions$.pipe(
-        ofType(authActions.login),
-        switchMap(({request}) =>{
-            return authServices.login(request).pipe(
-                map((currentUser : CurrentUserInterface) =>{
-                    persistenceService.set('accessToken',currentUser.token)
-                    return authActions.loginSuccess({currentUser})
-                }),catchError((errorResponse : HttpErrorResponse)=>{
-                    return of(authActions.loginFailure({
-                        errors: errorResponse.error.errors
-                    }))
-                }),                    
-            )
-        })
-    )
-}, {functional : true}
-)
+      ofType(authActions.login),
+      switchMap(({ request }) => {
+        //
+        return authServices.login(request).pipe(
+          map((currentUser: CurrentUserInterface) => {
+            persistenceService.set('accessToken', currentUser.token);
+            return authActions.loginSuccess({ currentUser });
+          }),
+          catchError((errorResponse: HttpErrorResponse) => {
+            return of(
+              authActions.loginFailure({
+                errors: errorResponse.error.errors,
+              }),
+            );
+          }),
+        );
+      }),
+    );
+  },
+  { functional: true },
+);
 // export const  logoutEffect = createEffect(
 //     (actions$ = inject (Actions), authServices = inject(AuthService),
 //     persistenceService = inject(PersistenceService)) =>{
@@ -64,10 +79,10 @@ export const loginEffect = createEffect(
 //         )
 //     },{functional:true}
 // );
-       
+
 // dispatch: false
 // export const logoutEffect = createEffect(
-//     (actions$ = inject (Actions), 
+//     (actions$ = inject (Actions),
 //     persistenceService = inject(PersistenceService)) =>{
 //     return actions$.pipe(
 //         ofType(authActions.logout),
@@ -77,13 +92,12 @@ export const loginEffect = createEffect(
 //                    return of(authActions.loginFailure({
 //                        errors: errorResponse.error.errors
 //                    }))
-//                }),                    
+//                }),
 //            )
 //        })
 //    )
 // }, {functional : true}
 // )
-
 
 // export const closeAfterRegisterEffect = createEffect(
 //     (actions$ = inject(Actions), nav = inject(NavbarComponent)) =>{
@@ -91,7 +105,7 @@ export const loginEffect = createEffect(
 //             ofType(authActions.registerSuccess),
 //             tap(() =>{
 //                 // nav.handleCloseWindow();
-                
+
 //             }
 //         ))
 //     },
