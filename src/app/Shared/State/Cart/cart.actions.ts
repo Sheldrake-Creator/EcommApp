@@ -1,5 +1,7 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { BackendErrorsInterface } from '../../ErrorHandling/BackendErrors/Types/backendErrors.interface';
+import { CartInterface } from './Types/cart.interface';
+import { CartStateInterface } from './Types/cartstate.interface';
 
 export const cartActions = createActionGroup({
   source: 'cart',
@@ -7,6 +9,9 @@ export const cartActions = createActionGroup({
     GetCartRequest: emptyProps(),
     'GetCart Success': props<{ payload: any }>(),
     'GetCart Failure': props<{ errors: BackendErrorsInterface }>(),
+    CreateCartRequest: props<{ reqData: CartInterface }>(),
+    'CreateCart Success': props<{ payload: any }>(),
+    'CreateCart Failure': props<{ errors: BackendErrorsInterface }>(),
   },
 });
 

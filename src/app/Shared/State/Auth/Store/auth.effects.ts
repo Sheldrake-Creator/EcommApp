@@ -2,6 +2,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
+import { CartComponent } from '../../../../Features/cart/cart.component';
+import { cartActions } from '../../Cart/cart.actions';
+import { CartService } from '../../Cart/cart.services';
+import { selectCurrentUserId } from '../../selectors';
 import { CurrentUserInterface } from '../Types/currentUser.interface';
 import { authActions } from './auth.actions';
 import { PersistenceService } from './auth.persistence.service';
@@ -63,6 +67,30 @@ export const loginEffect = createEffect(
   },
   { functional: true },
 );
+
+export const createCartAfterRegisterEffect = createEffect(
+  (actions$ = inject(Actions), cartService = inject(CartService)) => {
+    return actions$.pipe(
+      ofType(authActions.registerSuccess),
+      switchMap(() => {
+        return cartService.createCart().pipe(
+          map((payload: any) => {
+            return cartActions.createCartSuccess({ payload });
+          }),
+          catchError((errorResponse: HttpErrorResponse) => {
+            return of(
+              cartActions.createCartFailure({
+                errors: errorResponse.error.errors,
+              }),
+            );
+          }),
+        );
+      }),
+    );
+  },
+  { functional: true },
+);
+
 // export const  logoutEffect = createEffect(
 //     (actions$ = inject (Actions), authServices = inject(AuthService),
 //     persistenceService = inject(PersistenceService)) =>{
@@ -97,17 +125,4 @@ export const loginEffect = createEffect(
 //        })
 //    )
 // }, {functional : true}
-// )
-
-// export const closeAfterRegisterEffect = createEffect(
-//     (actions$ = inject(Actions), nav = inject(NavbarComponent)) =>{
-//         return actions$.pipe(
-//             ofType(authActions.registerSuccess),
-//             tap(() =>{
-//                 // nav.handleCloseWindow();
-
-//             }
-//         ))
-//     },
-//     {functional:true, dispatch : false}
 // )

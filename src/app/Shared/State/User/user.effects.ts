@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { PersistenceService } from '../Auth/Store/auth.persistence.service';
 import { CurrentUserInterface } from '../Auth/Types/currentUser.interface';
 import { userActions } from './user.actions';
@@ -13,6 +13,9 @@ export const getUserEffect = createEffect(
       ofType(userActions.getUserProfile),
       switchMap(() => {
         return userService.getUserProfileById().pipe(
+          tap((currentUser: CurrentUserInterface) => {
+            console.log(currentUser), currentUser.email;
+          }),
           map((currentUser: CurrentUserInterface) => {
             return userActions.getUserProfileSuccess({ currentUser });
           }),
