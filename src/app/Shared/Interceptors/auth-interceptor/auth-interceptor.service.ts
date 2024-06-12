@@ -4,8 +4,7 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Component, Injectable } from '@angular/core';
-import { rootEffectsInit } from '@ngrx/effects';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PersistenceService } from '../../State/Auth/Store/auth.persistence.service';
 import { AuthService } from '../../State/Auth/Store/auth.services';

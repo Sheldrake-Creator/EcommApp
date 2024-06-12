@@ -68,29 +68,6 @@ export const loginEffect = createEffect(
   { functional: true },
 );
 
-export const createCartAfterRegisterEffect = createEffect(
-  (actions$ = inject(Actions), cartService = inject(CartService)) => {
-    return actions$.pipe(
-      ofType(authActions.registerSuccess),
-      switchMap(() => {
-        return cartService.createCart().pipe(
-          map((payload: any) => {
-            return cartActions.createCartSuccess({ payload });
-          }),
-          catchError((errorResponse: HttpErrorResponse) => {
-            return of(
-              cartActions.createCartFailure({
-                errors: errorResponse.error.errors,
-              }),
-            );
-          }),
-        );
-      }),
-    );
-  },
-  { functional: true },
-);
-
 // export const  logoutEffect = createEffect(
 //     (actions$ = inject (Actions), authServices = inject(AuthService),
 //     persistenceService = inject(PersistenceService)) =>{
