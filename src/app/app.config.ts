@@ -5,12 +5,12 @@ import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { AuthInterceptor } from './Shared/Interceptors/auth-interceptor/auth-interceptor.service';
-import * as authEffects from './Shared/State/Auth/Store/auth.effects';
-import {
-  authFeatureKey,
-  authReducer,
-} from './Shared/State/Auth/Store/auth.reducer';
+import { AuthInterceptor } from './Interceptors/auth-interceptor/auth-interceptor.service';
+import * as authEffects from './Store/Auth/auth.effects';
+import { authFeatureKey, authReducer } from './Store/Auth/auth.reducer';
+import * as cartEffects from './Store/Cart/cart.effects';
+import { cartFeatureKey, cartReducer } from './Store/Cart/cart.reducer';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -26,6 +26,8 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState(authFeatureKey, authReducer),
     provideEffects(authEffects),
+    provideState(cartFeatureKey, cartReducer),
+    provideEffects(cartEffects),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),

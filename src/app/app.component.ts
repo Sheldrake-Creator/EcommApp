@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { FooterComponent } from './Shared/Footer/footer.component';
-import { HomeComponent } from './Shared/Home/home.component';
-import { NavbarComponent } from './Shared/Navbar/navbar.component';
-import { AppState } from './Shared/State/AppState';
-import { authActions } from './Shared/State/Auth/Store/auth.actions';
-import { AuthService } from './Shared/State/Auth/Store/auth.services';
+import { FooterComponent } from './Components/Footer/footer.component';
+import { HomeComponent } from './Components/Home/home.component';
+import { NavbarComponent } from './Components/Navbar/navbar.component';
+import { AppState } from './Store/AppState';
+import { authActions } from './Store/Auth/auth.actions';
+import { AuthService } from './Store/Auth/auth.services';
 
 @Component({
   selector: 'app-root',
