@@ -15,6 +15,9 @@ import { cartActions } from './cart.actions';
   providedIn: 'root',
 })
 export class CartService {
+  addItemToCart(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
   API_URL = 'http://localhost:4545/';
   currentUser$: Observable<CurrentUserInterface | undefined | null>;
 
