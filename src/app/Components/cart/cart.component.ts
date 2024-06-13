@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,7 +22,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
     CartItemComponent,
   ],
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   cart = [1, 1, 1];
   cartItems: any;
 
@@ -31,14 +31,16 @@ export class CartComponent {
     private cartService: CartService,
     private store: Store<AppState>,
   ) {}
+  ngOnInit(): void {
+    console.log('Hello..........');
+    this.cartService
+      .getCart()
+      .subscribe((action) => this.store.dispatch(action));
 
-  OnInit() {
-    // console.log('Hello..........');
-    // this.cartService.getCart();
-    // this.store.pipe(select((store) => store.cart)).subscribe((cart) => {
-    //   this.cartItems = cart.cartItems;
-    //   console.log('Cart Stores ', cart.cartItems);
-    // });
+    this.store.pipe(select((store) => store.cart)).subscribe((cart) => {
+      this.cartItems = cart.cartItems;
+      console.log('Cart Stores ', cart.cartItems);
+    });
   }
 
   navigateToCheckout() {
