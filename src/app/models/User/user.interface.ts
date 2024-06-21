@@ -1,9 +1,7 @@
-export interface UserInterface{
-    id : number,
-    email : string,
-    firstName : string,
-    lastName : string,
-    mobile : number,
-    password : string,
-    role : string
+export interface UserInterface {
+  userId: string;
+  email: string;
+  token: string | null;
+  userName: string;
+  role: string | null;
 }

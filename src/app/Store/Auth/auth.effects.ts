@@ -49,6 +49,7 @@ export const loginEffect = createEffect(
         //
         return authServices.login(request).pipe(
           map((currentUser: CurrentUserInterface) => {
+            console.log('Setting token:', currentUser.token);
             persistenceService.set('accessToken', currentUser.token);
             return authActions.loginSuccess({ currentUser });
           }),

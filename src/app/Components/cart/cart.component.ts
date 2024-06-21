@@ -5,8 +5,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { AppState } from '../../Store/AppState';
+import { selectCart } from '../../Store/Cart/cart.reducer';
 import { CartService } from '../../Store/Cart/cart.services';
+import { CartInterface } from '../../models/Cart/cart.interface';
+import { CartItemInterface } from '../../models/Cart/cartItem.interface';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 
 @Component({
@@ -23,14 +27,16 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
   ],
 })
 export class CartComponent implements OnInit {
-  cart = [1, 1, 1];
+  cart$: Observable<CartInterface | null> | undefined;
   cartItems: any;
 
   constructor(
     private router: Router,
     private cartService: CartService,
     private store: Store<AppState>,
-  ) {}
+  ) {
+    this.cart$ = this.store.select(selectCart);
+  }
   ngOnInit(): void {
     console.log('Hello..........');
     this.cartService

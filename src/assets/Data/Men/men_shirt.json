@@ -21,10 +21,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -49,10 +49,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numInStock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -77,10 +77,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numInStock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -105,10 +105,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numInStock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -133,10 +133,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -161,10 +161,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -189,10 +189,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -217,10 +217,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -245,10 +245,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -273,10 +273,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -301,10 +301,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -329,10 +329,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -357,10 +357,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -385,10 +385,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -413,10 +413,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -430,7 +430,7 @@
         "size": [
             {
               "name": "S",
-              "quantity": 20
+              "numinstock": 20
             },
             {
               "name": "M",
@@ -441,10 +441,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -469,10 +469,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -498,9 +498,9 @@
             }
           ],
           "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -525,10 +525,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -553,10 +553,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -581,10 +581,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -609,10 +609,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -637,10 +637,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -665,10 +665,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -693,10 +693,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -721,10 +721,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -749,10 +749,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -777,10 +777,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -805,10 +805,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -833,10 +833,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -861,10 +861,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -889,10 +889,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -917,10 +917,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -945,10 +945,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -973,10 +973,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -1001,10 +1001,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -1029,10 +1029,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -1057,10 +1057,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -1085,10 +1085,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     },
     {
@@ -1113,10 +1113,10 @@
               "quantity": 50
             }
           ],
-          "quantity": 100,
-          "topLavelCategory": "Men",
-          "secondLavelCategory": "Clothing",
-          "thirdLavelCategory": "shirt",
+          "numinstock": 100,
+          "topLevelCategory": "Men",
+          "secondLevelCategory": "Clothing",
+          "thirdLevelCategory": "shirt",
           "description":"A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style."
     }
 ]

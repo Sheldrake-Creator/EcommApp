@@ -1,4 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
+import { CartInterface } from '../../models/Cart/cart.interface';
 import { CartStateInterface } from '../../models/Cart/cartState.interface';
 import { cartActions } from './cart.actions';
 
@@ -14,7 +15,7 @@ export const cartFeature = createFeature({
   reducer: createReducer(
     initialState,
     on(
-      cartActions.createCartRequest,
+      cartActions.getCartRequest,
       cartActions.addCartItemRequest,
       cartActions.removeCartItemRequest,
       cartActions.updateCartItemRequest,
@@ -25,23 +26,16 @@ export const cartFeature = createFeature({
       }),
     ),
     on(
+      cartActions.getCartFailure,
       cartActions.removeCartItemFailure,
       cartActions.addCartItemFailure,
       cartActions.updateCartItemFailure,
-      cartActions.createCartFailure,
       (state, action) => ({
         ...state,
         validationErrors: action.errors,
         isLoading: false,
       }),
     ),
-    on(cartActions.createCartSuccess, (state, action) => ({
-      ...state,
-      isLoading: false,
-      cartItems: action.payload.cartItems,
-      cart: action.payload,
-    })),
-
     on(cartActions.addCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
@@ -51,15 +45,21 @@ export const cartFeature = createFeature({
       ...state,
       isLoading: false,
       cartItems: state.cartItems.filter(
-        (item) => item.id !== action.cartItemId,
+        (item) => item.ItemId !== action.cartItemId,
       ),
     })),
     on(cartActions.updateCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
       cartItems: state.cartItems.map((item) =>
-        item.id !== action.payload.id ? action.payload : item,
+        item.ItemId !== action.payload.id ? action.payload : item,
       ),
+    })),
+    on(cartActions.getCartSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      cartItems: action.payload.cartItems,
+      cart: action.payload,
     })),
   ),
 });

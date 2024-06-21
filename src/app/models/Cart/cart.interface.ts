@@ -7,5 +7,5 @@ export interface CartInterface {
   cartItems: CartItemInterface[];
   totalPrice?: number;
   totalItems?: number;
-  totalDiscount?: number;
+  totalDiscountedPrice?: number;
 }
