@@ -5,6 +5,7 @@ import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
 import { CartComponent } from '../../Components/cart/cart.component';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 
+import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { authActions } from './auth.actions';
 import { PersistenceService } from './auth.persistence.service';
 import { AuthService } from './auth.services';
@@ -19,14 +20,18 @@ export const registerEffect = createEffect(
       ofType(authActions.register),
       switchMap(({ request }) => {
         return authService.register(request).pipe(
-          map((currentUser: CurrentUserInterface) => {
-            persistenceService.set('accessToken', currentUser.token);
-            return authActions.registerSuccess({ currentUser });
+          map((httpResponse: HttpResponseInterface) => {
+            return httpResponse.data['user'] as CurrentUserInterface;
           }),
-          catchError((errorResponse: HttpErrorResponse) => {
+          map((user: CurrentUserInterface) => {
+            console.log('Token: ', user.token);
+            persistenceService.set('accessToken', user.token);
+            return authActions.registerSuccess({ currentUser: user });
+          }),
+          catchError((errorResponse: HttpResponseInterface) => {
             return of(
               authActions.registerFailure({
-                errors: errorResponse.error,
+                errors: errorResponse.message,
               }),
             );
           }),
@@ -46,17 +51,20 @@ export const loginEffect = createEffect(
     return actions$.pipe(
       ofType(authActions.login),
       switchMap(({ request }) => {
-        //
         return authServices.login(request).pipe(
+          map((httpResponse: HttpResponseInterface) => {
+            const user = httpResponse.data['user'] as CurrentUserInterface;
+            return user;
+          }),
           map((currentUser: CurrentUserInterface) => {
-            console.log('Setting token:', currentUser.token);
+            console.log('Setting token: ', currentUser.token);
             persistenceService.set('accessToken', currentUser.token);
             return authActions.loginSuccess({ currentUser });
           }),
-          catchError((errorResponse: HttpErrorResponse) => {
+          catchError((errorResponse: HttpResponseInterface) => {
             return of(
               authActions.loginFailure({
-                errors: errorResponse.error.errors,
+                errors: errorResponse.message,
               }),
             );
           }),

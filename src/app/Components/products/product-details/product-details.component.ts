@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { select, Store } from '@ngrx/store';
 import { lehngacholiPage2 } from '../../../../assets/Data/Saree/lenghaCholiPage2';
+import { CartItemInterface } from '../../../models/Cart/cartItem.interface';
 import { AppState } from '../../../Store/AppState';
 import { CartService } from '../../../Store/Cart/cart.services';
 import { ProductServices } from '../../../Store/Product/product.service';
@@ -30,11 +31,11 @@ import { ProductServices } from '../../../Store/Product/product.service';
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent implements OnInit {
-  selectedSize: any;
+  selectedSize!: string;
   reviews = [1, 2, 1];
   relatedProducts: any;
   product: any;
-  productId: any;
+  productId!: number;
 
   constructor(
     private router: Router,
@@ -57,9 +58,12 @@ export class ProductDetailsComponent implements OnInit {
 
   handleAddToCart() {
     console.log('selcted Size ', this.selectedSize);
-    const data = { size: this.selectedSize, productId: this.productId };
+    const cartItem: CartItemInterface = {
+      size: this.selectedSize,
+      productId: this.productId,
+    };
     this.cartService.getCart();
-    this.cartService.addItemToCart(Number(data));
+    this.cartService.addItemToCart(cartItem);
 
     this.router.navigate(['cart']);
   }

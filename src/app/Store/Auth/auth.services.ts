@@ -8,6 +8,7 @@ import { RegisterRequestInterface } from '../../models/Requests/registerRequest.
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 
 import { AuthResponseInterface } from '../../models/Responses/authResponse.interface';
+import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { selectCurrentUser } from '../selectors';
 import { PersistenceService } from './auth.persistence.service';
 
@@ -24,15 +25,15 @@ export class AuthService {
     private persistenceService: PersistenceService,
   ) {}
 
-  register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
+  register(data: RegisterRequestInterface): Observable<HttpResponseInterface> {
     return this.http
-      .post<AuthResponseInterface>(this.apiUrl + '/register', data)
-      .pipe(map((response) => response.user));
+      .post<HttpResponseInterface>(this.apiUrl + '/register', data)
+      .pipe(map((response) => response));
   }
-  login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+  login(data: LoginRequestInterface): Observable<HttpResponseInterface> {
     return this.http
-      .post<AuthResponseInterface>(this.apiUrl + '/login', data)
-      .pipe(map((response) => response.user));
+      .post<HttpResponseInterface>(this.apiUrl + '/login', data)
+      .pipe(map((response) => response));
   }
   logout() {
     this.persistenceService.set('accessToken', null);
