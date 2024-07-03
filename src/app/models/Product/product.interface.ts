@@ -4,7 +4,7 @@ import { ReviewsInterface } from '../Reviews/reviews.interface';
 import { SizesInterface } from './size.interface';
 
 export interface ProductInterface {
-  productId?: number;
+  productId: number;
   title: string;
   description: string;
   price: number;
@@ -14,8 +14,8 @@ export interface ProductInterface {
   color: string;
   sizes?: SizesInterface[];
   imageUrl: string;
-  ratings?: RatingsInterface[];
-  reviews?: ReviewsInterface[];
+  // ratings?: RatingsInterface[];
+  // reviews?: ReviewsInterface[];
   numRatings: number | null;
   firstLevelCategory?: string | null;
   secondLevelCategory?: string | null;

@@ -4,7 +4,9 @@ import { Store, select } from '@ngrx/store';
 import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
 import { AuthStateInterface } from '../../models/Auth/authState.interface';
 import { CartInterface } from '../../models/Cart/cart.interface';
+import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
 import { CartResponseInterface } from '../../models/Responses/cartResponse.interface';
+import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { AppState } from '../AppState';
 import { authFeatureKey, selectCurrentUser } from '../Auth/auth.reducer';
@@ -16,66 +18,43 @@ import { cartActions } from './cart.actions';
 })
 export class CartService {
   API_URL = 'http://localhost:4545/';
-  currentUser$: Observable<CurrentUserInterface | undefined | null>;
 
   constructor(
     private store: Store<AuthStateInterface>,
     private http: HttpClient,
-  ) {
-    this.currentUser$ = this.store.select(selectCurrentUser);
-  }
+  ) {}
 
   //******* CART SERVICES *******//
 
-  createCart(): Observable<CartInterface> {
-    return this.currentUser$.pipe(
-      switchMap((user) => {
-        const reqData = { user };
-        return this.http
-          .post<CartResponseInterface>(`${this.API_URL}api/createCart`, reqData)
-          .pipe(map((payload) => payload.cart));
-      }),
-    );
-  }
-
-  getCart() {
-    return this.http.get(`${this.API_URL}api/getCart`).pipe(
-      map((data: any) => {
-        console.log('cart : ', data);
-        return cartActions.getCartSuccess({ payload: data });
-      }),
-      catchError((error: any) => {
-        return of(
-          cartActions.getCartFailure(
-            error.response && error.response.errors
-              ? error.response.errors
-              : error.message,
-          ),
-        );
-      }),
-    );
+  getCart(): Observable<HttpResponseInterface> {
+    return this.http
+      .get<HttpResponseInterface>(`${this.API_URL}api/getCart`)
+      .pipe(map((response: any) => response));
   }
 
   //*******  CART ITEM SERVICES *******//
-  addItemToCart(reqData: any) {
-    return this.http.put(this.API_URL + 'api/item/add', reqData).pipe(
-      tap((cartItem) => console.log(cartItem)),
-      map((response) => response),
-    );
+  addItemToCart(reqData: any): Observable<HttpResponseInterface> {
+    return this.http
+      .put<HttpResponseInterface>(this.API_URL + 'api/item/add', reqData)
+      .pipe(
+        tap((cartItem) => console.log(cartItem)),
+        map((response) => response),
+      );
   }
 
-  removeCartItem(cartItemId: Number) {
+  removeCartItem(cartItemId: Number): Observable<HttpResponseInterface> {
     return this.http
-      .delete(`${this.API_URL}api/item/${cartItemId}`)
+      .delete<HttpResponseInterface>(`${this.API_URL}api/item/${cartItemId}`)
       .pipe(map((response) => response));
   }
 
-  updateCartItem(cartItem: any) {
+  updateCartItem(
+    cartItem: UpdateCartItemRequestInterface,
+  ): Observable<HttpResponseInterface> {
     console.log('Request: ', cartItem);
     return this.http
-      .post<CartResponseInterface>(
+      .delete<HttpResponseInterface>(
         `${this.API_URL}api/item/${cartItem.cartItemId}`,
-        cartItem.cartItemId,
       )
       .pipe(
         tap((response) => console.log('Response: ', response)),

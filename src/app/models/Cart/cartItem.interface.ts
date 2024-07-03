@@ -1,9 +1,11 @@
+import { ProductInterface } from '../Product/product.interface';
+
 export interface CartItemInterface {
-  productId?: number;
-  ItemId?: number;
-  size?: string;
-  quantity?: number;
-  price?: number;
-  discountedPrice?: number;
-  userId?: number;
+  product: ProductInterface;
+  cartItemId: number;
+  size: string;
+  quantity: number;
+  price: number;
+  discountedPrice: number;
+  cartId: number;
 }

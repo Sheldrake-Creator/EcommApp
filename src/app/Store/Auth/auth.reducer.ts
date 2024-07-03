@@ -21,7 +21,7 @@ const authFeature = createFeature({
     on(authActions.registerSuccess, (state, action) => ({
       ...state,
       isSubmitting: false,
-      currentUser: action.currentUser,
+      currentUser: action.payload,
     })),
     on(authActions.registerFailure, (state, action) => ({
       ...state,
@@ -36,7 +36,7 @@ const authFeature = createFeature({
     on(authActions.loginSuccess, (state, action) => ({
       ...state,
       isSubmitting: false,
-      currentUser: action.currentUser,
+      currentUser: action.payload,
     })),
     on(authActions.loginFailure, (state, action) => ({
       ...state,

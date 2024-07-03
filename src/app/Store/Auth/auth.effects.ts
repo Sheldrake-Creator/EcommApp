@@ -23,10 +23,10 @@ export const registerEffect = createEffect(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['user'] as CurrentUserInterface;
           }),
-          map((user: CurrentUserInterface) => {
-            console.log('Token: ', user.token);
-            persistenceService.set('accessToken', user.token);
-            return authActions.registerSuccess({ currentUser: user });
+          map((payload: CurrentUserInterface) => {
+            console.log('Token: ', payload.token);
+            persistenceService.set('accessToken', payload.token);
+            return authActions.registerSuccess({ payload });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
@@ -59,7 +59,7 @@ export const loginEffect = createEffect(
           map((currentUser: CurrentUserInterface) => {
             console.log('Setting token: ', currentUser.token);
             persistenceService.set('accessToken', currentUser.token);
-            return authActions.loginSuccess({ currentUser });
+            return authActions.loginSuccess({ payload: currentUser });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(

@@ -2,7 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from '../../Store/AppState';
+import { cartActions } from '../../Store/Cart/cart.actions';
 import { CartService } from '../../Store/Cart/cart.services';
+import { CartItemInterface } from '../../models/Cart/cartItem.interface';
+import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,19 +19,27 @@ import { CartService } from '../../Store/Cart/cart.services';
 })
 export class CartItemComponent {
   @Input() showButton: any;
-  @Input() cartItem: any;
+  @Input() cartItem!: CartItemInterface;
 
-  constructor(private cartServices: CartService) {}
+  constructor(private store: Store<AppState>) {}
 
-  updateCartItem(num: Number) {
+  updateCartItem(num: number): void {
     console.log('num', num);
-    this.cartServices.updateCartItem({
-      cartItemId: this.cartItem.id,
-      data: { quantity: num + this.cartItem.quantity },
-    });
+    const updateCartItem: UpdateCartItemRequestInterface = {
+      productId: this.cartItem.product.productId,
+      quantity: this.cartItem.quantity,
+      size: this.cartItem.size,
+      cartItemId: this.cartItem.cartItemId,
+    };
+    this.store.dispatch(
+      cartActions.updateCartItemRequest({ reqData: updateCartItem }),
+    );
   }
-  removeCartItem() {
+
+  removeCartItem(): void {
     console.log('remove item from cart');
-    this.cartServices.removeCartItem(this.cartItem.id);
+    this.store.dispatch(
+      cartActions.removeCartItemRequest({ reqData: this.cartItem.cartItemId }),
+    );
   }
 }

@@ -39,20 +39,21 @@ export const cartFeature = createFeature({
     on(cartActions.addCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      cartItems: [...state.cartItems, action.payload],
+      cartItems: action.payload.cartItems, // Update cartItems with the new array from the payload
+      cart: action.payload, // Replace the entire cart with the new cart entity from the payload
     })),
     on(cartActions.removeCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      cartItems: state.cartItems.filter(
-        (item) => item.ItemId !== action.cartItemId,
+      cartItems: state.cartItems?.filter(
+        (item) => item.cartItemId !== action.payload.cartItemId,
       ),
     })),
     on(cartActions.updateCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
       cartItems: state.cartItems.map((item) =>
-        item.ItemId !== action.payload.id ? action.payload : item,
+        item.cartItemId !== action.payload.cartItemId ? action.payload : item,
       ),
     })),
     on(cartActions.getCartSuccess, (state, action) => ({

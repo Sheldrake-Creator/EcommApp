@@ -10,12 +10,12 @@
                 <p class="font-semibold">
                     {{cartItem.product.title}}</p>
                 <p class="text-gray-500">{{cartItem.size}}</p>
-                <p class="text-gray-500 mt-2">{{cartItem.brand}}</p>
+                <p class="text-gray-500 mt-2">{{cartItem.product.brand}}</p>
 
                 <div class="flex space-x-2 items-center pt-3">
                     <p class="text-gray-500 line-through">{{cartItem.product.price}}</p>
                     <p class="font-semibold">${{cartItem.product.discountedPrice}}</p>
-                    <p class="text-green-600 font-semibold">{{cartItem.product.discountPresent}}% off</p>
+                    <p class="text-green-600 font-semibold">{{cartItem.product.discountedPrice}}% off</p>
                 </div>
             </div>
         </div>

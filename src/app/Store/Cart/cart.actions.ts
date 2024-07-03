@@ -3,6 +3,8 @@ import { CartItemComponent } from '../../Components/cart-item/cart-item.componen
 import { CartInterface } from '../../models/Cart/cart.interface';
 import { CartItemInterface } from '../../models/Cart/cartItem.interface';
 import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interface';
+import { AddItemRequestInterface } from '../../models/Requests/addItemRequest.interface';
+import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
 
 export const cartActions = createActionGroup({
   source: 'cart',
@@ -10,14 +12,14 @@ export const cartActions = createActionGroup({
     GetCartRequest: emptyProps(),
     'GetCart Success': props<{ payload: CartInterface }>(),
     'GetCart Failure': props<{ errors: BackendErrorsInterface }>(),
-    AddCartItemRequest: props<{ reqData: any }>(),
-    'AddCartItem Success': props<{ payload: CartItemInterface }>(),
+    AddCartItemRequest: props<{ reqData: AddItemRequestInterface }>(),
+    'AddCartItem Success': props<{ payload: CartInterface }>(),
     'AddCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
-    RemoveCartItemRequest: props<{ reqData: any }>(),
-    'RemoveCartItem Success': props<{ cartItemId: Number }>(),
+    RemoveCartItemRequest: props<{ reqData: number }>(),
+    'RemoveCartItem Success': props<{ payload: CartItemInterface }>(),
     'RemoveCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
-    UpdateCartItemRequest: props<{ reqData: CartItemInterface }>(),
-    'UpdateCartItem Success': props<{ payload: any }>(),
+    UpdateCartItemRequest: props<{ reqData: UpdateCartItemRequestInterface }>(),
+    'UpdateCartItem Success': props<{ payload: CartItemInterface }>(),
     'UpdateCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
   },
 });
