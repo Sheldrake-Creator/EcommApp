@@ -2,7 +2,7 @@
     <div class="py-10 lg:grid grid-cols-3 lg:px-16 relative">
         <section class="lg:col-span-2 lg:px-5">
             <div class="box p-5 space-y-3">
-                <ng-container *ngIf="cart$ | async as cart">
+                <ng-container *ngIf="cartItems$ | async as cartItems">
                     <div *ngFor="let item of cartItems;let last = last">
                          <!-- * CartItemComponent -->
                         <app-cart-item [cartItem]="item" showButton="true" />

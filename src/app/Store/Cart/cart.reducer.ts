@@ -7,7 +7,7 @@ const initialState: CartStateInterface = {
   // cartItems: [],
   isLoading: false,
   validationErrors: null,
-  cart: null,
+  cart: undefined,
 };
 
 export const cartFeature = createFeature({
@@ -70,7 +70,6 @@ export const cartFeature = createFeature({
 export const {
   name: cartFeatureKey,
   reducer: cartReducer,
-  // selectCartItems,
   selectIsLoading,
   selectValidationErrors,
   selectCart,

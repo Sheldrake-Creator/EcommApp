@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Injectable, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
@@ -8,10 +8,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { mensPants } from '../../../assets/Data/pants/men_page1';
-import { AppState } from '../../Store/AppState';
-import { ProductServices } from '../../Store/Product/product.service';
+import { ProductServices } from '../../Store/Product/ProductServices';
+import { ProductStateInterface } from '../../models/State/productState.interface';
 import { filters, singleFilter } from './FilterData';
 import { ProductCardComponent } from './product-card/product-card.component';
 
@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private productService: ProductServices,
-    private store: Store<AppState>,
+    private store: Store<ProductStateInterface>,
     private route: Router,
   ) {}
 
@@ -97,12 +97,10 @@ export class ProductsComponent implements OnInit {
       this.productService.findProductsByCategory(reqData);
     });
 
-    this.store
-      .pipe(select((store: AppState) => store.product))
-      .subscribe((product) => {
-        this.products = product.products.content;
-        console.log('store data ', product.products.content);
-      });
+    this.store.subscribe((product) => {
+      this.products = product.product;
+      console.log('store data ', product.product);
+    });
   }
   handleMultipleSelectFilter(value: string, sectionId: string) {
     const queryParams = { ...this.activatedRoute.snapshot.queryParams };

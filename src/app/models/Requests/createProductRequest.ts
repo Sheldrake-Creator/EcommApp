@@ -14,8 +14,8 @@ export interface CreateProductInterface {
   color: string;
   sizes?: SizesInterface[];
   imageUrl: string;
-  ratings?: RatingsInterface[];
-  reviews?: ReviewsInterface[];
+  // ratings?: RatingsInterface[];
+  // reviews?: ReviewsInterface[];
   numRatings: number | null;
   firstLevelCategory?: string | null;
   secondLevelCategory?: string | null;

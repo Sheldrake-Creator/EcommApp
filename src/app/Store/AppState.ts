@@ -1,14 +1,15 @@
 import { AuthStateInterface } from '../models/State/authState.interface';
 import { CartStateInterface } from '../models/State/cartState.interface';
+import { OrderStateInterface } from '../models/State/orderState.interface';
 import { ProductStateInterface } from '../models/State/productState.interface';
-import { authReducer } from './Auth/auth.reducer';
+import { UserStateInterface } from '../models/User/userState.interface';
 
 export interface AppState {
-  user: any;
+  user: UserStateInterface;
   auth: AuthStateInterface;
   product: ProductStateInterface;
   cart: CartStateInterface;
-  order: any;
+  order: OrderStateInterface;
 }
 
 // export const appReducer = {

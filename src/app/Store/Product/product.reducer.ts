@@ -1,29 +1,45 @@
-import {createReducer, on } from "@ngrx/store"
-import { findProductByIdSuccess, findProductByCategoryFailure, findProductByCategorySuccess, findProductByIdFailure} from "./product.action"
+import { createReducer, on } from '@ngrx/store';
+import { ProductStateInterface } from '../../models/State/productState.interface';
+import { productActions, productAdminActions } from './product.action';
 
-const initialState={
-products: [],
-loading: false,
-error: null,
-product: null
-}
+const initialState: ProductStateInterface = {
+  products: [],
+  isLoading: false,
+  validationErrors: null,
+  product: undefined,
+};
 
-export const productReducer=createReducer(
-    initialState,
-    on(findProductByCategorySuccess,(state,{payload})=>({
-        ...state,
-        products: payload,
-        content: payload.content,
-        loading: false
-    })),
-    on(findProductByIdSuccess,(state,{payload}) =>({
-        ...state,
-        product: payload,
-        loading: true
-    })),
-    on(findProductByCategoryFailure,findProductByIdFailure,(state,{error})=>({
-        ...state,
-        error:error,
-        loading: false
-    })),
-)
+export const productReducer = createReducer(
+  initialState,
+  on(
+    productActions.findProductsByIdRequest,
+    productActions.findProductByCategoryRequest,
+    productAdminActions.createProductRequest,
+    productAdminActions.createMultipleProductsRequest,
+    productAdminActions.deleteProductRequest,
+    productAdminActions.updateProductRequest,
+    (state, action) => ({
+      ...state,
+      isLoading: true,
+      validationErrors: null,
+    }),
+  ),
+  on(
+    productActions.findProductByCategorySuccess,
+    productActions.findProductsByIdSuccess,
+    (state, action) => ({
+      ...state,
+      product: action.payload,
+      isLoading: false,
+    }),
+  ),
+  on(
+    productActions.findProductByCategoryFailure,
+    productActions.findProductsByIdFailure,
+    (state, action) => ({
+      ...state,
+      validationErrors: action.errors,
+      isLoading: false,
+    }),
+  ),
+);

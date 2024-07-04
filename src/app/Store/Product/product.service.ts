@@ -1,35 +1,30 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { catchError, map, of } from 'rxjs';
-import {
-  findProductByCategoryFailure,
-  findProductByCategorySuccess,
-  findProductByIdFailure,
-  findProductByIdSuccess,
-} from './product.action';
+
+import { Observable, catchError, map, of } from 'rxjs';
+import { ProductInterface } from '../../models/Product/product.interface';
+import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
+import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
+import { ProductStateInterface } from '../../models/State/productState.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductServices {
-  API_BASE_URL = 'http://localhost:4200/';
+  API_URL = 'http://localhost:4545/';
 
-  private getHeader(): HttpHeaders {
-    const token = localStorage.getItem('jwt');
-    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  constructor(private http: HttpClient) {}
+
+  //******* PRODUCT SERVICES *******//
+
+  findProductsById(productId: number): Observable<HttpResponseInterface> {
+    return this.http.get<HttpResponseInterface>(
+      `${this.API_URL}api/products/id/${productId}`,
+    );
   }
 
-  constructor(
-    private store: Store,
-    private http: HttpClient,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) {}
-
-  findProductsByCategory(reqData: any) {
+  findProductsByCategory(reqData: FindProductsByCategoryRequest) {
     const {
       colors,
       sizes,
@@ -55,90 +50,41 @@ export class ProductServices {
       .set('pageNumber', pageNumber)
       .set('pageSize', pageSize);
 
-    const headers = this.getHeader();
-
-    return this.http
-      .get(`${this.API_BASE_URL}/api/products`, { headers, params })
-      .pipe(
-        map((data: any) => {
-          console.log('products data', data);
-          return findProductByCategorySuccess({ payload: data });
-        }),
-        catchError((error: any) => {
-          return of(
-            findProductByCategoryFailure(
-              error.response && error.response.data.message
-                ? error.response.data.message
-                : error.message,
-            ),
-          );
-        }),
-      )
-      .subscribe((action) => this.store.dispatch(action));
+    return this.http.get(`${this.API_URL}/api/products`, { params });
   }
 
-  // findProductsByCategory(reqData: any) {
-  //     const {
-  //         colors,
-  //         sizes,
-  //         minPrice,
-  //         maxPrice,
-  //         minDiscount,
-  //         category,
-  //         stock,
-  //         sort,
-  //         pageNumber,
-  //         pageSize,
-  //     } = reqData;
-
-  //     let params = new HttpParams()
-  //         .set('color', colors)
-  //         .set('size', sizes)
-  //         .set('minPrice', minPrice)
-  //         .set('maxPrice', maxPrice)
-  //         .set('minDiscount', minDiscount)
-  //         .set('category', category)
-  //         .set('stock', stock)
-  //         .set('sort', sort)
-  //         .set('pageNumber', pageNumber)
-  //         .set('pageSize', pageSize);
-
-  //     const headers = this.getHeader();
-
-  //     return this.http.get(`${this.API_BASE_URL}/api/products`,{headers, params}).pipe(
-  //         map((data: any) => {
-  //         console.log("products data", data)
-  //         return findProductByCategorySuccess({payload:data})
-  //     }),
-  //     catchError((error:any)=>{
-  //         return of(findProductByCategoryFailure(
-  //         error. response && error.response.data.message ?
-  //         error.response.data.message: error.message
-  //         ))
-  //     })
-  //     ).subscribe((action)=>this.store.dispatch(action));
-  // }
-
-  findProductsById(productId: any) {
-    const headers = this.getHeader();
-
-    return this.http
-      .get(`${this.API_BASE_URL}/api/products/id/${productId}`, { headers })
-      .pipe(
-        map((data: any) => {
-          console.log('products details', data);
-          return findProductByIdSuccess({ payload: data });
-        }),
-        catchError((error: any) => {
-          return of(
-            findProductByIdFailure(
-              error.response && error.response.data.message
-                ? error.response.data.message
-                : error.message,
-            ),
-          );
-        }),
-      )
-      .subscribe((action) => this.store.dispatch(action));
+  //******* PRODUCT ADMIN SERVICES *******//
+  addProducts(product: ProductInterface): Observable<HttpResponseInterface> {
+    return this.http.post<HttpResponseInterface>(
+      `${this.API_URL}api/admin/products/`,
+      product,
+    );
+  }
+  getAllProducts(): Observable<HttpResponseInterface> {
+    return this.http.get<HttpResponseInterface>(
+      `${this.API_URL}/api/admin/products/all`,
+    );
+  }
+  addMultipleProducts(
+    productList: ProductInterface[],
+  ): Observable<HttpResponseInterface> {
+    return this.http.post<HttpResponseInterface>(
+      `${this.API_URL}/api/admin/products/creates`,
+      productList,
+    );
+  }
+  updateProduct(
+    productId: number,
+    product: ProductInterface[],
+  ): Observable<HttpResponseInterface> {
+    return this.http.put<HttpResponseInterface>(
+      `${this.API_URL}api/admin/products/id/${productId}/update`,
+      product,
+    );
+  }
+  deleteProduct(productId: number): Observable<HttpResponseInterface> {
+    return this.http.delete<HttpResponseInterface>(
+      `${this.API_URL}api/admin/products/id/${productId}/delete`,
+    );
   }
 }

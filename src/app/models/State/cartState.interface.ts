@@ -6,5 +6,5 @@ export interface CartStateInterface {
   // cartItems: CartItemInterface[];
   isLoading: boolean;
   validationErrors: BackendErrorsInterface | null;
-  cart: CartInterface | null;
+  cart: CartInterface | undefined;
 }

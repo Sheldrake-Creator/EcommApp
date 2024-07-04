@@ -8,7 +8,7 @@ import { Store, select } from '@ngrx/store';
 import { lehngacholiPage2 } from '../../../../assets/Data/Saree/lenghaCholiPage2';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
-import { ProductServices } from '../../../Store/Product/product.service';
+import { ProductServices } from '../../../Store/Product/ProductServices';
 import { AddItemRequestInterface } from '../../../models/Requests/addItemRequest.interface';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductReviewCardComponent } from './product-review-card/product-review-card.component';

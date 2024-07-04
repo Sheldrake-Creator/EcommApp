@@ -1,20 +1,16 @@
-import { SizesInterface } from '../Product/size.interface';
+import { AddressInterface } from '../Address/address.interface';
+import { OrderItemInterface } from './orderItem.interface';
 
 export interface OrderInterface {
-  productId: number;
-  title: string;
-  description: string;
-  price: number;
-  discountedPrice?: number;
-  numInStock: number;
-  brand: string;
+  orderId: number;
+  orderItems: OrderItemInterface[];
+  shippingAddress: AddressInterface;
+  orderPrice: number;
+  discountedOrderPrice: number;
+  discountPresent: number;
+  orderStatus: string;
   color: string;
-  sizes?: SizesInterface[];
-  imageUrl: string;
-  // ratings?: RatingsInterface[];
-  // reviews?: ReviewsInterface[];
-  numRatings: number | null;
-  firstLevelCategory?: string | null;
-  secondLevelCategory?: string | null;
-  thirdLevelCategory?: string | null;
+  deliveryDate: Date;
+  orderDate: Date;
+  userId: number;
 }

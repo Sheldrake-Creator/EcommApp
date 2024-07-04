@@ -1,19 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
-import { CartInterface } from '../../models/Cart/cart.interface';
+import { Store } from '@ngrx/store';
+import { Observable, map, tap } from 'rxjs';
 import { AddItemRequestInterface } from '../../models/Requests/addItemRequest.interface';
 import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
-import { CartResponseInterface } from '../../models/Responses/cartResponse.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
-import { AuthStateInterface } from '../../models/State/authState.interface';
 import { CartStateInterface } from '../../models/State/cartState.interface';
-import { CurrentUserInterface } from '../../models/User/currentUser.interface';
-import { AppState } from '../AppState';
-import { authFeatureKey, selectCurrentUser } from '../Auth/auth.reducer';
-import * as selectors from '../selectors';
-import { cartActions } from './cart.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +23,7 @@ export class CartService {
   getCart(): Observable<HttpResponseInterface> {
     return this.http
       .get<HttpResponseInterface>(`${this.API_URL}api/getCart`)
-      .pipe(map((response: any) => response));
+      .pipe(tap((response: any) => console.log(response)));
   }
 
   //*******  CART ITEM SERVICES *******//
@@ -40,16 +32,13 @@ export class CartService {
   ): Observable<HttpResponseInterface> {
     return this.http
       .put<HttpResponseInterface>(this.API_URL + 'api/item/add', reqData)
-      .pipe(
-        tap((cartItem) => console.log(cartItem)),
-        map((response) => response),
-      );
+      .pipe(tap((response) => console.log(response.data)));
   }
 
   removeCartItem(cartItemId: Number): Observable<HttpResponseInterface> {
     return this.http
       .delete<HttpResponseInterface>(`${this.API_URL}api/item/${cartItemId}`)
-      .pipe(map((response) => response));
+      .pipe(tap((response) => console.log(response.data)));
   }
 
   updateCartItem(
@@ -61,10 +50,7 @@ export class CartService {
         `${this.API_URL}api/item/${req.cartItemId}`,
         req,
       )
-      .pipe(
-        tap((response) => console.log('Response: ', response)),
-        map((response) => response),
-      );
+      .pipe(tap((response) => console.log(response.data)));
   }
 
   // getCart(): Observable<CartInterface> {
