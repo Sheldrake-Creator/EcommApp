@@ -27,7 +27,7 @@ export class CartItemComponent {
     console.log('num', num);
     const updateCartItem: UpdateCartItemRequestInterface = {
       productId: this.cartItem.product.productId,
-      quantity: this.cartItem.quantity,
+      quantity: num,
       size: this.cartItem.size,
       cartItemId: this.cartItem.cartItemId,
     };

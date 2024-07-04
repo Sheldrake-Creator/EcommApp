@@ -22,8 +22,8 @@ import { authActions } from '../../../Store/Auth/auth.actions';
 import { selectValidationErrors } from '../../../Store/Auth/auth.reducer';
 import { UserService } from '../../../Store/User/user.services';
 import { selectIsSubmitting } from '../../../Store/selectors';
-import { AuthStateInterface } from '../../../models/Auth/authState.interface';
 import { RegisterRequestInterface } from '../../../models/Requests/registerRequest.interface';
+import { AuthStateInterface } from '../../../models/State/authState.interface';
 
 @Component({
   selector: 'app-register',

@@ -35,10 +35,11 @@ export class AuthService {
       .post<HttpResponseInterface>(this.apiUrl + '/login', data)
       .pipe(map((response) => response));
   }
-  logout() {
+  logout(): string {
     this.persistenceService.set('accessToken', null);
     localStorage.removeItem('accessToken');
     selectCurrentUser.setResult(null);
+    return 'User has Been Logged Out';
   }
 
   //Impure Functions. Figure out how to persist the login state at a later date.

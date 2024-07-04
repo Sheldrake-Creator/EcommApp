@@ -1,10 +1,10 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { CartInterface } from '../../models/Cart/cart.interface';
-import { CartStateInterface } from '../../models/Cart/cartState.interface';
+import { CartStateInterface } from '../../models/State/cartState.interface';
 import { cartActions } from './cart.actions';
 
 const initialState: CartStateInterface = {
-  cartItems: [],
+  // cartItems: [],
   isLoading: false,
   validationErrors: null,
   cart: null,
@@ -39,27 +39,29 @@ export const cartFeature = createFeature({
     on(cartActions.addCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      cartItems: action.payload.cartItems, // Update cartItems with the new array from the payload
+      // cartItems: action.payload.cartItems, // Update cartItems with the new array from the payload
       cart: action.payload, // Replace the entire cart with the new cart entity from the payload
     })),
     on(cartActions.removeCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      cartItems: state.cartItems?.filter(
-        (item) => item.cartItemId !== action.payload.cartItemId,
-      ),
+      cart: action.payload,
+      // cartItems: state.cartItems?.filter(
+      //   (item) => item.cartItemId !== action.payload.cartItemId,
+      // ),
     })),
     on(cartActions.updateCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      cartItems: state.cartItems.map((item) =>
-        item.cartItemId !== action.payload.cartItemId ? action.payload : item,
-      ),
+      // cartItems: state.cartItems.map((item) =>
+      //   item.cartItemId !== action.payload.cartItemId ? action.payload : item,
+      // ),
+      cart: action.payload,
     })),
     on(cartActions.getCartSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      cartItems: action.payload.cartItems,
+      // cartItems: action.payload.cartItems,
       cart: action.payload,
     })),
   ),
@@ -68,7 +70,7 @@ export const cartFeature = createFeature({
 export const {
   name: cartFeatureKey,
   reducer: cartReducer,
-  selectCartItems,
+  // selectCartItems,
   selectIsLoading,
   selectValidationErrors,
   selectCart,

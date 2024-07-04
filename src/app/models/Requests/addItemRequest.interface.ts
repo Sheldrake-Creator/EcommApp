@@ -1,5 +1,5 @@
 export interface AddItemRequestInterface {
-  productId: string;
+  productId: number;
   size: string;
   quantity: number;
 }

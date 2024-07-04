@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { AuthStateInterface } from '../../models/Auth/authState.interface';
+import { AuthStateInterface } from '../../models/State/authState.interface';
 import { authActions, logout } from './auth.actions';
 
 const initialState: AuthStateInterface = {
@@ -43,15 +43,16 @@ const authFeature = createFeature({
       isSubmitting: false,
       validationErrors: action.errors,
     })),
-    on(logout, (state) => ({
+    on(authActions.logout, (state) => ({
+      ...state,
+      isSubmitting: true,
+      currentUser: state.currentUser,
+    })),
+    on(authActions.logoutSuccess, (state) => ({
       ...state,
       isSubmitting: false,
       currentUser: null,
     })),
-    // on(setCurrentUser, (state, {user}) => ({
-    //     ...state,
-
-    // })),
   ),
 });
 

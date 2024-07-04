@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../Store/AppState';
+import { cartActions } from '../../Store/Cart/cart.actions';
 import { selectCart } from '../../Store/Cart/cart.reducer';
 import { CartService } from '../../Store/Cart/cart.services';
 import { CartInterface } from '../../models/Cart/cart.interface';
@@ -41,11 +42,11 @@ export class CartComponent implements OnInit {
     console.log('Hello..........');
     this.cartService
       .getCart()
-      .subscribe((action) => this.store.dispatch(action));
+      .subscribe(() => this.store.dispatch(cartActions.getCartRequest()));
 
     this.store.pipe(select((store) => store.cart)).subscribe((cart) => {
-      this.cartItems = cart.cartItems;
-      console.log('Cart Stores ', cart.cartItems);
+      this.cartItems = cart.cart?.cartItems;
+      console.log('Cart Stores ', cart.cart?.cartItems);
     });
   }
 

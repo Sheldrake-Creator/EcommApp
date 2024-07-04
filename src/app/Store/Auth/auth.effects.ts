@@ -74,6 +74,23 @@ export const loginEffect = createEffect(
   },
   { functional: true },
 );
+export const logoutEffect = createEffect(
+  (actions$ = inject(Actions), authServices = inject(AuthService)) => {
+    return actions$.pipe(
+      ofType(authActions.logout),
+      switchMap(() => {
+        return authServices.logout();
+      }),
+      map((payload) => {
+        return authActions.logoutSuccess({ payload });
+      }),
+      catchError((errorResponse: HttpResponseInterface) => {
+        return of(authActions.logoutFailure());
+      }),
+    );
+  },
+  { functional: true },
+);
 
 // export const  logoutEffect = createEffect(
 //     (actions$ = inject (Actions), authServices = inject(AuthService),

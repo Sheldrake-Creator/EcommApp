@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
-import { AuthStateInterface } from '../../models/Auth/authState.interface';
 import { CartInterface } from '../../models/Cart/cart.interface';
+import { AddItemRequestInterface } from '../../models/Requests/addItemRequest.interface';
 import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
 import { CartResponseInterface } from '../../models/Responses/cartResponse.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
+import { AuthStateInterface } from '../../models/State/authState.interface';
+import { CartStateInterface } from '../../models/State/cartState.interface';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { AppState } from '../AppState';
 import { authFeatureKey, selectCurrentUser } from '../Auth/auth.reducer';
@@ -20,7 +22,7 @@ export class CartService {
   API_URL = 'http://localhost:4545/';
 
   constructor(
-    private store: Store<AuthStateInterface>,
+    private store: Store<CartStateInterface>,
     private http: HttpClient,
   ) {}
 
@@ -33,7 +35,9 @@ export class CartService {
   }
 
   //*******  CART ITEM SERVICES *******//
-  addItemToCart(reqData: any): Observable<HttpResponseInterface> {
+  addItemToCart(
+    reqData: AddItemRequestInterface,
+  ): Observable<HttpResponseInterface> {
     return this.http
       .put<HttpResponseInterface>(this.API_URL + 'api/item/add', reqData)
       .pipe(
@@ -49,12 +53,13 @@ export class CartService {
   }
 
   updateCartItem(
-    cartItem: UpdateCartItemRequestInterface,
+    req: UpdateCartItemRequestInterface,
   ): Observable<HttpResponseInterface> {
-    console.log('Request: ', cartItem);
+    console.log('Request: ', req);
     return this.http
-      .delete<HttpResponseInterface>(
-        `${this.API_URL}api/item/${cartItem.cartItemId}`,
+      .put<HttpResponseInterface>(
+        `${this.API_URL}api/item/${req.cartItemId}`,
+        req,
       )
       .pipe(
         tap((response) => console.log('Response: ', response)),

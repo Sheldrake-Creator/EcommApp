@@ -1,9 +1,9 @@
+import { CartInterface } from '../Cart/cart.interface';
+import { CartItemInterface } from '../Cart/cartItem.interface';
 import { BackendErrorsInterface } from '../Errors/backendErrors.interface';
-import { CartInterface } from './cart.interface';
-import { CartItemInterface } from './cartItem.interface';
 
 export interface CartStateInterface {
-  cartItems: CartItemInterface[];
+  // cartItems: CartItemInterface[];
   isLoading: boolean;
   validationErrors: BackendErrorsInterface | null;
   cart: CartInterface | null;

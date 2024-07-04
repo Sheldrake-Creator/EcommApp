@@ -13,7 +13,7 @@ import { CartService } from './cart.services';
 export const getCartEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
     return actions$.pipe(
-      ofType(cartActions.addCartItemRequest),
+      ofType(cartActions.getCartRequest),
       switchMap(() => {
         return cartService.getCart().pipe(
           map((httpResponse: HttpResponseInterface) => {
@@ -33,13 +33,14 @@ export const getCartEffect = createEffect(
       }),
     );
   },
+  { functional: true },
 );
 
 export const addCartItemEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
     return actions$.pipe(
       ofType(cartActions.addCartItemRequest),
-      switchMap((reqData) => {
+      switchMap(({ reqData }) => {
         return cartService.addItemToCart(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['cart'] as CartInterface;
@@ -58,6 +59,7 @@ export const addCartItemEffect = createEffect(
       }),
     );
   },
+  { functional: true },
 );
 
 export const removeCartItemEffect = createEffect(
@@ -83,6 +85,7 @@ export const removeCartItemEffect = createEffect(
       }),
     );
   },
+  { functional: true },
 );
 
 export const updateCartItemEffect = createEffect(
@@ -92,7 +95,7 @@ export const updateCartItemEffect = createEffect(
       switchMap(({ reqData }) => {
         return cartService.updateCartItem(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['cartItem'] as CartItemInterface;
+            return httpResponse.data['cart'] as CartInterface;
           }),
           map((payload) => {
             return cartActions.updateCartItemSuccess({ payload });
@@ -108,4 +111,5 @@ export const updateCartItemEffect = createEffect(
       }),
     );
   },
+  { functional: true },
 );

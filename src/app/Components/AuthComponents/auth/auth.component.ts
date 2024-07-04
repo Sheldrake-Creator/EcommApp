@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState } from '../../../Store/AppState';
 import { isLoggedIn, selectCurrentUser } from '../../../Store/selectors';
-import { AuthStateInterface } from '../../../models/Auth/authState.interface';
+import { AuthStateInterface } from '../../../models/State/authState.interface';
 import { LoginComponent } from '../login/login.component';
 import { LogoutComponent } from '../logout/logout.component';
 import { RegisterComponent } from '../register/register.component';

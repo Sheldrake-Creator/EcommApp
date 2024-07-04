@@ -1,4 +1,4 @@
 export interface SizesInterface {
-  name: SizesEnum;
+  name: string;
   quantity: number;
 }

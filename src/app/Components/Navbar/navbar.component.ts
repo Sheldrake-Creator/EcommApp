@@ -109,7 +109,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
   };
 
   handleLogOut() {
-    this.store.dispatch(logout());
+    this.store.dispatch(authActions.logout());
   }
   // this.store.dispatch(authActions.logout())
   // of(this.currentUser$).subscribe((v) => console.log(v));

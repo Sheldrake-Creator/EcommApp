@@ -16,10 +16,10 @@ export const cartActions = createActionGroup({
     'AddCartItem Success': props<{ payload: CartInterface }>(),
     'AddCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
     RemoveCartItemRequest: props<{ reqData: number }>(),
-    'RemoveCartItem Success': props<{ payload: CartItemInterface }>(),
+    'RemoveCartItem Success': props<{ payload: CartInterface }>(),
     'RemoveCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
     UpdateCartItemRequest: props<{ reqData: UpdateCartItemRequestInterface }>(),
-    'UpdateCartItem Success': props<{ payload: CartItemInterface }>(),
+    'UpdateCartItem Success': props<{ payload: CartInterface }>(),
     'UpdateCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
   },
 });

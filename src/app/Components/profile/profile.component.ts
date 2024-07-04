@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { AppState } from '../../Store/AppState';
 import { UserService } from '../../Store/User/user.services';
 import { selectCurrentUser } from '../../Store/selectors';
-import { AuthStateInterface } from '../../models/Auth/authState.interface';
+import { AuthStateInterface } from '../../models/State/authState.interface';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { UserInterface } from '../../models/User/user.interface';
 

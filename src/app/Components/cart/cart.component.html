@@ -4,6 +4,7 @@
             <div class="box p-5 space-y-3">
                 <ng-container *ngIf="cart$ | async as cart">
                     <div *ngFor="let item of cartItems;let last = last">
+                         <!-- * CartItemComponent -->
                         <app-cart-item [cartItem]="item" showButton="true" />
                         <mat-divider *ngIf="!last"/>
                     </div>

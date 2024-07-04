@@ -3,18 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
-import { ProductReviewCardComponent } from './product-review-card/product-review-card.component';
-
-import { ProductCardComponent } from '../product-card/product-card.component';
-
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { select, Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { lehngacholiPage2 } from '../../../../assets/Data/Saree/lenghaCholiPage2';
-import { CartItemInterface } from '../../../models/Cart/cartItem.interface';
 import { AppState } from '../../../Store/AppState';
-import { CartService } from '../../../Store/Cart/cart.services';
+import { cartActions } from '../../../Store/Cart/cart.actions';
 import { ProductServices } from '../../../Store/Product/product.service';
+import { AddItemRequestInterface } from '../../../models/Requests/addItemRequest.interface';
+import { ProductCardComponent } from '../product-card/product-card.component';
+import { ProductReviewCardComponent } from './product-review-card/product-review-card.component';
 
 @Component({
   selector: 'app-product-details',
@@ -36,11 +33,11 @@ export class ProductDetailsComponent implements OnInit {
   relatedProducts: any;
   product: any;
   productId!: number;
+  quantity!: number;
 
   constructor(
     private router: Router,
     private productServices: ProductServices,
-    private cartService: CartService,
     private activatedRoute: ActivatedRoute,
     private store: Store<AppState>,
   ) {}
@@ -57,14 +54,13 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   handleAddToCart() {
-    console.log('selcted Size ', this.selectedSize);
-    const cartItem: CartItemInterface = {
+    console.log('selected Size ', this.selectedSize);
+    const req: AddItemRequestInterface = {
       size: this.selectedSize,
-      productId: this.productId,
+      productId: this.product.productId,
+      quantity: this.quantity,
     };
-    this.cartService.getCart();
-    this.cartService.addItemToCart(cartItem);
-
+    this.store.dispatch(cartActions.addCartItemRequest({ reqData: req }));
     this.router.navigate(['cart']);
   }
 }

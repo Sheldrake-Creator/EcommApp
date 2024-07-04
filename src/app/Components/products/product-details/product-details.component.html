@@ -34,6 +34,10 @@
 
             </div>
             <div>
+                <p class="text-lg font-semibold">Quantity</p>
+                <input type="number" class="border p-2" [(ngModel)]="quantity" min="1" />
+            </div>
+            <div>
                 <button style="padding:1.0rem;" class="w-full bg-[#69f0ae]" (click)="handleAddToCart()"
                     mat-raised-button>Add to Cart</button>
             </div>
