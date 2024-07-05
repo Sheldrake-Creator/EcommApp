@@ -1,7 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { CartItemComponent } from '../../Components/cart-item/cart-item.component';
 import { CartInterface } from '../../models/Cart/cart.interface';
-import { CartItemInterface } from '../../models/Cart/cartItem.interface';
 import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interface';
 import { AddItemRequestInterface } from '../../models/Requests/addItemRequest.interface';
 import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';

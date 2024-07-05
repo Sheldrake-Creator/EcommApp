@@ -8,7 +8,7 @@ import { Store, select } from '@ngrx/store';
 import { lehngacholiPage2 } from '../../../../assets/Data/Saree/lenghaCholiPage2';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
-import { ProductServices } from '../../../Store/Product/ProductServices';
+
 import { AddItemRequestInterface } from '../../../models/Requests/addItemRequest.interface';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductReviewCardComponent } from './product-review-card/product-review-card.component';
@@ -37,7 +37,6 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private productServices: ProductServices,
     private activatedRoute: ActivatedRoute,
     private store: Store<AppState>,
   ) {}
@@ -45,7 +44,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
     this.relatedProducts = lehngacholiPage2;
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.productServices.findProductsById(id);
+    // this.productServices.findProductsById(id);
 
     this.store.pipe(select((store) => store.product)).subscribe((product) => {
       this.product = product?.product;

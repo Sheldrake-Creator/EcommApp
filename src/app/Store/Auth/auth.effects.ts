@@ -2,10 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
-import { CartComponent } from '../../Components/cart/cart.component';
-import { CurrentUserInterface } from '../../models/User/currentUser.interface';
-
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
+import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { authActions } from './auth.actions';
 import { PersistenceService } from './auth.persistence.service';
 import { AuthService } from './auth.services';

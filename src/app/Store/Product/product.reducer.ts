@@ -18,21 +18,36 @@ export const productReducer = createReducer(
     productAdminActions.createMultipleProductsRequest,
     productAdminActions.deleteProductRequest,
     productAdminActions.updateProductRequest,
-    (state, action) => ({
+    (state) => ({
       ...state,
       isLoading: true,
       validationErrors: null,
     }),
   ),
   on(
-    productActions.findProductByCategorySuccess,
-    productActions.findProductsByIdSuccess,
+    productActions.findProductsByIdFailure,
+    productActions.findProductByCategoryFailure,
+    productAdminActions.createProductFailure,
+    productAdminActions.createMultipleProductsFailure,
+    productAdminActions.deleteProductFailure,
+    productAdminActions.updateProductFailure,
     (state, action) => ({
       ...state,
-      product: action.payload,
       isLoading: false,
+      validationErrors: action.errors,
     }),
   ),
+  on(productActions.findProductByCategorySuccess, (state, action) => ({
+    ...state,
+    products: action.payload,
+    isLoading: false,
+  })),
+
+  on(productActions.findProductsByIdSuccess, (state, action) => ({
+    ...state,
+    product: action.payload,
+    isLoading: false,
+  })),
   on(
     productActions.findProductByCategoryFailure,
     productActions.findProductsByIdFailure,

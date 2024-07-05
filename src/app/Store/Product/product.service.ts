@@ -1,12 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
-
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ProductInterface } from '../../models/Product/product.interface';
 import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
-import { ProductStateInterface } from '../../models/State/productState.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +21,9 @@ export class ProductServices {
     );
   }
 
-  findProductsByCategory(reqData: FindProductsByCategoryRequest) {
+  findProductsByCategory(
+    reqData: FindProductsByCategoryRequest,
+  ): Observable<HttpResponseInterface> {
     const {
       colors,
       sizes,
@@ -50,7 +49,10 @@ export class ProductServices {
       .set('pageNumber', pageNumber)
       .set('pageSize', pageSize);
 
-    return this.http.get(`${this.API_URL}/api/products`, { params });
+    return this.http.get<HttpResponseInterface>(
+      `${this.API_URL}/api/products`,
+      { params },
+    );
   }
 
   //******* PRODUCT ADMIN SERVICES *******//

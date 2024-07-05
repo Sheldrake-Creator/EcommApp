@@ -1,12 +1,6 @@
-import {
-  createAction,
-  createActionGroup,
-  emptyProps,
-  props,
-} from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interface';
 import { LoginRequestInterface } from '../../models/Requests/loginRequest.interface';
-import { LogoutRequestInterface } from '../../models/Requests/logoutRequest.interface';
 import { RegisterRequestInterface } from '../../models/Requests/registerRequest.interface';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 
@@ -24,5 +18,3 @@ export const authActions = createActionGroup({
     'Logout failure': emptyProps(),
   },
 });
-
-export const logout = createAction('[auth] Logout User');

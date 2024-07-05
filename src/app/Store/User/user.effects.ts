@@ -3,7 +3,6 @@ import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
-import { PersistenceService } from '../Auth/auth.persistence.service';
 import { userActions } from './user.actions';
 import { UserService } from './user.services';
 

@@ -1,10 +1,8 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { CartInterface } from '../../models/Cart/cart.interface';
 import { CartStateInterface } from '../../models/State/cartState.interface';
 import { cartActions } from './cart.actions';
 
 const initialState: CartStateInterface = {
-  // cartItems: [],
   isLoading: false,
   validationErrors: null,
   cart: undefined,

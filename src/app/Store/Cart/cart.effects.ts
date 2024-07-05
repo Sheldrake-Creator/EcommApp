@@ -1,12 +1,8 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, of, switchMap, tap } from 'rxjs';
+import { catchError, map, of, switchMap } from 'rxjs';
 import { CartInterface } from '../../models/Cart/cart.interface';
-import { CartItemInterface } from '../../models/Cart/cartItem.interface';
-import { AddItemRequestInterface } from '../../models/Requests/addItemRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
-import { authActions } from '../Auth/auth.actions';
 import { cartActions } from './cart.actions';
 import { CartService } from './cart.services';
 
