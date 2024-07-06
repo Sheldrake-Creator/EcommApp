@@ -10,7 +10,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { mensPants } from '../../../assets/Data/pants/men_page1';
-import { ProductServices } from '../../Store/Product/ProductServices';
+
+import { ProductServices } from '../../Store/Product/product.service';
+import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
 import { ProductStateInterface } from '../../models/State/productState.interface';
 import { filters, singleFilter } from './FilterData';
 import { ProductCardComponent } from './product-card/product-card.component';
@@ -55,7 +57,7 @@ export class ProductsComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((params) => {
       console.log('params ', params);
       this.levelThree = params.get('levelThree');
-      var reqData = {
+      const reqData: FindProductsByCategoryRequest = {
         category: params.get('levelThree'),
         colors: [],
         sizes: [],
@@ -80,9 +82,8 @@ export class ProductsComponent implements OnInit {
       const minPrice = price?.split('-')[0];
       const maxPrice = price?.split('-')[1];
 
-      var reqData = {
+      const reqData: FindProductsByCategoryRequest = {
         category: this.levelThree,
-
         colors: color ? [color].join(',') : [],
         sizes: size,
         minPrice: minPrice ? minPrice : 0,

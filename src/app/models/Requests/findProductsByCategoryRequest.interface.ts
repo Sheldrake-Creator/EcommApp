@@ -1,12 +1,12 @@
 export interface FindProductsByCategoryRequest {
-  colors: string;
-  sizes: string;
-  minPrice: number;
-  maxPrice: number;
+  colors: string | never[];
+  sizes: string[];
+  minPrice?: number;
+  maxPrice?: number;
   minDiscount: number;
-  category: string;
-  stock: number;
-  sort: number;
+  category: string | null;
+  stock: number | null;
+  sort?: number;
   pageNumber: number;
-  pageSize: string;
+  pageSize: number;
 }
