@@ -14,8 +14,8 @@ export const orderReducer = createReducer(
   initialState,
   on(
     orderActions.addAddressRequest,
-    orderActions.findOrderByIdRequest,
     orderActions.createOrderRequest,
+    orderActions.findOrderByIdRequest,
     orderActions.orderHistoryRequest,
     orderAdminActions.cancelOrderRequest,
     orderAdminActions.confirmedOrdersRequest,
