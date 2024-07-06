@@ -14,6 +14,11 @@ import * as authEffects from './Store/Auth/auth.effects';
 import { authFeatureKey, authReducer } from './Store/Auth/auth.reducer';
 import * as cartEffects from './Store/Cart/cart.effects';
 import { cartFeatureKey, cartReducer } from './Store/Cart/cart.reducer';
+import * as productEffects from './Store/Product/product.effects';
+import {
+  productFeatureKey,
+  productReducer,
+} from './Store/Product/product.reducer';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -21,6 +26,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync('noop'),
     provideHttpClient(withInterceptors([authInterceptor])),
+    provideState(productFeatureKey, productReducer),
+    provideEffects(productEffects),
     provideStore(),
     provideState(authFeatureKey, authReducer),
     provideEffects(authEffects),

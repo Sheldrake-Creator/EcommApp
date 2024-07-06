@@ -6,6 +6,7 @@ import { ProductServices } from './product.service';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { ProductInterface } from '../../models/Product/product.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
+import { SuccessMessageInterface } from '../../models/Responses/successMessage.interface';
 
 export const findProductsByIdEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
@@ -59,21 +60,21 @@ export const findProductsByCategoryEffect = createEffect(
   { functional: true },
 );
 
-export const FindAllProductsEffect = createEffect(
+export const findAllProductsEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
     return actions$.pipe(
-      ofType(productAdminActions.findAllProductsRequest),
+      ofType(productAdminActions.getAllProductsRequest),
       switchMap(() => {
         return productService.getAllProducts().pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['products'] as ProductInterface[];
           }),
           map((payload: ProductInterface[]) => {
-            return productAdminActions.findAllProductsSuccess({ payload });
+            return productAdminActions.getAllProductsSuccess({ payload });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
-              productAdminActions.findAllProductsFailure({
+              productAdminActions.getAllProductsFailure({
                 errors: errorResponse.message,
               }),
             );
@@ -85,7 +86,7 @@ export const FindAllProductsEffect = createEffect(
   { functional: true },
 );
 
-export const CreateProductEffect = createEffect(
+export const createProductEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
     return actions$.pipe(
       ofType(productAdminActions.createProductRequest),
@@ -118,7 +119,7 @@ export const createMultipleProductsEffect = createEffect(
       switchMap(({ reqData }) => {
         return productService.addMultipleProducts(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['message'] as string;
+            return httpResponse.message as SuccessMessageInterface;
           }),
           map((payload) => {
             return productAdminActions.createMultipleProductsSuccess({
@@ -146,7 +147,7 @@ export const deleteProductEffect = createEffect(
       switchMap(({ reqData }) => {
         return productService.deleteProduct(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['message'] as string;
+            return httpResponse.message as SuccessMessageInterface;
           }),
           map((payload) => {
             return productAdminActions.deleteProductSuccess({

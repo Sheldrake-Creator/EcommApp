@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductInterface } from '../../models/Product/product.interface';
+import { CreateProductRequestInterface } from '../../models/Requests/createProductRequest';
 import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 
@@ -56,7 +57,9 @@ export class ProductServices {
   }
 
   //******* PRODUCT ADMIN SERVICES *******//
-  addProducts(product: ProductInterface): Observable<HttpResponseInterface> {
+  addProducts(
+    product: CreateProductRequestInterface,
+  ): Observable<HttpResponseInterface> {
     return this.http.post<HttpResponseInterface>(
       `${this.API_URL}api/admin/products/`,
       product,
@@ -68,7 +71,7 @@ export class ProductServices {
     );
   }
   addMultipleProducts(
-    productList: ProductInterface[],
+    productList: CreateProductRequestInterface[],
   ): Observable<HttpResponseInterface> {
     return this.http.post<HttpResponseInterface>(
       `${this.API_URL}/api/admin/products/creates`,

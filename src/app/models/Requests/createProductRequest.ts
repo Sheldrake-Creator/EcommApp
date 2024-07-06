@@ -3,7 +3,7 @@ import { SizesInterface } from '../Product/size.interface';
 import { RatingsInterface } from '../Ratings/ratings.interface';
 import { ReviewsInterface } from '../Reviews/reviews.interface';
 
-export interface CreateProductInterface {
+export interface CreateProductRequestInterface {
   productId?: number;
   title: string;
   description: string;
