@@ -1,37 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../../app.component';
+import { Shoes } from '../../../assets/Data/Accessory JSONs/shoes';
+
+import { Gowns } from '../../../assets/Data/HomePageJSONs/gowns';
+import { Kurta } from '../../../assets/Data/HomePageJSONs/kurta';
 import { MainCarouselComponent } from './main-carousel/main-carousel.component';
 import { ProductSliderComponent } from './product-slider/product-slider.component';
-import { mensPants } from '../../../assets/Data/pants/men_page1'
-import { gounsPage1 } from '../../../assets/Data/Gouns/gouns';
-import { dressPage1 } from '../../../assets/Data//dress/dressPage';
-import { kurtaPage1 } from '../../../assets/Data/Kurta/kurta';
-import { mensShoesPage1 } from '../../../assets/Data/shoes';
 
-
+import { Dresses } from '../../../assets/Data/Clothing JSONs/dresses';
+import { Pants } from '../../../assets/Data/Clothing JSONs/pants';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [MainCarouselComponent, ProductSliderComponent],
-templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  mensPants:any
-  Gowns: any
-  Dresses: any
-  Kurta: any
-  Shoes: any
-
+  Pants: any;
+  Gowns: any;
+  Dresses: any;
+  Kurta: any;
+  Shoes: any;
 
   ngOnInit(): void {
-    this.mensPants=mensPants.slice(0,5);
-    this.Gowns=gounsPage1.slice(0,5);
-    this.Dresses=dressPage1.slice(0,5);
-    this.Kurta=kurtaPage1.slice(0,5);
-    this.Shoes = mensShoesPage1.slice(0,5);
-
+    this.Pants = Pants.slice(0, 5);
+    this.Gowns = Gowns.slice(0, 5);
+    this.Dresses = Dresses.slice(0, 5);
+    this.Kurta = Kurta.slice(0, 5);
+    this.Shoes = Shoes.slice(0, 5);
   }
-
 }

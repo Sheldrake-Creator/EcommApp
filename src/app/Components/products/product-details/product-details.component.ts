@@ -5,24 +5,26 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { lehngacholiPage2 } from '../../../../assets/Data/Saree/lenghaCholiPage2';
+import { LehengaCholi } from '../../../../assets/Data/HomePageJSONs/lehengaCholi';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
-
 import { AddItemRequestInterface } from '../../../models/Requests/addItemRequest.interface';
+import { StarRatingComponent } from '../../star-rating/star-rating.component';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductReviewCardComponent } from './product-review-card/product-review-card.component';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  // ProductReviewCardComponent,StarRatingComponent
+
   imports: [
     MatRadioModule,
     FormsModule,
     CommonModule,
     MatProgressBarModule,
     ProductCardComponent,
+    ProductReviewCardComponent,
+    StarRatingComponent,
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
@@ -42,7 +44,7 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.relatedProducts = lehngacholiPage2;
+    this.relatedProducts = LehengaCholi;
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     // this.productServices.findProductsById(id);
 

@@ -9,8 +9,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { mensPants } from '../../../assets/Data/pants/men_page1';
 
+import { Pants } from '../../../assets/Data/Clothing JSONs/pants';
 import { ProductServices } from '../../Store/Product/product.service';
 import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
 import { ProductStateInterface } from '../../models/State/productState.interface';
@@ -46,13 +46,12 @@ export class ProductsComponent implements OnInit {
     private router: Router,
     private productService: ProductServices,
     private store: Store<ProductStateInterface>,
-    private route: Router,
   ) {}
 
   ngOnInit() {
     this.filterData = filters;
     this.singleFilter = singleFilter;
-    this.manPants = mensPants;
+    this.manPants = Pants;
 
     this.activatedRoute.paramMap.subscribe((params) => {
       console.log('params ', params);
