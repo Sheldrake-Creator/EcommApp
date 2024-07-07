@@ -1,10 +1,10 @@
 <div class="w-full">
     <div class="bg-gray-950 text-white w-full h-1/2 shadow-lg p-6">
         <div class="flex justify-around pt-7" >
-            <div class="flex flex-col" *ngFor="let item of category[selectedSection].sections">
-                <h1 class="text center">{{item.name}}</h1>
-                <button (click)="handleNavigate('/'+selectedSection+'/'+item.id+'/'+section.id)" mat-button *ngFor="let section of item.items" class="py-1">
-                {{section.name}}
+            <div class="flex flex-col" *ngFor="let category of categories[selectedCategory].categories">
+                <h1 class="text center">{{category.name}}</h1>
+                <button (click)="handleNavigate('/'+selectedCategory+'/'+category.id+'/'+category.id)" mat-button *ngFor="let category of category.items" class="py-1">
+                {{category.name}}
                 </button>
             </div>
             <div class="hidden lg:block">

@@ -1,30 +1,19 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  HostListener,
-  inject,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { Actions, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription, merge } from 'rxjs';
+import { AppState } from '../../Store/AppState';
+import { authActions } from '../../Store/Auth/auth.actions';
+import { selectCurrentUser } from '../../Store/Auth/auth.reducer';
+import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { AuthComponent } from '../AuthComponents/auth/auth.component';
 import { NavContentComponent } from './nav-content/nav-content.component';
-// import { AdminComponent } from '../../admin/components/admin.component';
-// import { UserService } from '../State/User/user.services';
-// import { getUserProfile } from '../State/User/user.action';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../Store/AppState';
-
-import { Actions, ofType } from '@ngrx/effects';
-// import { PersistenceService } from '../State/Auth/auth.persistence.service';
-import { merge, Observable, of, Subscription } from 'rxjs';
-import { CurrentUserInterface } from '../../models/User/currentUser.interface';
-import { authActions, logout } from '../../Store/Auth/auth.actions';
-import { selectCurrentUser } from '../../Store/Auth/auth.reducer';
 // import { error } from 'console';,
 
 @Component({
@@ -128,19 +117,3 @@ export class NavbarComponent implements OnDestroy, OnInit {
 function getUserProfile() {
   throw new Error('Function not implemented.');
 }
-// this.persistenceService = inject(PersistenceService)
-
-// if (this.persistenceService.get('key')){
-//   console.log("accessToken: ",this.persistenceService.get('key'));
-
-// }
-// this.userService.getUserProfile();
-
-// this.store.pipe(select((store) => store.user)).subscribe((user) => {
-//   this.userProfile = user.userProfile;
-//   if (user.userProfile) {
-//     this.dialog.closeAll();
-//   }
-//   console.log("user ", user);
-// });
-// }

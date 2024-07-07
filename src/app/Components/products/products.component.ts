@@ -59,14 +59,15 @@ export class ProductsComponent implements OnInit {
       this.levelThree = params.get('levelThree');
       const reqData: FindProductsByCategoryRequest = {
         category: params.get('levelThree'),
-        colors: [],
-        sizes: [],
+        colors: '',
+        sizes: '',
         minPrice: 0,
         maxPrice: 10000,
+        sort: false,
         minDiscount: 0,
         pageNumber: 1,
         pageSize: 10,
-        stock: null,
+        stock: 0,
       };
       this.productService.findProductsByCategory(reqData);
     });
@@ -84,14 +85,14 @@ export class ProductsComponent implements OnInit {
 
       const reqData: FindProductsByCategoryRequest = {
         category: this.levelThree,
-        colors: color ? [color].join(',') : [],
+        colors: color ? [color].join(',') : '',
         sizes: size,
         minPrice: minPrice ? minPrice : 0,
         maxPrice: maxPrice ? maxPrice : 1000000,
         minDiscount: discount ? discount : 0,
         pageNumber: pageNumber ? pageNumber : 0,
         pageSize: 10,
-        stock: null,
+        stock: stock,
         sort: sort ? sort : 'price',
       };
 

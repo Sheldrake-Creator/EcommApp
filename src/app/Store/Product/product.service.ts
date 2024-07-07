@@ -44,7 +44,7 @@ export class ProductServices {
       .set('minPrice', minPrice)
       .set('maxPrice', maxPrice)
       .set('minDiscount', minDiscount)
-      .set('category', category)
+      .set('category', category!)
       .set('stock', stock)
       .set('sort', sort)
       .set('pageNumber', pageNumber)
