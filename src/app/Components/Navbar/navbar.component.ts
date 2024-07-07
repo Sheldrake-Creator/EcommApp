@@ -12,7 +12,7 @@ import { AppState } from '../../Store/AppState';
 import { authActions } from '../../Store/Auth/auth.actions';
 import { selectCurrentUser } from '../../Store/Auth/auth.reducer';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
-import { AuthComponent } from '../AuthComponents/auth/auth.component';
+import { AuthComponent } from '../authentication/auth/auth.component';
 import { NavContentComponent } from './nav-content/nav-content.component';
 // import { error } from 'console';,
 

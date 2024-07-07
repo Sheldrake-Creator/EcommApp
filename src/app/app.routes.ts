@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './Components/AuthComponents/login/login.component';
-import { RegisterComponent } from './Components/AuthComponents/register/register.component';
 import { HomeComponent } from './Components/Home/home.component';
+import { LoginComponent } from './Components/authentication/login/login.component';
+import { RegisterComponent } from './Components/authentication/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { ProductDetailsComponent } from './Components/products/product-details/product-details.component';
 import { ProductsComponent } from './Components/products/products.component';
@@ -16,6 +16,7 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
+  { path: ':levelone/:levelTwo/:levelThree', component: ProductsComponent },
 ];
 
 @NgModule({

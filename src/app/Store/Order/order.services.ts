@@ -7,7 +7,7 @@ import { HttpResponseInterface } from '../../models/Responses/httpResponse.inter
 @Injectable({
   providedIn: 'root',
 })
-export class OrderServices {
+export class OrderService {
   API_URL = 'http://localhost:4545/';
 
   constructor(private http: HttpClient) {}
