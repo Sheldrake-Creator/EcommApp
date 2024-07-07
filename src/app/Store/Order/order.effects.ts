@@ -92,9 +92,9 @@ export const getOrderHistoryEffect = createEffect(
       switchMap(() => {
         return orderService.getOrderHistory().pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['orders'] as OrderInterface;
+            return httpResponse.data['orders'] as OrderInterface[];
           }),
-          map((payload: OrderInterface) => {
+          map((payload: OrderInterface[]) => {
             return orderActions.orderHistorySuccess({ payload });
           }),
           catchError((errorResponse: HttpResponseInterface) => {

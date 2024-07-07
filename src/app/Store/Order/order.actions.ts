@@ -5,7 +5,7 @@ import { OrderInterface } from '../../models/Order/order.interface';
 import { SuccessMessageInterface } from '../../models/Responses/successMessage.interface';
 
 export const orderActions = createActionGroup({
-  source: 'order',
+  source: 'userOrder',
   events: {
     AddAddressRequest: props<{ reqData: AddressInterface }>(),
     'AddAddress Success': props<{ payload: SuccessMessageInterface }>(),
@@ -17,7 +17,7 @@ export const orderActions = createActionGroup({
     'FindOrderById Success': props<{ payload: OrderInterface }>(),
     'FindOrderById Failure': props<{ errors: BackendErrorsInterface }>(),
     OrderHistoryRequest: emptyProps(),
-    'OrderHistory Success': props<{ payload: OrderInterface }>(),
+    'OrderHistory Success': props<{ payload: OrderInterface[] }>(),
     'OrderHistory Failure': props<{ errors: BackendErrorsInterface }>(),
   },
 });

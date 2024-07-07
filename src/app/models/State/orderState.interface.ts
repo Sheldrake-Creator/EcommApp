@@ -3,7 +3,7 @@ import { OrderInterface } from '../Order/order.interface';
 import { CurrentUserInterface } from '../User/currentUser.interface';
 
 export interface OrderStateInterface {
-  orders: OrderInterface[];
+  orders?: OrderInterface[];
   order: OrderInterface | undefined;
   isLoading: boolean;
   validationErrors: BackendErrorsInterface | null;
