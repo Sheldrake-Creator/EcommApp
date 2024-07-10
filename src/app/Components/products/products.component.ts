@@ -49,13 +49,17 @@ export class ProductsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private productService: ProductServices,
     private store: Store<ProductStateInterface>,
   ) {}
 
   ngOnInit() {
-    this.store.dispatch(productAdminActions.getAllProductsRequest());
-    this.allProducts$ = this.store.select(selectAdminProducts);
+    this.activatedRoute.queryParams.subscribe((params) => {
+      const showAll = params['showAll'];
+      if (showAll) {
+        this.store.dispatch(productAdminActions.getAllProductsRequest());
+        this.allProducts$ = this.store.select(selectAdminProducts);
+      }
+    });
 
     this.filterData = filters;
     this.singleFilter = singleFilter;

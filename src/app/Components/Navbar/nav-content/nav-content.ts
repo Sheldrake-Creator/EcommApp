@@ -1,5 +1,5 @@
 export const NavBarContent = {
-  women: {
+  pointless: {
     id: 'women',
     name: 'Women',
 
@@ -33,7 +33,7 @@ export const NavBarContent = {
           { name: 'Sweaters', id: 'sweater' },
           { name: 'T-Shirts', id: 't-shirt' },
           { name: 'Jackets', id: 'jacket' },
-          { name: 'Gouns', id: 'gouns' },
+          { name: 'Activewear', id: '#' },
           { name: 'Sarees', id: 'saree' },
           { name: 'Kurtas', id: 'kurtas' },
         ],
@@ -64,28 +64,28 @@ export const NavBarContent = {
     ],
   },
 
-  men: {
+  dangerous: {
     id: 'men',
     name: 'Men',
 
-    featured: [
-      {
-        name: 'New Arrivals',
-        id: '#',
-        imageSrc:
-          'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-        imageAlt:
-          'Drawstring top with elastic loop closure and textured interior padding.',
-      },
-      {
-        name: 'Artwork Tees',
-        id: '#',
-        imageSrc:
-          'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-        imageAlt:
-          'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-      },
-    ],
+    // featured: [
+    //   {
+    //     name: 'New Arrivals',
+    //     id: '#',
+    //     imageSrc:
+    //       'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
+    //     imageAlt:
+    //       'Drawstring top with elastic loop closure and textured interior padding.',
+    //   },
+    //   {
+    //     name: 'Artwork Tees',
+    //     id: '#',
+    //     imageSrc:
+    //       'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
+    //     imageAlt:
+    //       'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
+    //   },
+    // ],
     categories: [
       {
         id: 'clothing',

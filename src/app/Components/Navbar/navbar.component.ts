@@ -11,6 +11,7 @@ import { Observable, Subscription, merge } from 'rxjs';
 import { AppState } from '../../Store/AppState';
 import { authActions } from '../../Store/Auth/auth.actions';
 import { selectCurrentUser } from '../../Store/Auth/auth.reducer';
+import { productAdminActions } from '../../Store/Product/product.action';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { AuthComponent } from '../authentication/auth/auth.component';
 import { NavContentComponent } from './nav-content/nav-content.component';
@@ -100,15 +101,19 @@ export class NavbarComponent implements OnDestroy, OnInit {
   handleLogOut() {
     this.store.dispatch(authActions.logout());
   }
-  // this.store.dispatch(authActions.logout())
-  // of(this.currentUser$).subscribe((v) => console.log(v));
-
-  // this.userService.logOut()
 
   navigateTo(path: any) {
     this.router.navigate([path]);
   }
+
+  navigateToProducts() {
+    this.router.navigate(['/products'], { queryParams: { showAll: true } });
+  }
+  handleLoadCategories() {
+    this.store.dispatch(productAdminActions.getAllProductsRequest());
+  }
 }
+
 // getUserProfile(){
 //   return null;
 

@@ -10,14 +10,17 @@
 
         <div class="">        
             <div class="flex space-x-4">
-                <a routerlink= "/" class="text-gray-800">
+                <a routerlink= "/" class="text-gray-800, font-bold pt-2">
                 Shop with Silas
                 </a>
                 <div>
-                    <button class="open-button" (click)= "openNavbarContent('men')" mat-button>Men</button>
+                    <button class="open-button" (click)= "openNavbarContent('pointless')" mat-button>Pointless</button>
                 </div>
                 <div>
-                    <button class="open-button" (click)= "openNavbarContent('women')" mat-button>Women</button>
+                    <button class="open-button" (click)= "openNavbarContent('dangerous')" mat-button>Dangerous</button>
+                </div>
+                <div>
+                    <button class="open-button" (click)= "navigateToProducts()" mat-button>Pointless & Dangerous</button>
                 </div>
             </div>
         </div>
