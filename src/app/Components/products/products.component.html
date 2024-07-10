@@ -101,13 +101,13 @@
                 <div class="lg: col-span-3">
                     <div class="flex flex-wrap justify-evenly">
 
-                        <ng-container *ngFor="let item of products">
-
-                            <app-product-card [product]="item"/>
+                        <ng-container *ngIf="allProducts$ | async as products">
+                        
+                            <div *ngFor="let item of products">
+                                <app-product-card [product]="item"/>
+                            </div>
 
                         </ng-container>
-
-
                     </div>
 
                 </div>

@@ -1,4 +1,4 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { ProductStateInterface } from '../../models/State/productState.interface';
 import { productActions, productAdminActions } from './product.action';
 
@@ -147,3 +147,9 @@ export const {
   selectUserProduct,
   selectAdminProduct,
 } = productFeature;
+
+// Select products from adminProduct
+export const selectAdminProducts = createSelector(
+  selectAdminProduct,
+  (state: ProductStateInterface) => state.products,
+);

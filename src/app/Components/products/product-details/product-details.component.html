@@ -1,12 +1,12 @@
-<div class="p-5 lg:p-10 mt-10">
+<div class="p-5 lg:p-10 mt-10" *ngIf="product$ | async as product">
 
-    <p class="text-gray-500 py-10">Product/Clothes/Women/Saree</p>
+    <p class="text-gray-500 py-10">Product/{{product.firstLevelCategory}}/{{product.secondLevelCategory}}/{{product.thirdLevelCategory}}</p>
 
     <section class="lg:grid grid-cols-3 lg:gap-8">
 
         <div class="col-span-2 flex items-center flex-col">
 
-            <img [src]="relatedProducts.imageUrl"
+            <img [src]="product.imageUrl"
                 alt="">
         </div>
 
@@ -35,10 +35,13 @@
             </div>
             <div>
                 <p class="text-lg font-semibold">Quantity</p>
-                <input type="number" class="border p-2" [(ngModel)]="quantity" min="1" />
+                <input type="number" class="border p-2 text-slate-950 font-bold" [(ngModel)]="quantity" min="1" name="number"/>
             </div>
             <div>
-                <button style="padding:1.0rem;" class="w-full bg-[#69f0ae]" (click)="handleAddToCart()"
+                <button style="padding:1.0rem;" class="w-full bg-[#69f0ae]" 
+                [ngClass]="{ 'bg-[#69f0ae]': !(currentUser$ | async), 'bg-gray-300 cursor-not-allowed': !(currentUser$ | async) }"
+                [disabled]="!(currentUser$ | async)" 
+                (click)="handleAddToCart()"
                     mat-raised-button>Add to Cart</button>
             </div>
             <div>
@@ -56,7 +59,7 @@
                 <div class="col-span-7">
                     <div class="space-y-5">
                         <div *ngFor="let item of reviews">
-                            <!-- <app-product-review-card /> -->
+                            <app-product-review-card />
                         </div>
                     </div>
                 </div>
@@ -139,12 +142,9 @@
         <h1 class="py-5 text-gray-400">Related Products</h1>
 
         <div class="flex justify-around flex-wrap">
-
             <div *ngFor="let item of relatedProducts">
-                <app-product-card [product]="item" />
-
+                <app-product-card [product]="item"/>
             </div>
-
         </div>
 
     </section>

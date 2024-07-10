@@ -67,14 +67,14 @@ export class ProductServices {
   }
   getAllProducts(): Observable<HttpResponseInterface> {
     return this.http.get<HttpResponseInterface>(
-      `${this.API_URL}/api/admin/products/all`,
+      `${this.API_URL}api/admin/products/all`,
     );
   }
   addMultipleProducts(
     productList: CreateProductRequestInterface[],
   ): Observable<HttpResponseInterface> {
     return this.http.post<HttpResponseInterface>(
-      `${this.API_URL}/api/admin/products/creates`,
+      `${this.API_URL}api/admin/products/creates`,
       productList,
     );
   }

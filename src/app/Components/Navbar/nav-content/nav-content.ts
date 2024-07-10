@@ -23,7 +23,7 @@ export const NavBarContent = {
     // ],
     categories: [
       {
-        id: 'clothing',
+        categoryId: 'clothing',
         name: 'Clothing',
         items: [
           { name: 'Tops', id: 'top', href: `{women/clothing/tops}` },

@@ -26,7 +26,6 @@ import { NavContentComponent } from './nav-content/nav-content.component';
     NavContentComponent,
     CommonModule,
   ],
-
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -63,6 +62,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
     ).subscribe(() => {
       this.dialog.closeAll();
     });
+    //! this.store.dispatch();
   }
 
   ngOnDestroy() {
