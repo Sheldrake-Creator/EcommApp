@@ -6,8 +6,8 @@
 body{
     margin: 0;
     font-family: Roboto, "Hevetica Nue", sans-serif;
-    background: #0b0b0b;
-    color: white;
+    background: #101010f9;
+    color: rgb(255, 255, 255);
 
 }
 .box{
@@ -19,4 +19,44 @@ body{
 
 }
 html, body { height: 100%; }
+
+/* Hide the vertical scrollbar */
+.hide-vertical-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  
+    /* For WebKit-based browsers like Chrome and Safari */
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 8px; /* You can adjust the height of the horizontal scrollbar */
+    }
+  }
+
+
+
+
+  /* Custom scrollbar styling */
+  .custom-scrollbar {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: slateblue #f3f4f600; /* Firefox */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f3f4f6; /* Background of the scrollbar track */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: slateblue; /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    border: 2px solid #f3f4f6; /* Space around the scrollbar thumb */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #4b5563; /* Color when hovering over the scrollbar thumb */
+  }
 

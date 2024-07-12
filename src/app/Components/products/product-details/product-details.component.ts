@@ -6,10 +6,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
-import { LehengaCholi } from '../../../../assets/Data/HomePageJSONs/lehengaCholi';
+import { LehengaCholi } from '../../../../assets/Data/Women/lehengaCholi';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
-import { selectAdminProducts } from '../../../Store/Product/product.reducer';
+
+import { productActions } from '../../../Store/Product/product.action';
+import { selectProduct } from '../../../Store/Product/product.reducer';
 import { selectCurrentUser } from '../../../Store/selectors';
 import { ProductInterface } from '../../../models/Product/product.interface';
 import { AddItemRequestInterface } from '../../../models/Requests/addItemRequest.interface';
@@ -41,6 +43,8 @@ export class ProductDetailsComponent implements OnInit {
   product$!: Observable<ProductInterface | undefined>;
   quantity: number | undefined;
   currentUser$: Observable<CurrentUserInterface | null | undefined>;
+  stringId: string | null;
+  id!: number;
 
   constructor(
     private router: Router,
@@ -48,22 +52,32 @@ export class ProductDetailsComponent implements OnInit {
     private store: Store<AppState>,
   ) {
     this.currentUser$ = this.store.select(selectCurrentUser);
+    this.stringId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = +this.stringId!;
   }
 
   ngOnInit() {
     this.relatedProducts = LehengaCholi;
-    const idString = this.activatedRoute.snapshot.paramMap.get('id');
-    const id = parseInt(idString!, 10);
+    const id = parseInt(this.stringId!, 10);
     console.log(id);
+
+    // Dispatch the action to fetch the product by ID
+    this.store.dispatch(
+      productActions.findProductsByIdRequest({ reqData: id }),
+    );
+
+    // Select the product from the store
+    this.product$ = this.store.select(selectProduct);
+    console.log(this.product$.subscribe());
 
     // this.productServices.findProductsById(id);
 
-    this.product$ = this.store.pipe(
-      select(selectAdminProducts),
-      map((productList) =>
-        productList?.find((product) => product.productId === id),
-      ),
-    );
+    //   this.product$ = this.store.pipe(
+    //     select(selectAdminProducts),
+    //     map((productList) =>
+    //       productList?.find((product) => product.productId === id),
+    //     ),
+    //   );
   }
 
   handleAddToCart() {

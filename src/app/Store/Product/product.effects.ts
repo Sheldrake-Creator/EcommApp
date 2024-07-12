@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { productActions, productAdminActions } from './product.action';
+import { productActions } from './product.action';
 import { ProductServices } from './product.service';
 
 import { catchError, map, of, switchMap } from 'rxjs';
@@ -15,7 +15,7 @@ export const findProductsByIdEffect = createEffect(
       switchMap(({ reqData }) => {
         return productService.findProductsById(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['products'] as ProductInterface;
+            return httpResponse.data['product'] as ProductInterface;
           }),
           map((payload: ProductInterface) => {
             return productActions.findProductsByIdSuccess({ payload });
@@ -63,18 +63,18 @@ export const findProductsByCategoryEffect = createEffect(
 export const findAllProductsEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
     return actions$.pipe(
-      ofType(productAdminActions.getAllProductsRequest),
+      ofType(productActions.getAllProductsRequest),
       switchMap(() => {
         return productService.getAllProducts().pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['products'] as ProductInterface[];
           }),
           map((payload: ProductInterface[]) => {
-            return productAdminActions.getAllProductsSuccess({ payload });
+            return productActions.getAllProductsSuccess({ payload });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
-              productAdminActions.getAllProductsFailure({
+              productActions.getAllProductsFailure({
                 errors: errorResponse.message,
               }),
             );
@@ -89,18 +89,18 @@ export const findAllProductsEffect = createEffect(
 export const createProductEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
     return actions$.pipe(
-      ofType(productAdminActions.createProductRequest),
+      ofType(productActions.createProductRequest),
       switchMap(({ reqData }) => {
         return productService.addProducts(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['products'] as ProductInterface;
           }),
           map((payload: ProductInterface) => {
-            return productAdminActions.createProductSuccess({ payload });
+            return productActions.createProductSuccess({ payload });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
-              productAdminActions.createProductFailure({
+              productActions.createProductFailure({
                 errors: errorResponse.message,
               }),
             );
@@ -115,20 +115,20 @@ export const createProductEffect = createEffect(
 export const createMultipleProductsEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
     return actions$.pipe(
-      ofType(productAdminActions.createMultipleProductsRequest),
+      ofType(productActions.createMultipleProductsRequest),
       switchMap(({ reqData }) => {
         return productService.addMultipleProducts(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.message as SuccessMessageInterface;
           }),
           map((payload) => {
-            return productAdminActions.createMultipleProductsSuccess({
+            return productActions.createMultipleProductsSuccess({
               payload,
             });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
-              productAdminActions.createMultipleProductsFailure({
+              productActions.createMultipleProductsFailure({
                 errors: errorResponse.message,
               }),
             );
@@ -143,20 +143,20 @@ export const createMultipleProductsEffect = createEffect(
 export const deleteProductEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
     return actions$.pipe(
-      ofType(productAdminActions.deleteProductRequest),
+      ofType(productActions.deleteProductRequest),
       switchMap(({ reqData }) => {
         return productService.deleteProduct(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.message as SuccessMessageInterface;
           }),
           map((payload) => {
-            return productAdminActions.deleteProductSuccess({
+            return productActions.deleteProductSuccess({
               payload,
             });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
-              productAdminActions.deleteProductFailure({
+              productActions.deleteProductFailure({
                 errors: errorResponse.message,
               }),
             );
@@ -171,20 +171,20 @@ export const deleteProductEffect = createEffect(
 export const updateProductEffect = createEffect(
   (actions$ = inject(Actions), productService = inject(ProductServices)) => {
     return actions$.pipe(
-      ofType(productAdminActions.updateProductRequest),
+      ofType(productActions.updateProductRequest),
       switchMap(({ reqData }) => {
         return productService.deleteProduct(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['product'] as ProductInterface;
           }),
           map((payload) => {
-            return productAdminActions.updateProductSuccess({
+            return productActions.updateProductSuccess({
               payload,
             });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
-              productAdminActions.updateProductFailure({
+              productActions.updateProductFailure({
                 errors: errorResponse.message,
               }),
             );

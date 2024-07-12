@@ -1,9 +1,22 @@
-// .product-slider {
-//     overflow-x: auto;
-//     white-space: nowrap;
+.product-slider {
+    // overflow-x: auto;
+    // white-space: nowrap;
+    // display: flex;
+    // flex-wrap: nowrap;
+    // scroll-snap-type: x mandatory;
+    padding-bottom: 10px; // Optional, adds some space below the slider for better aesthetics
   
-//     .product-card {
-//       /* Add any styling for individual product cards here */
-//       margin-right: 10px; /* Adjust as needed */
-//     }
-//   }
+    //.product-card {
+        // flex: 0 0 auto; // Ensure the product cards don't shrink or grow
+        // margin-right: 10px; // Adjust as needed
+        // scroll-snap-align: start; // Ensure each card snaps to the start
+    //}
+  
+    // Add a media query for smaller screens
+    // @media (max-width: 768px) {
+    //     .product-card {
+    //         width: calc(100% - 20px); // Adjust width for better fit on smaller screens, subtract margin
+    //         margin-right: 10px; // Adjust as needed
+    //     }
+    // }
+}

@@ -38,8 +38,8 @@ export class NavContentComponent implements OnInit {
 
   getByCategoryHandler() {
     const customRequest: Partial<FindProductsByCategoryRequest> = {
-      colors: 'red,blue',
-      minPrice: 100,
+      // colors: 'red,blue',
+      // minPrice: 100,
     };
     const reqData = createFindProductsByCategoryRequest(customRequest);
     this.store.dispatch(

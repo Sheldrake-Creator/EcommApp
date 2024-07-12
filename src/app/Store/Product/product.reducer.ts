@@ -1,155 +1,150 @@
 import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { ProductStateInterface } from '../../models/State/productState.interface';
-import { productActions, productAdminActions } from './product.action';
+import { productActions } from './product.action';
 
-const initialState: {
-  userProduct: ProductStateInterface;
-  adminProduct: ProductStateInterface;
-} = {
-  userProduct: {
-    products: [],
-    product: undefined,
-    isLoading: false,
-    validationErrors: null,
-    successMessage: null,
-  },
-  adminProduct: {
-    products: [],
-    product: undefined,
-    isLoading: false,
-    validationErrors: null,
-    successMessage: null,
-  },
+const initialState: ProductStateInterface = {
+  products: [],
+  product: undefined,
+  isLoading: false,
+  validationErrors: null,
+  successMessage: null,
 };
 
 export const productFeature = createFeature({
   name: 'product',
   reducer: createReducer(
     initialState,
-    // User Product Actions
-    on(
-      productActions.findProductsByIdRequest,
-      productActions.findProductByCategoryRequest,
-      (state) => ({
-        ...state,
-        userProduct: {
-          ...state.userProduct,
-          isLoading: true,
-          validationErrors: null,
-        },
-      }),
-    ),
-    on(productActions.findProductsByIdSuccess, (state, action) => ({
+    on(productActions.findProductsByIdRequest, (state) => ({
       ...state,
-      userProduct: {
-        ...state.userProduct,
-        isLoading: false,
-        product: action.payload,
-      },
+      isLoading: true,
+      validationErrors: null,
     })),
-    on(productActions.findProductByCategorySuccess, (state, action) => ({
+    on(productActions.findProductsByIdSuccess, (state, { payload }) => ({
       ...state,
-      userProduct: {
-        ...state.userProduct,
-        isLoading: false,
-        products: action.payload,
-      },
+      isLoading: false,
+      product: payload,
     })),
-    on(
-      productActions.findProductsByIdFailure,
-      productActions.findProductByCategoryFailure,
-      (state, action) => ({
-        ...state,
-        userProduct: {
-          ...state.userProduct,
-          isLoading: false,
-          validationErrors: action.errors,
-        },
-      }),
-    ),
-    // Admin Product Actions
-    on(
-      productAdminActions.getAllProductsRequest,
-      productAdminActions.createProductRequest,
-      productAdminActions.createMultipleProductsRequest,
-      productAdminActions.deleteProductRequest,
-      productAdminActions.updateProductRequest,
-      (state) => ({
-        ...state,
-        adminProduct: {
-          ...state.adminProduct,
-          isLoading: true,
-          validationErrors: null,
-        },
-      }),
-    ),
-    on(productAdminActions.getAllProductsSuccess, (state, action) => ({
+    on(productActions.findProductsByIdFailure, (state, { errors }) => ({
       ...state,
-      adminProduct: {
-        ...state.adminProduct,
-        isLoading: false,
-        products: action.payload,
-      },
+      isLoading: false,
+      validationErrors: errors,
     })),
-    on(productAdminActions.createProductSuccess, (state, action) => ({
+    // on(productActions.FindProductByCategoryRequest, (state) => ({
+    //   ...state,
+    //   isLoading: true,
+    //   validationErrors: null,
+    // })),
+    // on(productActions['FindProductByCategory Success'], (state, { payload }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   products: payload,
+    // })),
+    // on(productActions['FindProductByCategory Failure'], (state, { errors }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   validationErrors: errors,
+    // })),
+    on(productActions.getAllProductsRequest, (state) => ({
       ...state,
-      adminProduct: {
-        ...state.adminProduct,
-        isLoading: false,
-        product: action.payload,
-      },
+      isLoading: true,
+      validationErrors: null,
     })),
-    on(productAdminActions.createMultipleProductsSuccess, (state, action) => ({
+    on(productActions.getAllProductsSuccess, (state, { payload }) => ({
       ...state,
-      adminProduct: {
-        ...state.adminProduct,
-        isLoading: false,
-        successMessage: action.payload,
-      },
+      isLoading: false,
+      products: payload,
     })),
-    on(productAdminActions.deleteProductSuccess, (state, action) => ({
+    on(productActions.getAllProductsFailure, (state, { errors }) => ({
       ...state,
-      adminProduct: {
-        ...state.adminProduct,
-        isLoading: false,
-        successMessage: action.payload,
-      },
+      isLoading: false,
+      validationErrors: errors,
     })),
-    on(productAdminActions.updateProductSuccess, (state, action) => ({
-      ...state,
-      adminProduct: {
-        ...state.adminProduct,
-        isLoading: false,
-        product: action.payload,
-      },
-    })),
-    on(
-      productAdminActions.getAllProductsFailure,
-      productAdminActions.createProductFailure,
-      productAdminActions.createMultipleProductsFailure,
-      productAdminActions.deleteProductFailure,
-      productAdminActions.updateProductFailure,
-      (state, action) => ({
-        ...state,
-        adminProduct: {
-          ...state.adminProduct,
-          isLoading: false,
-          validationErrors: action.errors,
-        },
-      }),
-    ),
+    // on(productActions.CreateProductRequest, (state) => ({
+    //   ...state,
+    //   isLoading: true,
+    //   validationErrors: null,
+    // })),
+    // on(productActions['CreateProduct Success'], (state, { payload }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   product: payload,
+    // })),
+    // on(productActions['CreateProduct Failure'], (state, { errors }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   validationErrors: errors,
+    // })),
+    // on(productActions.CreateMultipleProductsRequest, (state) => ({
+    //   ...state,
+    //   isLoading: true,
+    //   validationErrors: null,
+    // })),
+    // on(productActions['CreateMultipleProducts Success'], (state, { payload }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   successMessage: payload,
+    // })),
+    // on(productActions['CreateMultipleProducts Failure'], (state, { errors }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   validationErrors: errors,
+    // })),
+    // on(productActions.DeleteProductRequest, (state) => ({
+    //   ...state,
+    //   isLoading: true,
+    //   validationErrors: null,
+    // })),
+    // on(productActions['DeleteProduct Success'], (state, { payload }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   successMessage: payload,
+    // })),
+    // on(productActions['DeleteProduct Failure'], (state, { errors }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   validationErrors: errors,
+    // })),
+    // on(productActions.UpdateProductRequest, (state) => ({
+    //   ...state,
+    //   isLoading: true,
+    //   validationErrors: null,
+    // })),
+    // on(productActions['UpdateProduct Success'], (state, { payload }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   product: payload,
+    // })),
+    // on(productActions['UpdateProduct Failure'], (state, { errors }) => ({
+    //   ...state,
+    //   isLoading: false,
+    //   validationErrors: errors,
+    // })),
   ),
 });
 
 export const {
   name: productFeatureKey,
   reducer: productReducer,
-  selectUserProduct,
-  selectAdminProduct,
+  selectIsLoading,
+  selectProduct,
+  selectProducts,
 } = productFeature;
 
-// Select products from adminProduct
-export const selectAdminProducts = createSelector(
-  selectAdminProduct,
-  (state: ProductStateInterface) => state.products,
+// Selectors
+const selectProductState = (state: any) =>
+  state[productFeatureKey] as ProductStateInterface;
+
+export const selectLoading = createSelector(
+  selectProductState,
+  (state) => state.isLoading,
+);
+
+export const selectValidationErrors = createSelector(
+  selectProductState,
+  (state) => state.validationErrors,
+);
+
+export const selectSuccessMessage = createSelector(
+  selectProductState,
+  (state) => state.successMessage,
 );

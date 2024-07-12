@@ -10,10 +10,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Observable } from 'rxjs';
-import { Pants } from '../../../assets/Data/Clothing JSONs/pants';
-import { productAdminActions } from '../../Store/Product/product.action';
-import { selectAdminProducts } from '../../Store/Product/product.reducer';
+import { Pants } from '../../../assets/Data/HomePageJSONs/pants';
+
+import { selectIsLoading } from '../../Store/Auth/auth.reducer';
+import { productActions } from '../../Store/Product/product.action';
+import { selectProducts } from '../../Store/Product/product.reducer';
 import { ProductServices } from '../../Store/Product/product.service';
 import { ProductInterface } from '../../models/Product/product.interface';
 import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
@@ -34,6 +37,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     MatCheckboxModule,
     MatRadioModule,
     ProductCardComponent,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
@@ -45,6 +49,7 @@ export class ProductsComponent implements OnInit {
   manPants: any;
   levelThree: any;
   allProducts$!: Observable<ProductInterface[] | undefined>;
+  isLoading$!: Observable<boolean>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -56,8 +61,9 @@ export class ProductsComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params) => {
       const showAll = params['showAll'];
       if (showAll) {
-        this.store.dispatch(productAdminActions.getAllProductsRequest());
-        this.allProducts$ = this.store.select(selectAdminProducts);
+        this.store.dispatch(productActions.getAllProductsRequest());
+        this.allProducts$ = this.store.select(selectProducts);
+        this.isLoading$ = this.store.select(selectIsLoading);
       }
     });
 

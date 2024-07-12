@@ -9,7 +9,6 @@ import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { authInterceptor } from './Interceptors/auth.interceptor';
 import * as authEffects from './Store/Auth/auth.effects';
 import { authFeatureKey, authReducer } from './Store/Auth/auth.reducer';
 import * as cartEffects from './Store/Cart/cart.effects';
@@ -19,12 +18,13 @@ import {
   productFeatureKey,
   productReducer,
 } from './Store/Product/product.reducer';
+import { authInterceptor } from './Util/Interceptors/auth.interceptor';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideAnimationsAsync('noop'),
+    provideAnimationsAsync(),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideState(productFeatureKey, productReducer),
     provideEffects(productEffects),

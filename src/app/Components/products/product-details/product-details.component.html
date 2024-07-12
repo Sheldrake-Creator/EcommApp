@@ -1,6 +1,6 @@
 <div class="p-5 lg:p-10 mt-10" *ngIf="product$ | async as product">
 
-    <p class="text-gray-500 py-10">Product/{{product.firstLevelCategory}}/{{product.secondLevelCategory}}/{{product.thirdLevelCategory}}</p>
+    <p class="text-gray-500 py-10">Products</p>
 
     <section class="lg:grid grid-cols-3 lg:gap-8">
 
@@ -23,7 +23,7 @@
                 <p class="text-green-400 font-semibold text-lg">{{product.discountedPrice}}%</p>
             </div>
 
-            <div>
+            <div *ngIf="product.sizes">
                 <p class="text-lg font-semibold">Size</p>
                 <mat-radio-group class="space-x-5" aria-label="Select an option" [(ngModel)]="selectedSize">
                     <mat-radio-button value="S">S</mat-radio-button>

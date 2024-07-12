@@ -28,6 +28,7 @@ export const Pants = [
     description:
       "Discover stylish men's pants that exude both comfort and fashion-forward design. These meticulously crafted pants are perfect for any occasion, providing a perfect blend of style and versatility.",
     discount: 63,
+    productId: 1,
   },
   {
     imageUrl:

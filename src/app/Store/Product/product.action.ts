@@ -11,7 +11,7 @@ import { FindProductsByCategoryRequest } from '../../models/Requests/findProduct
 import { SuccessMessageInterface } from '../../models/Responses/successMessage.interface';
 
 export const productActions = createActionGroup({
-  source: 'userProduct',
+  source: 'Product',
   events: {
     FindProductsByIdRequest: props<{ reqData: number }>(),
     'FindProductsById Success': props<{ payload: ProductInterface }>(),
@@ -23,11 +23,6 @@ export const productActions = createActionGroup({
     'FindProductByCategory Failure': props<{
       errors: BackendErrorsInterface;
     }>(),
-  },
-});
-export const productAdminActions = createActionGroup({
-  source: 'adminProduct',
-  events: {
     GetAllProductsRequest: emptyProps(),
     'GetAllProducts Success': props<{ payload: ProductInterface[] }>(),
     'GetAllProducts Failure': props<{ errors: BackendErrorsInterface }>(),
