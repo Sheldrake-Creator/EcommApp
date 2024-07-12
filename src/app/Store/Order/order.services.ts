@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
 import { AddressInterface } from '../../models/Address/address.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 
@@ -8,7 +9,7 @@ import { HttpResponseInterface } from '../../models/Responses/httpResponse.inter
   providedIn: 'root',
 })
 export class OrderService {
-  API_URL = 'http://localhost:4545/';
+  API_URL = environment.API_URL;
 
   constructor(private http: HttpClient) {}
 

@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
 import { ProductInterface } from '../../models/Product/product.interface';
 import { CreateProductRequestInterface } from '../../models/Requests/createProductRequest';
 import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
@@ -10,7 +11,7 @@ import { HttpResponseInterface } from '../../models/Responses/httpResponse.inter
   providedIn: 'root',
 })
 export class ProductServices {
-  API_URL = 'http://localhost:4545/';
+  API_URL = environment.API_URL;
 
   constructor(private http: HttpClient) {}
 

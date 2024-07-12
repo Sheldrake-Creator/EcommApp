@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, map, tap } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
 import { AddItemRequestInterface } from '../../models/Requests/addItemRequest.interface';
 import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
@@ -11,7 +12,7 @@ import { CartStateInterface } from '../../models/State/cartState.interface';
   providedIn: 'root',
 })
 export class CartService {
-  API_URL = 'http://localhost:4545/';
+  API_URL = environment.API_URL;
 
   constructor(
     private store: Store<CartStateInterface>,

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
 import { LoginRequestInterface } from '../../models/Requests/loginRequest.interface';
 import { RegisterRequestInterface } from '../../models/Requests/registerRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
@@ -11,7 +12,7 @@ import { PersistenceService } from './auth.persistence.service';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:4545';
+  apiUrl = environment.API_URL;
 
   constructor(
     private http: HttpClient,
