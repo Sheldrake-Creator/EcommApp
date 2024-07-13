@@ -10,8 +10,12 @@ import { LehengaCholi } from '../../../../assets/Data/Women/lehengaCholi';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { productActions } from '../../../Store/Product/product.action';
-import { selectProduct } from '../../../Store/Product/product.reducer';
+import {
+  selectIsLoading,
+  selectProduct,
+} from '../../../Store/Product/product.reducer';
 import { selectCurrentUser } from '../../../Store/selectors';
 import { ProductInterface } from '../../../models/Product/product.interface';
 import { AddItemRequestInterface } from '../../../models/Requests/addItemRequest.interface';
@@ -32,6 +36,7 @@ import { ProductReviewCardComponent } from './product-review-card/product-review
     ProductCardComponent,
     ProductReviewCardComponent,
     StarRatingComponent,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
@@ -42,6 +47,7 @@ export class ProductDetailsComponent implements OnInit {
   relatedProducts: any;
   product$!: Observable<ProductInterface | undefined>;
   quantity: number | undefined;
+  isLoading$!: Observable<boolean>;
   currentUser$: Observable<CurrentUserInterface | null | undefined>;
   stringId: string | null;
   id!: number;
@@ -69,7 +75,7 @@ export class ProductDetailsComponent implements OnInit {
     // Select the product from the store
     this.product$ = this.store.select(selectProduct);
     console.log(this.product$.subscribe());
-
+    this.isLoading$ = this.store.select(selectIsLoading);
     // this.productServices.findProductsById(id);
 
     //   this.product$ = this.store.pipe(

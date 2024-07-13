@@ -1,0 +1,262 @@
+[
+  {    
+    "title": "All Brown M&Ms",
+    "imageUrl": "https://www.ohnuts.com/noapp/showImage.cfm/zoom/Brown%20M&M%27s%20Chocolate%20Candy.jpg",
+    "brand": "Sterling Cooper",
+    "color":"Grey",
+    "price": 30,
+    "discountedPrice": 25,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Silly",
+    "thirdLevelCategory": " ",
+    "description": "Do you love M&M's but hate the fact that they come in a bunch of non-uniform colors. Well, that's a very specific and niche opionion to have. You might be the only one. You're like a snowflake amoungst opinion havers. Thankfully for you, someone had the courage to step up and make thing incredibly specific thing for you and you alone. ",
+    "discountPresent": 10
+  },
+  {    
+    "title": "Indecisive Magic 8-Ball",
+    "imageUrl": "https://m.media-amazon.com/images/I/51dgcWrNq-L._AC_UF894,1000_QL80_.jpg",
+    "brand": "The Bluth Company",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Silly",
+    "thirdLevelCategory": " ",
+    "description": "Its a standard magic 8-ball except every side reads 'Answer looks Hazy, try again later.' For the person who's not looking for answers, so much as ",
+    "discountPresent": 10
+  },
+  {    
+    "title": "Canned Koala Meat",
+    "imageUrl": "https://live.staticflickr.com/217/477398316_94b3e271d2_z.jpg",
+    "brand": "Vandelay Industries",
+    "color":"Grey",
+    "price": 35,
+    "discountedPrice": 30,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Genuinely Unpleasant",
+    "thirdLevelCategory": " ",
+    "description": "May God have mercy on your soul",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Placebo",
+    "imageUrl": "https://www.arthritiswa.org.au/wp-content/uploads/2021/02/Placebo-scaled-1000x563.jpg",
+    "brand": "Aperture Science",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Confusing",
+    "thirdLevelCategory": " ",
+    "description": " ",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Milton-Bradley's Well for Boys",
+    "imageUrl": "https://uproxx.com/wp-content/uploads/2016/12/snl_well.jpg?w=640",
+    "brand": "Scheinhardt Wig Company",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Silly",
+    "thirdLevelCategory": " ",
+    "description": "Some kids want to play with trucks, some kids prefer dolls, others would rather play pretend. However, the discerning child might enjoy a well. For the child who just longs to be understood. For the sensitive boy in your life who wish for a dark hole in the ground to wish, conifide and reflect in. Some children like to play. Others simply wait for adulthood. No doubt a rich full life will one day beckon upon him. Filled with creative passion and success. However, that's not going to be for a while, until then they can enjoy a quite spot to contemplate the complexities and contradictions of their own sapience.",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Non-Ornamental Lawn Ornament",
+    "imageUrl": "https://mobileimages.lowes.com/productimages/0cd33424-6c17-4ef9-ab62-bb9bf6fc9a28/04669480.jpg",
+    "brand": "The Bluth Company",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Confusing",
+    "thirdLevelCategory": " ",
+    "description": " ",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Tennis Helmet",
+    "imageUrl": "https://payload.cargocollective.com/1/2/77842/3057678/Funheads-02_2000_c.jpg",
+    "brand": "Susquehana Hat Co.",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Ill-concieved",
+    "thirdLevelCategory": " ",
+    "description": "Is Tennis too much of a contact sport?",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Bag of Miscellanious Teeth",
+    "imageUrl": "https://i.pinimg.com/736x/72/af/6a/72af6a8556de72235f9f81a8bccb2ab4.jpg",
+    "brand": "Weyland Yutani Corporation",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Mildly Upsetting",
+    "thirdLevelCategory": " ",
+    "description": "I'm gonna be honest, I don't really have a joke for this one. I just think the image of bag of strange teeth is funny in of itself.",
+    "discountPresent": 0
+  },
+  {    
+    "title": "87 piece rake set",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdOhq1O1Tx1U3ypNufwjIi46nADOyCLs2o9A&s",
+    "brand": "Burns Industries",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Ill-concieved",
+    "thirdLevelCategory": " ",
+    "description": "Don't you just hate not having the exact specific kind of rake to accomplish given task. Never feel that way again.",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Travel-sized Fireplace",
+    "imageUrl": "https://i.ytimg.com/vi/vaL7pyayInk/maxresdefault.jpg",
+    "brand": "ACME",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Silly",
+    "thirdLevelCategory": " ",
+    "description": "Awwwww, this one's kinda cute actually. If you're a mouse its just like having a normal fireplace.",
+    "discountPresent": 0
+  },
+  {  
+    "title": "See-through Hat",
+    "imageUrl": "https://m.media-amazon.com/images/I/5112KwrvJUL._AC_UY1000_.jpg",
+    "brand": "Susquehana Hat Co.",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Injurious",
+    "thirdLevelCategory": " ",
+    "description": "It actually magnifies the sun's rays. Making going outside during a hot day even more uncomfortable",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Horse Juice",
+    "imageUrl": "https://i.redd.it/vdtvdqtdfnq41.jpg",
+    "brand": "Sterling Cooper",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Genuinely Unpleasant",
+    "thirdLevelCategory": " ",
+    "description": " ",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Deceased Rat Scented Air Freshener",
+    "imageUrl": "https://i.pinimg.com/originals/6e/31/98/6e3198c66d3738d455af2fa6440c6d67.jpg",
+    "brand": "Burns Industries",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 0
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Genuinely Unpleasant",
+    "thirdLevelCategory": " ",
+    "description": "RIP Mr. Rat!",
+    "discountPresent": 0
+  }
+]

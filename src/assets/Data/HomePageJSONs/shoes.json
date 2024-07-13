@@ -5,7 +5,20 @@
     "color":"Grey",
     "price": 1599,
     "discountedPrice": 9999,
-    "size": [],
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 30
+      },
+      {
+        "name": "L",
+        "quantity": 50
+      }
+    ],
     "numInStock": 50,
     "firstLevelCategory": "Men",
     "secondLevelCategory": "Accessories",
@@ -21,7 +34,20 @@
     "color":"White",
     "price": 1999,
     "discountedPrice": 9999,
-    "size": [],
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 30
+      },
+      {
+        "name": "L",
+        "quantity": 50
+      }
+    ],
     "numInStock": 50,
     "firstLevelCategory": "Men",
     "secondLevelCategory": "Accessories",
@@ -37,7 +63,20 @@
     "color":"Grey",
     "price": 998,
     "discountedPrice": 9999,
-    "size": [],
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 30
+      },
+      {
+        "name": "L",
+        "quantity": 50
+      }
+    ],
     "numInStock": 50,
     "firstLevelCategory": "Men",
     "secondLevelCategory": "Accessories",
@@ -53,7 +92,20 @@
     "color":"Dark Blue",
     "price": 1299,
     "discountedPrice": 9999,
-    "size": [],
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 30
+      },
+      {
+        "name": "L",
+        "quantity": 50
+      }
+    ],
     "numInStock": 50,
     "firstLevelCategory": "Men",
     "secondLevelCategory": "Accessories",
@@ -69,7 +121,20 @@
     "color":"Light Grey",
     "price": 1299,
     "discountedPrice": 9999,
-    "size": [],
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 30
+      },
+      {
+        "name": "L",
+        "quantity": 50
+      }
+    ],
     "numInStock": 50,
     "firstLevelCategory": "Men",
     "secondLevelCategory": "Accessories",

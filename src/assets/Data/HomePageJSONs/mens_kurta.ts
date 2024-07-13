@@ -1,5 +1,6 @@
 export const mens_kurta = [
   {
+    productId: 53,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/l5h2xe80/kurta/x/6/n/xl-kast-tile-green-majestic-man-original-imagg4z33hu4kzpv.jpeg?q=70',
     brand: 'Majestic Man',
@@ -30,6 +31,7 @@ export const mens_kurta = [
       'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
   },
   {
+    productId: 54,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/l/f/r/xl-k-spl668-yellow-sg-leman-original-imagznqcrahgq9rf.jpeg?q=70',
     brand: 'SG LEMAN',
@@ -60,6 +62,7 @@ export const mens_kurta = [
       'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
   },
   {
+    productId: 55,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70',
     brand: 'FUBAR',
@@ -90,6 +93,7 @@ export const mens_kurta = [
       'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
   },
   {
+    productId: 56,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/i/v/x/xxl-br-ad-kt-105-adwyn-peter-original-imagj4zyd2q7t6cg.jpeg?q=70',
     brand: 'ALY JOHN',
@@ -120,6 +124,7 @@ export const mens_kurta = [
       'A traditional garment embodying elegance and grace. Crafted from fine fabrics, it features intricate embroidery and a relaxed fit, providing comfort and style.',
   },
   {
+    productId: 57,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/j/a/r/l-poch521835-peter-england-original-imag7jg47g7cxhg3-bb.jpeg?q=70',
     brand: 'PETER ENGLAND',

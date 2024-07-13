@@ -1,5 +1,6 @@
 export const Dresses = [
   {
+    productId: 17,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/l0wrafk0/dress/l/2/o/3xl-m2s13003-peach-madame-original-imagchhhwbypcann.jpeg?q=70',
     brand: 'MADAME',
@@ -30,6 +31,7 @@ export const Dresses = [
       'Make a statement with this stylish purple A-line dress from ZWERLON. Made with high-quality fabric, this dress is perfect for any occasion.',
   },
   {
+    productId: 18,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/1/h/g/m-pw333-purshottam-wala-original-imag8zf6ybkmhehy-bb.jpeg?q=70',
     brand: 'Daevish',
@@ -60,6 +62,7 @@ export const Dresses = [
       'Make a statement with this stylish purple A-line dress from ZWERLON. Made with high-quality fabric, this dress is perfect for any occasion.',
   },
   {
+    productId: 19,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/dress/z/s/i/s-a1-zwerlon-original-imagn9uycxbhshur.jpeg?q=70',
     brand: 'ZWERLON',
@@ -90,6 +93,7 @@ export const Dresses = [
       'Make a statement with this stylish purple A-line dress from ZWERLON. Made with high-quality fabric, this dress is perfect for any occasion.',
   },
   {
+    productId: 20,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/dress/q/7/v/s-pwd322-purshottam-wala-original-imagm7ypaavduvnm.jpeg?q=70',
     brand: 'Purshottam Wala',
@@ -121,6 +125,7 @@ export const Dresses = [
   },
 
   {
+    productId: 21,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/dress/e/a/p/s-pwd322-purshottam-wala-original-imagm6ywr7vz95sz.jpeg?q=70',
     brand: 'Purshottam Wala',
@@ -151,6 +156,7 @@ export const Dresses = [
       'Make a statement with this stylish purple A-line dress from ZWERLON. Made with high-quality fabric, this dress is perfect for any occasion.',
   },
   {
+    productId: 22,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/kdlzte80/ethnic-set/p/f/q/l-3209-mint-02-neysa-original-imafuh85unfjczkd.jpeg?q=70',
     brand: 'NEYSA',

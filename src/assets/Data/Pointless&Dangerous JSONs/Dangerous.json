@@ -1,0 +1,224 @@
+[
+  {    
+    "title": "Poorly Designed Teapot",
+    "imageUrl": "https://i.pinimg.com/236x/5b/d1/66/5bd1660263ab8b89d07d4084c690e4da.jpg",
+    "brand": "Scheinhardt Wig Company",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Injurious",
+    "thirdLevelCategory": " ",
+    "description": "Do you ever get the desire to drink a cup of tea while also potentially causing moderate to severe burns? If so, look no further, this teapot is the only one of its kind to deliver that outcome every time!",
+    "discountPresent": 0
+  },
+  {    
+    "title": "1970's Lead-Based Paint",
+    "imageUrl": "https://greenorchardgroup.com/wp-content/uploads/2022/02/When-was-lead-paint-banned.jpg",
+    "brand": "Weyland Yutani Corporation",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Injurious",
+    "thirdLevelCategory": " ",
+    "description": "The 70's was a decade that contained some of the best music and films of the 20th Century. Now you too can relive that era of history with some of the lovely lead based, from our select pre-1978 vintage!",
+    "discountPresent": 0
+  }
+  ,
+  {    
+    "title": "Insulin, that does work on Poor People",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Inzul%C3%ADn.jpg/800px-Inzul%C3%ADn.jpg",
+    "brand": "Hosaka Corporation",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Potentially Lethal",
+    "thirdLevelCategory": " ",
+    "description": "Isn't strange how nearly every president since Jimmy Carter has explicitly run on the promise of lowering the price of insulin and yet it never seems to happen? Well, we wanna keep it that way, so introducing a new formulation which specifically doesn't work unless you meet a six-figure income threshold.",
+    "discountPresent": 0
+  },
+  {    
+    "title": "BEES!?",
+    "imageUrl": "https://media.newyorker.com/photos/64de67f53b391db87dffd19d/master/pass/230828_r42842.jpg",
+    "brand": "ACME",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Potentially Lethal",
+    "thirdLevelCategory": " ",
+    "description": "BEES!",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Trip to The Elmer's Glue, Sticky Waterpark",
+    "imageUrl": "https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/9945fb16023aae28e30f8110939dbb75.jpg",
+    "brand": "Burns Industries",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Ill-concieved",
+    "thirdLevelCategory": " ",
+    "description": "They all told me a glue based waterpark was a foolish idea! 'It'll never work', they said. 'Can you even call it a waterpark if all the rides use glue' they asked? Well I did not yield to naysayers of this, or any other world. I WILL FACE GOD AND WALK BACKWARDS INTO HELL!",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Meat Freshener",
+    "imageUrl": "https://i.kinja-img.com/image/upload/c_fit,q_60,w_645/23ecf42c2355e09ba6ee6d25cdeed4b5.jpg",
+    "brand": "Hosaka Corporation",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Mildly Upsetting",
+    "thirdLevelCategory": " ",
+    "description": "The ONLY air freshner marketed for specific use on raw meat.",
+    "discountPresent": 0
+  },
+  {    
+    "title": "'Real' Snake Oil",
+    "imageUrl": "https://bucksspices.com/cdn/shop/products/snakeoil1.webp?v=1705768631",
+    "brand": "Sterling Cooper",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Confusing",
+    "thirdLevelCategory": " ",
+    "description": "Is it oil that's meant for snakes or an oil made from snakes? Unclear! Guess you'll just have to buy some in order to find out!",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Friendship Scissor",
+    "imageUrl": "https://www.photocase.com/photos/237690-half-half-scissors-metal-old-authentic-simple-photocase-stock-photo-large.jpeg",
+    "brand": "The Bluth Company",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Ill-concieved",
+    "thirdLevelCategory": " ",
+    "description": "Most scissors come in pairs so they can acomplish their designed purpose. But we at the ---- decided that in these devicive times was more important to try and bring folks together. To wit, the friendship scissor which only comes with half a scissor requiring you to go out and make friends with another person who purchased their own friendship scissor....or you can always just buy two.    ",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Egg (Mystery Animal)",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Waved-albatross-egg.jpg",
+    "brand": "Vandelay Industries",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Frivolous",
+    "thirdLevelCategory": " ",
+    "description": " Its an egg! What animal is going to come out of it? Not even we know! The world's first and only double blind egg vendors in the United States",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Pile of Dynamite Dressed to resemble like a pretty girl rabbit",
+    "imageUrl": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F06%2Flooney-tunes-dynamite-dance-warner-bros-short-000.jpg?w=960&cbr=1&q=90&fit=max",
+    "brand": "ACME",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Potentially Lethal",
+    "thirdLevelCategory": " ",
+    "description": "Don't you just hate it when the ",
+    "discountPresent": 0
+  },
+  {    
+    "title": "Nicotine Toothpaste",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqvQAe2Ze1Uud8f4ouREDKmsftF1QlKm5YUg&s",
+    "brand": "Aperture Science",
+    "color":"Grey",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Harmful",
+    "secondLevelCategory": "Ill-concieved",
+    "thirdLevelCategory": " ",
+    "description": "Are you dissatisfied with conventional toothpaste that doesn't deliver nictone into your blood first thing in the morning? If so, you may want to seek help. But until then, why not brush with Uncle Shaky's toothpaste now with extra nicotine, for that fresh mouth sensation!  ",
+    "discountPresent": 0
+  }
+
+]

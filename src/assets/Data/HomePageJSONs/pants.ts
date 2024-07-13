@@ -1,5 +1,6 @@
 export const Pants = [
   {
+    productId: 13,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/kb1470w0/jean/x/r/a/30-11274626-roadster-original-imafsgsthk6gdpjg.jpeg?q=70',
     brand: 'Roadster',
@@ -28,9 +29,9 @@ export const Pants = [
     description:
       "Discover stylish men's pants that exude both comfort and fashion-forward design. These meticulously crafted pants are perfect for any occasion, providing a perfect blend of style and versatility.",
     discount: 63,
-    productId: 1,
   },
   {
+    productId: 14,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/jean/v/c/n/30-586035-v-mart-original-imagmh7fzah3r2jj.jpeg?q=70',
     brand: 'V-MART',
@@ -61,6 +62,7 @@ export const Pants = [
     discount: 49,
   },
   {
+    productId: 15,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/jean/1/4/v/-original-imaggjcyhzz4myqh.jpeg?q=70',
     brand: 'KILLER',
@@ -91,6 +93,7 @@ export const Pants = [
     discount: 70,
   },
   {
+    productId: 16,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/jean/n/u/3/bmw-darklevis-ben-martin-32-original-imaedpc4zcgjadsv.jpeg?q=70',
     brand: 'BEN MARTIN',
@@ -121,6 +124,7 @@ export const Pants = [
     discount: 64,
   },
   {
+    productId: 17,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/jean/r/g/f/32-18298-1258-levi-s-original-imaggz3fnw5cdphp.jpeg?q=70',
     brand: "LEVI'S",
@@ -151,6 +155,7 @@ export const Pants = [
     discount: 55,
   },
   {
+    productId: 18,
     imageUrl:
       'https://rukminim1.flixcart.com/image/612/612/xif0q/jean/i/l/0/-original-imagzhdnczq6gfrg.jpeg?q=70',
     brand: 'BEING HUMAN',
