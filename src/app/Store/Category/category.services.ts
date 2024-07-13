@@ -16,7 +16,7 @@ export class CategoryServices {
 
   getCategoriesByLevel(level: number): Observable<HttpResponseInterface> {
     return this.http.post<HttpResponseInterface>(
-      `${this.API_URL}api/category/level`,
+      `${this.API_URL}/api/category/level`,
       level,
     );
   }

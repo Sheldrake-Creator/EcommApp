@@ -49,8 +49,12 @@ export class NavbarComponent implements OnDestroy, OnInit {
   }
 
   openNavbarContent(section: any) {
-    this.isNavbarContentOpen = true;
-    this.currentSection = section;
+    if (this.isNavbarContentOpen && this.currentSection === section) {
+      this.closeNavbarContent();
+    } else {
+      this.isNavbarContentOpen = true;
+      this.currentSection = section;
+    }
   }
   closeNavbarContent() {
     this.isNavbarContentOpen = false;

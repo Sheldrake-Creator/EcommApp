@@ -27,7 +27,7 @@ export class OrderService {
   //Might need to adjust this method to take in the cart model as a parameter
   createOrder(): Observable<HttpResponseInterface> {
     return this.http.get<HttpResponseInterface>(
-      `${this.API_URL}api/orders/`,
+      `${this.API_URL}/api/orders/`,
       //  cart: CartInterface cart, //? Might want to add cart to this later
     );
   }
@@ -48,7 +48,7 @@ export class OrderService {
 
   getAllOrders(): Observable<HttpResponseInterface> {
     return this.http.get<HttpResponseInterface>(
-      `${this.API_URL}api/admin/orders/`,
+      `${this.API_URL}/api/admin/orders/`,
     );
   }
 
@@ -72,14 +72,14 @@ export class OrderService {
 
   cancelOrder(orderId: number): Observable<HttpResponseInterface> {
     return this.http.put<HttpResponseInterface>(
-      `${this.API_URL}api/admin/orders/id/${orderId}/cancel`,
+      `${this.API_URL}/api/admin/orders/id/${orderId}/cancel`,
       orderId,
     );
   }
 
   deleteOrder(orderId: number): Observable<HttpResponseInterface> {
     return this.http.delete<HttpResponseInterface>(
-      `${this.API_URL}api/admin/orders/id/${orderId}/delete`,
+      `${this.API_URL}/api/admin/orders/id/${orderId}/delete`,
     );
   }
 }

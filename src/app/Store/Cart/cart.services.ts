@@ -23,7 +23,7 @@ export class CartService {
 
   getCart(): Observable<HttpResponseInterface> {
     return this.http
-      .get<HttpResponseInterface>(`${this.API_URL}api/getCart`)
+      .get<HttpResponseInterface>(`${this.API_URL}/api/getCart`)
       .pipe(tap((response: any) => console.log(response)));
   }
 
@@ -32,13 +32,13 @@ export class CartService {
     reqData: AddItemRequestInterface,
   ): Observable<HttpResponseInterface> {
     return this.http
-      .put<HttpResponseInterface>(this.API_URL + 'api/item/add', reqData)
+      .put<HttpResponseInterface>(this.API_URL + '/api/item/add', reqData)
       .pipe(tap((response) => console.log(response.data)));
   }
 
   removeCartItem(cartItemId: Number): Observable<HttpResponseInterface> {
     return this.http
-      .delete<HttpResponseInterface>(`${this.API_URL}api/item/${cartItemId}`)
+      .delete<HttpResponseInterface>(`${this.API_URL}/api/item/${cartItemId}`)
       .pipe(tap((response) => console.log(response.data)));
   }
 
@@ -48,7 +48,7 @@ export class CartService {
     console.log('Request: ', req);
     return this.http
       .put<HttpResponseInterface>(
-        `${this.API_URL}api/item/${req.cartItemId}`,
+        `${this.API_URL}/api/item/${req.cartItemId}`,
         req,
       )
       .pipe(tap((response) => console.log(response.data)));

@@ -1,4 +1,4 @@
-<div class="fixed top-0 z-50 right-0 left-0 bg-[#69f0ae] text-gray-800 ">
+<div class="fixed top-0 z-50 right-0 left-0 bg-[#57df9d]">
     
     <div class="px-5 lg:px-20 h-16 flex items-center justify-between"> 
         <div class="flex items-center"> 
@@ -9,32 +9,38 @@
         </div>
 
         <div class="">        
-            <div class="flex space-x-4">
-                <a routerlink= "/" class="text-red-600 font-bold pt-2">
+            <div class="flex space-x-4 mt-2">
+                <a routerlink= "/" class="text-purple-600 font-bold pt-2">
                 Shop with Silas
                 </a>
                 <div>
-                    <button class="open-button" (click)= "openNavbarContent('pointless')" mat-button>Pointless</button>
+                    <button class="open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1 text-purple-600" (click)= "openNavbarContent('pointless')" mat-button>Pointless</button>
                 </div>
                 <div>
-                    <button class="open-button" (click)= "openNavbarContent('dangerous')" mat-button>Dangerous</button>
+                    <button class="open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1" (click)= "openNavbarContent('dangerous')" mat-button>Dangerous</button>
                 </div>
                 <div>
-                    <button class="open-button" (click)= "navigateToProducts()" mat-button>Pointless & Dangerous</button>
+                    <button class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1" (click)= "navigateToProducts()" mat-button>Pointless & Dangerous</button>
+                </div>
+                <div>
+                    <button class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1" (click)= "navigateTo('/admin')" mat-button>Admin Panel</button>
                 </div>
             </div>
         </div>
         </div>
 
         <div class="flex items-center">
-            <button (click)= "navigateTo('cart')" mat-icon-button> 
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
+
             <button (click)="handleOpenLogin()" *ngIf="!(currentUser$ | async)" mat-raised-button color="accent">LOGIN</button>
 
             <div *ngIf="currentUser$ | async as userProfile" class="relative ml-3 flex items-center">
-                <div class="flex items-center space-x-5">
-                    <span class="font-bold text-lg">{{userProfile.userName}}</span> 
+
+
+                <div class="flex items-center space-x-3">
+                    <span class="font-bold text-gray-800 text-lg">{{userProfile.userName}}</span> 
+                    <button class="bg-slate-700" (click)= "navigateTo('cart')"  mat-icon-button> 
+                        <mat-icon>shopping_cart</mat-icon>
+                    </button>
                     <button mat-button [matMenuTriggerFor]= "profileMenu">
                         <img class="h-7 w-7" src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt="">
                     </button>

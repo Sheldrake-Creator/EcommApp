@@ -19,7 +19,7 @@ export class ProductServices {
 
   findProductsById(productId: number): Observable<HttpResponseInterface> {
     return this.http.get<HttpResponseInterface>(
-      `${this.API_URL}api/products/id/${productId}`,
+      `${this.API_URL}/api/products/id/${productId}`,
     );
   }
 
@@ -62,20 +62,20 @@ export class ProductServices {
     product: CreateProductRequestInterface,
   ): Observable<HttpResponseInterface> {
     return this.http.post<HttpResponseInterface>(
-      `${this.API_URL}api/admin/products/`,
+      `${this.API_URL}/api/admin/products/`,
       product,
     );
   }
   getAllProducts(): Observable<HttpResponseInterface> {
     return this.http.get<HttpResponseInterface>(
-      `${this.API_URL}api/admin/products/all`,
+      `${this.API_URL}/api/admin/products/all`,
     );
   }
   addMultipleProducts(
     productList: CreateProductRequestInterface[],
   ): Observable<HttpResponseInterface> {
     return this.http.post<HttpResponseInterface>(
-      `${this.API_URL}api/admin/products/creates`,
+      `${this.API_URL}/api/admin/products/creates`,
       productList,
     );
   }
@@ -84,13 +84,13 @@ export class ProductServices {
     product: ProductInterface[],
   ): Observable<HttpResponseInterface> {
     return this.http.put<HttpResponseInterface>(
-      `${this.API_URL}api/admin/products/id/${productId}/update`,
+      `${this.API_URL}/api/admin/products/id/${productId}/update`,
       product,
     );
   }
   deleteProduct(productId: number): Observable<HttpResponseInterface> {
     return this.http.delete<HttpResponseInterface>(
-      `${this.API_URL}api/admin/products/id/${productId}/delete`,
+      `${this.API_URL}/api/admin/products/id/${productId}/delete`,
     );
   }
 }
