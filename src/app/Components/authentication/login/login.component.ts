@@ -65,7 +65,6 @@ export class LoginComponent {
   submitForm(): void {
     console.log('form', this.loginForm.getRawValue());
     const request: LoginRequestInterface = this.loginForm.getRawValue();
-
     this.store.dispatch(authActions.login({ request }));
   }
 }
