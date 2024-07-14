@@ -17,7 +17,7 @@ import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BacknedErrorMessages } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
+import { BackendErrors } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import { selectValidationErrors } from '../../../Store/Auth/auth.reducer';
 import { UserService } from '../../../Store/User/user.services';
@@ -41,7 +41,7 @@ import { AuthStateInterface } from '../../../models/State/authState.interface';
     MatError,
     MatLabel,
     MatInput,
-    BacknedErrorMessages,
+    BackendErrors,
   ],
 })
 export class RegisterComponent {
