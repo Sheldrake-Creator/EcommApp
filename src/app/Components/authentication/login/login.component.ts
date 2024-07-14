@@ -16,7 +16,8 @@ import {
 import { MatInput } from '@angular/material/input';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BackendErrors } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
+
+import { BackendErrors } from '../../../ErrorHandling/BackendErrors/backenderrors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import {
   selectIsSubmitting,

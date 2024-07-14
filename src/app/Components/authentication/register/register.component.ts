@@ -17,7 +17,7 @@ import { MatInput } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BackendErrors } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
+import { BackendErrors } from '../../../ErrorHandling/BackendErrors/backenderrors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import { selectValidationErrors } from '../../../Store/Auth/auth.reducer';
 import { UserService } from '../../../Store/User/user.services';

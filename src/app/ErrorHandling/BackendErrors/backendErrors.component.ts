@@ -5,7 +5,7 @@ import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interf
 @Component({
   imports: [CommonModule],
   selector: 'mc-backend-error-messages',
-  templateUrl: './backendErrors.component.html',
+  templateUrl: './backenderrors.component.html',
   standalone: true,
 })
 export class BackendErrors implements OnInit {
