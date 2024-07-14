@@ -1,41 +1,160 @@
-<div class="relative h-[400px] bg-gradient-to-tr from-indigo-600 via-indigo-700 to-violet-800">
-    <div class="flex flex-col gap-4 justify-center items-center w-full h-full px-3 md:px-0">
+<section class="dashboard">
+    <div class="h-3/6 w-screen bg-gradient-to-tr from-emerald-800 via-emerald-600 to-emerald-500">
+        <div class="flex flex-col gap-4 justify-center items-center px-3 md:px-0">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white pt-20">
+                Dashboard
+            </h1>
+        </div>
+        <div class="grid gap-4 lg:gap-8 md:grid-cols-3 p-8 pt-20">
+            <div class="relative p-6 rounded-2xl bg-white shadow dark:bg-gray-800">
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <span>Products For Sale</span>
+                    </div>
 
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-            Admin Portal
+                    <div class="text-3xl dark:text-gray-100">$192.1k</div>
 
-        </h1>
-        <p class="text-gray-300">
-           Application update and Status
+                    <div class="flex items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-green-600">
+                        <span>32k increase</span>
 
-        </p>
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
 
+            <div class="relative p-6 rounded-2xl bg-white shadow dark:bg-gray-800">
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <span>New customers</span>
+                    </div>
+
+                    <div class="text-3xl dark:text-gray-100">1340</div>
+
+                    <div class="flex items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-red-600">
+                        <span>3% decrease</span>
+
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 13a1 1 0 100 2h5a1 1 0 001-1V9a1 1 0 10-2 0v2.586l-4.293-4.293a1 1 0 00-1.414 0L8 9.586 3.707 5.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0L11 9.414 14.586 13H12z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative p-6 rounded-2xl bg-white shadow dark:bg-gray-800">
+                <div class="space-y-2">
+                    <div
+                        class="flex items-center space-x-2 rtl:space-x-reverse text-sm font-medium text-gray-500 dark:text-gray-400">
+                        <span>New orders</span>
+                    </div>
+
+                    <div class="text-3xl dark:text-gray-100">3543</div>
+
+                    <div class="flex items-center space-x-1 rtl:space-x-reverse text-sm font-medium text-green-600">
+                        <span>7% increase</span>
+
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="order-portal relative h-[400px] bg-gradient-to-tr from-indigo-600 via-indigo-700 to-violet-800">
+    <div class=" pt-8">
+        <div class="flex flex-col gap-4 justify-center items-center w-full h-4/6 px-3 md:px-0">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                Order Portal
+            </h1>
+            <p class="text-gray-300">Application update and Status</p>
+        </div>
 
         <div class="shadow-lg rounded-lg overflow-hidden mx-3 md:mx-4">
-    <table class="w-full table-fixed">
-        <thead>
-            <tr class="bg-gray-100">
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Source</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Toggle</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">URL</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
-            </tr>
-        </thead>
-        <tbody class="bg-white">
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">box</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">On</td>
-                <td class="py-4 px-6 border-b border-gray-200">www.box.net</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">FR</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">Off</td>
-                <td class="py-4 px-6 border-b border-gray-200">www.frr.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <tr>
+            <table class="w-full table-fixed">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                            Source
+                        </th>
+                        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                            Toggle
+                        </th>
+                        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                            URL
+                        </th>
+                        <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr>
+                        <td class="py-4 px-6 border-b border-gray-200">box</td>
+                        <td class="py-4 px-6 border-b border-gray-200 truncate">On</td>
+                        <td class="py-4 px-6 border-b border-gray-200">www.box.net</td>
+                        <td class="py-4 px-6 border-b border-gray-200">
+                            <span class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-6 border-b border-gray-200">FR</td>
+                        <td class="py-4 px-6 border-b border-gray-200 truncate">Off</td>
+                        <td class="py-4 px-6 border-b border-gray-200">www.frr.com</td>
+                        <td class="py-4 px-6 border-b border-gray-200">
+                            <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- <section>
+    <div class="max-w-screen-md mx-auto p-10 dark:bg-gray-800">
+        <div id="accordion-flush" data-accordion="collapse"
+            data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+            data-inactive-classes="text-gray-500 dark:text-gray-400">
+            <h3 id="accordion-flush-heading-1">
+                <button type="button"
+                    class="flex items-center justify-between w-full py-5 px-4 font-medium text-left border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+                    data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
+                    aria-controls="accordion-flush-body-1">
+                    <span>Can I use Landwind in open-source projects?</span>
+                    <svg data-accordion-icon="" class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </h3>
+            <div id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                    <p class="mb-2 text-gray-500 dark:text-gray-400">Landwind is an open-source library of interactive
+                        components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="#"
+                            class="text-purple-600 dark:text-purple-500 hover:underline">get started</a> and start
+                        developing websites even faster with components on top of Tailwind CSS.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+</section> -->
