@@ -16,13 +16,12 @@ import {
 import { MatInput } from '@angular/material/input';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BacknedErrorMessages } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
+import { BackendErrors } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import {
   selectIsSubmitting,
   selectValidationErrors,
 } from '../../../Store/Auth/auth.reducer';
-import { AuthService } from '../../../Store/Auth/auth.services';
 import { LoginRequestInterface } from '../../../models/Requests/loginRequest.interface';
 
 @Component({
@@ -39,7 +38,7 @@ import { LoginRequestInterface } from '../../../models/Requests/loginRequest.int
     ReactiveFormsModule,
     MatButtonModule,
     CommonModule,
-    BacknedErrorMessages,
+    BackendErrors,
   ],
 })
 export class LoginComponent {
