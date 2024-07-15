@@ -1,25 +1,30 @@
-<ng-container *ngIf="data$ | async as data" >
+<ng-container *ngIf="data$ | async as data">
     <div class="container">
         <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
             <h1>Shop With Silas</h1>
             <div>
-                            <!-- BACKEND ERRORS HERE -->
-            <mc-backend-error-messages *ngIf="data.backendErrors" style="color: crimson; font-weight: 500;" [backendErrors]="data.backendErrors"></mc-backend-error-messages>
+
+                <!-- BACKEND ERRORS HERE -->
+                <mc-backend-error-messages *ngIf="data.backendErrors" style="color: crimson; font-weight: 500;"
+                    [backendErrors]="data.backendErrors"></mc-backend-error-messages>
                 <mat-form-field class="w-full">
                     <mat-label>userName</mat-label>
                     <input matInput formControlName="userName" required userName>
                     <mat-error *ngIf="loginForm.controls['userName'].hasError('required')">User is Required</mat-error>
-                    <mat-error *ngIf="loginForm.controls['userName'].hasError('userName')">Please enter a valid email address</mat-error>
+                    <mat-error *ngIf="loginForm.controls['userName'].hasError('userName')">Please enter a valid email
+                        address</mat-error>
                 </mat-form-field>
-    
+
                 <mat-form-field class="w-full">
-    
+
                     <mat-label>Password</mat-label>
                     <input matInput formControlName="password" required password>
-                    <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Password is Required</mat-error>
-                    <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">Password should be at least 8 characters long</mat-error>
+                    <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Password is
+                        Required</mat-error>
+                    <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">Password should be at least
+                        8 characters long</mat-error>
                 </mat-form-field>
-    
+
                 <div>
                     <button style="padding : 1.7rem" mat-raised-button class="w-full" color="accent">LOGIN</button>
                 </div>
@@ -30,8 +35,7 @@
                     </button>
                 </div>
             </div>
-    
+
         </form>
     </div>
 </ng-container>
-

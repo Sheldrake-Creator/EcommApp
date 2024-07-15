@@ -12,7 +12,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
-
 import { authActions } from '../../../Store/Auth/auth.actions';
 import {
   selectIsSubmitting,
@@ -31,10 +30,12 @@ import { LoginRequestInterface } from '../../../models/Requests/loginRequest.int
     ReactiveFormsModule,
     MatButtonModule,
     CommonModule,
+    BackendErrorsComponent,
   ],
 })
 export class LoginComponent {
   @Input() changeTemplate: any;
+  @Input() backendErrors: any;
 
   constructor(
     private fb: FormBuilder,
