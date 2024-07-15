@@ -8,16 +8,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MatError,
-  MatFormFieldModule,
-  MatLabel,
-} from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backenderrors.component';
+import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import { selectValidationErrors } from '../../../Store/Auth/auth.reducer';
 import { UserService } from '../../../Store/User/user.services';
@@ -37,10 +32,6 @@ import { AuthStateInterface } from '../../../models/State/authState.interface';
     MatFormFieldModule,
     FormsModule,
     MatButtonModule,
-    FormsModule,
-    MatError,
-    MatLabel,
-    MatInput,
     BackendErrorsComponent,
   ],
 })

@@ -8,15 +8,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MatError,
-  MatFormFieldModule,
-  MatLabel,
-} from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backenderrors.component';
+import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
 
 import { authActions } from '../../../Store/Auth/auth.actions';
 import {
@@ -33,9 +28,6 @@ import { LoginRequestInterface } from '../../../models/Requests/loginRequest.int
   imports: [
     MatFormFieldModule,
     FormsModule,
-    MatLabel,
-    MatError,
-    MatInput,
     ReactiveFormsModule,
     MatButtonModule,
     CommonModule,
