@@ -8,7 +8,7 @@ import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interf
   templateUrl: './backenderrors.component.html',
   standalone: true,
 })
-export class BackendErrors implements OnInit {
+export class BackendErrorsComponent implements OnInit {
   @Input() backendErrors: BackendErrorsInterface = {};
 
   errorMessages: string[] = [];

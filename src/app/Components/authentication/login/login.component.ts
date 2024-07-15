@@ -16,8 +16,8 @@ import {
 import { MatInput } from '@angular/material/input';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
+import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backenderrors.component';
 
-import { BackendErrors } from '../../../ErrorHandling/BackendErrors/backenderrors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import {
   selectIsSubmitting,
@@ -39,7 +39,7 @@ import { LoginRequestInterface } from '../../../models/Requests/loginRequest.int
     ReactiveFormsModule,
     MatButtonModule,
     CommonModule,
-    BackendErrors,
+    BackendErrorsComponent,
   ],
 })
 export class LoginComponent {
