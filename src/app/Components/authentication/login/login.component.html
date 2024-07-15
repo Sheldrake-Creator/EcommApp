@@ -5,8 +5,8 @@
             <div>
 
                 <!-- BACKEND ERRORS HERE -->
-                <mc-backend-error-messages *ngIf="data.backendErrors" style="color: crimson; font-weight: 500;"
-                    [backendErrors]="data.backendErrors"></mc-backend-error-messages>
+                <app-backend-errors *ngIf="data.backendErrors" style="color: crimson; font-weight: 500;"
+                    [backendErrors]="data.backendErrors"></app-backend-errors>
                 <mat-form-field class="w-full">
                     <mat-label>userName</mat-label>
                     <input matInput formControlName="userName" required userName>

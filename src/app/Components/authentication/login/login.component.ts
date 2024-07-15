@@ -11,7 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
+
+import { BackendErrorsComponent } from '../../../ErrorHandling/backend-errors/backend-errors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import {
   selectIsSubmitting,

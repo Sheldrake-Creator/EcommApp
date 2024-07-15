@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
-import { BackendErrorsComponent } from '../../../ErrorHandling/BackendErrors/backendErrors.component';
+import { BackendErrorsComponent } from '../../../ErrorHandling/backend-errors/backend-errors.component';
 import { authActions } from '../../../Store/Auth/auth.actions';
 import { selectValidationErrors } from '../../../Store/Auth/auth.reducer';
 import { UserService } from '../../../Store/User/user.services';
@@ -33,6 +33,7 @@ import { AuthStateInterface } from '../../../models/State/authState.interface';
     FormsModule,
     MatButtonModule,
     BackendErrorsComponent,
+    CommonModule,
   ],
 })
 export class RegisterComponent {
