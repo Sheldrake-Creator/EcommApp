@@ -32,7 +32,6 @@ import { AuthStateInterface } from '../../../models/State/authState.interface';
     MatFormFieldModule,
     FormsModule,
     MatButtonModule,
-    BackendErrorsComponent,
   ],
 })
 export class RegisterComponent {

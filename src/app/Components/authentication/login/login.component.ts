@@ -31,7 +31,6 @@ import { LoginRequestInterface } from '../../../models/Requests/loginRequest.int
     ReactiveFormsModule,
     MatButtonModule,
     CommonModule,
-    BackendErrorsComponent,
   ],
 })
 export class LoginComponent {
