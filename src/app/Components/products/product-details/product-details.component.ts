@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { Observable, map } from 'rxjs';
+import { Observable, map, take } from 'rxjs';
 import { LehengaCholi } from '../../../../assets/Data/Women/lehengaCholi';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
@@ -37,11 +38,13 @@ import { ProductReviewCardComponent } from './product-review-card/product-review
     ProductReviewCardComponent,
     StarRatingComponent,
     MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent implements OnInit {
+  [x: string]: any;
   selectedSize!: string;
   reviews = [1, 2, 1];
   relatedProducts: any;
@@ -51,6 +54,8 @@ export class ProductDetailsComponent implements OnInit {
   currentUser$: Observable<CurrentUserInterface | null | undefined>;
   stringId: string | null;
   id!: number;
+  MdRadioChange: Event | undefined;
+  isSubmitButtonEnabled: boolean;
 
   constructor(
     private router: Router,
@@ -60,6 +65,8 @@ export class ProductDetailsComponent implements OnInit {
     this.currentUser$ = this.store.select(selectCurrentUser);
     this.stringId = this.activatedRoute.snapshot.paramMap.get('id');
     this.id = +this.stringId!;
+    this.quantity = 1;
+    this.isSubmitButtonEnabled = false;
   }
 
   ngOnInit() {
@@ -74,20 +81,11 @@ export class ProductDetailsComponent implements OnInit {
 
     // Select the product from the store
     this.product$ = this.store.select(selectProduct);
-    console.log(this.product$.subscribe());
     this.isLoading$ = this.store.select(selectIsLoading);
-    // this.productServices.findProductsById(id);
-
-    //   this.product$ = this.store.pipe(
-    //     select(selectAdminProducts),
-    //     map((productList) =>
-    //       productList?.find((product) => product.productId === id),
-    //     ),
-    //   );
   }
 
   handleAddToCart() {
-    this.product$.subscribe((product) => {
+    this.product$.pipe(take(1)).subscribe((product) => {
       if (product) {
         console.log('selected Size ', this.selectedSize);
         const req: AddItemRequestInterface = {
@@ -100,4 +98,7 @@ export class ProductDetailsComponent implements OnInit {
       }
     });
   }
+  // radioChange(MdRadioChange: Event) {
+  //   this.isSubmitButtonEnabled = MdRadioChange.value;
+  // }
 }

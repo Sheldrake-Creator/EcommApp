@@ -35,7 +35,7 @@ import { AddressCardComponent } from '../../address-card/address-card.component'
   ],
 })
 export class AddressFormComponent {
-  addresses = [1, 1, 1];
+  addresses = [];
 
   myForm: FormGroup = this.formBuilder.group({
     firstName: ['', Validators.required],

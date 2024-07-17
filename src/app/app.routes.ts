@@ -5,6 +5,7 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { LoginComponent } from './Components/authentication/login/login.component';
 import { RegisterComponent } from './Components/authentication/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { ProductDetailsComponent } from './Components/products/product-details/product-details.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: ':levelone/:levelTwo/:levelThree', component: ProductsComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
 
 @NgModule({

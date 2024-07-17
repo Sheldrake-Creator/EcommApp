@@ -1,4 +1,4 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { CartStateInterface } from '../../models/State/cartState.interface';
 import { cartActions } from './cart.actions';
 
@@ -43,18 +43,22 @@ export const cartFeature = createFeature({
     on(cartActions.removeCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      cart: action.payload,
-      // cartItems: state.cartItems?.filter(
-      //   (item) => item.cartItemId !== action.payload.cartItemId,
-      // ),
+      cart: {
+        ...state.cart,
+        cartItems: state.cart!.cartItems.filter(
+          (item) => item.cartItemId !== action.payload.cartItemId,
+        ),
+      },
     })),
     on(cartActions.updateCartItemSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      // cartItems: state.cartItems.map((item) =>
-      //   item.cartItemId !== action.payload.cartItemId ? action.payload : item,
-      // ),
-      cart: action.payload,
+      cart: {
+        ...state.cart,
+        cartItems: state.cart!.cartItems.map((item) =>
+          item.cartItemId === action.payload.cartItemId ? action.payload : item,
+        ),
+      },
     })),
     on(cartActions.getCartSuccess, (state, action) => ({
       ...state,
@@ -72,3 +76,8 @@ export const {
   selectValidationErrors,
   selectCart,
 } = cartFeature;
+
+export const selectCartItemCount = createSelector(
+  selectCart,
+  (state) => state?.cartItems.length,
+);

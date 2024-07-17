@@ -28,7 +28,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 })
 export class CartComponent implements OnInit {
   cart$: Observable<CartInterface | undefined>;
-  cartItems$!: Observable<CartItemInterface[] | undefined>;
+  cartItems$: Observable<CartItemInterface[] | undefined> | undefined;
 
   constructor(
     private router: Router,

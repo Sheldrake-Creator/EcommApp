@@ -4,14 +4,14 @@
             <div class="box p-5 space-y-3">
                 <ng-container *ngIf="cartItems$ | async as cartItems">
                     <div *ngFor="let item of cartItems;let last = last">
-                         <!-- * CartItemComponent -->
+                        <!-- ? CartItemComponent -->
                         <app-cart-item [cartItem]="item" showButton="true" />
-                        <mat-divider *ngIf="!last"/>
+                        <mat-divider *ngIf="!last" />
                     </div>
                 </ng-container>
             </div>
         </section>
-        
+
         <section class="px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0">
             <ng-container *ngIf="cart$ | async as cart">
                 <div class="box p-5 rounded-md">
@@ -32,11 +32,8 @@
                             <span class="text-green-700">Free</span>
                         </div>
                     </div>
-                    <button (click)="navigateToCheckout()" 
-                    style="padding: 1.5rem;" 
-                    class="text-lg mt-8 p-28 px-10 w-full"
-                    color="accent"
-                    mat-raised-button>CHECKOUT</button>
+                    <button (click)="navigateToCheckout()" style="padding: 1.5rem;"
+                        class="text-lg mt-8 p-28 px-10 w-full" color="accent" mat-raised-button>CHECKOUT</button>
                 </div>
             </ng-container>
         </section>
