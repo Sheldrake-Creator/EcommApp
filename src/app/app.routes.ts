@@ -6,6 +6,7 @@ import { LoginComponent } from './Components/authentication/login/login.componen
 import { RegisterComponent } from './Components/authentication/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { OrderTrackerComponent } from './Components/order-tracker/order-tracker.component';
 import { ProductDetailsComponent } from './Components/products/product-details/product-details.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: ':levelone/:levelTwo/:levelThree', component: ProductsComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'orderTracker', component: OrderTrackerComponent },
 ];
 
 @NgModule({

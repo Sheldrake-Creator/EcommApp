@@ -39,8 +39,3 @@ export const {
   selectIsLoading,
   selectValidationErrors,
 } = userFeature;
-
-export const selectUserAddresses = createSelector(
-  selectCurrentUser,
-  (state) => state?.address,
-);

@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 gap-4 lg:grid-cols-12 px-5 lg:px-20">
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-12 px-5 lg:px-20" *ngIf="addressList$ | async as addresses ">
     <div class="col-span-1 lg:col-span-5">
         <div class="rounded-md shadow-md h-[32.2rem] overflow-y-auto box py-5">
             <div class="p-5 py-7 cursor-pointer">
@@ -73,9 +73,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
-
     </div>
-
 </div>

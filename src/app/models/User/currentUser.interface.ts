@@ -6,5 +6,5 @@ export interface CurrentUserInterface {
   token: string | null;
   userName: string;
   role: string | null;
-  address: AddressInterface[];
+  addresses: AddressInterface[];
 }

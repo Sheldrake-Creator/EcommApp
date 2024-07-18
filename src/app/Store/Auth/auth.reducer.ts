@@ -1,4 +1,4 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { AuthStateInterface } from '../../models/State/authState.interface';
 import { authActions } from './auth.actions';
 
@@ -64,3 +64,8 @@ export const {
   selectIsLoading,
   selectValidationErrors,
 } = authFeature;
+
+export const selectUserAddresses = createSelector(
+  selectCurrentUser,
+  (state) => state?.addresses,
+);
