@@ -5,9 +5,9 @@ name: Angular Build
 
 on:
   push:
-    branches: ["EcommApp-DevBranch"]
+    branches: ["EcommApp-Main"]
   pull_request:
-    branches: ["EcommApp-DevBranch"]
+    branches: ["EcommApp-Main"]
 
 jobs:
   angular:
