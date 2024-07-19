@@ -5,7 +5,7 @@
                 <div *ngFor="let item of addresses; let last=last" class="py-2 space-y-2">
                     <app-address-card [address]="item" />
                     <button style="padding: 1.6rem;" mat-raised-button color="accent"
-                        (click)="handleCreateOrder()">Deliver Here</button>
+                        (click)="handleCreateOrder(item)">Deliver Here</button>
                     <mat-divider *ngIf="!last"></mat-divider>
                 </div>
             </div>
@@ -15,7 +15,7 @@
 
     <div class="col-span-1 lg:col-span-7">
         <div class="rounded-md shadow-md p-5 box">
-            <form [formGroup]="myForm" (ngSubmit)="handleSubmit()">
+            <form [formGroup]="myForm">
                 <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <div class="col-span-1">
                         <mat-form-field appearance="fill" class="w-full">
@@ -67,8 +67,9 @@
                         </mat-form-field>
                     </div>
                     <div class="col-span-2">
-                        <button class="w-full" style="padding: 1.6rem" color="accent" type="submit" mat-raised-button>
-                            Deliver Here
+                        <button (click)="handleAddAddress()" class="w-full" style="padding: 1.6rem" color="accent"
+                            type="submit" mat-raised-button>
+                            Add Address
                         </button>
                     </div>
                 </div>

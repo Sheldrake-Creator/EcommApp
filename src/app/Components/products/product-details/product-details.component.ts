@@ -44,7 +44,7 @@ import { ProductReviewCardComponent } from './product-review-card/product-review
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent implements OnInit {
-  [x: string]: any;
+  // [x: string]: any;
   selectedSize!: string;
   reviews = [1, 2, 1];
   relatedProducts: any;
@@ -56,6 +56,8 @@ export class ProductDetailsComponent implements OnInit {
   id!: number;
   MdRadioChange: Event | undefined;
   isSubmitButtonEnabled: boolean;
+  showSizeError: boolean = false;
+  onSale: boolean = false;
 
   constructor(
     private router: Router,
@@ -79,12 +81,31 @@ export class ProductDetailsComponent implements OnInit {
       productActions.findProductsByIdRequest({ reqData: id }),
     );
 
-    // Select the product from the store
-    this.product$ = this.store.select(selectProduct);
+    // Select the product from the store and calculate the discountPercentage
+    this.product$ = this.store.select(selectProduct).pipe(
+      map((product) => {
+        if (product) {
+          const discountPresent = this.calculateDiscountPercent(
+            product.price,
+            product.discountedPrice,
+          );
+          return {
+            ...product,
+            discountPresent: Math.round(discountPresent),
+          };
+        }
+        return product;
+      }),
+    );
     this.isLoading$ = this.store.select(selectIsLoading);
   }
 
   handleAddToCart() {
+    //Display error message if size is not selected
+    if (!this.selectedSize) {
+      this.showSizeError = true;
+      return;
+    }
     this.product$.pipe(take(1)).subscribe((product) => {
       if (product) {
         console.log('selected Size ', this.selectedSize);
@@ -97,6 +118,14 @@ export class ProductDetailsComponent implements OnInit {
         this.router.navigate(['cart']);
       }
     });
+  }
+
+  //? This logic should probably be handled on the backend. I just wanted to see if this was possible.
+  private calculateDiscountPercent(
+    price: number,
+    discountedPrice: number,
+  ): number {
+    return ((price - discountedPrice) / price) * 100;
   }
   // radioChange(MdRadioChange: Event) {
   //   this.isSubmitButtonEnabled = MdRadioChange.value;

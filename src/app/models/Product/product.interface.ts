@@ -8,7 +8,7 @@ export interface ProductInterface {
   title: string;
   description: string;
   price: number;
-  discountedPrice?: number;
+  discountedPrice: number;
   numInStock: number;
   brand: string;
   color: string;
@@ -20,4 +20,5 @@ export interface ProductInterface {
   firstLevelCategory?: string | null;
   secondLevelCategory?: string | null;
   thirdLevelCategory?: string | null;
+  discountPresent: number | null;
 }

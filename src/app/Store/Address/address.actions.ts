@@ -2,7 +2,6 @@ import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
 import { AddressInterface } from '../../models/Address/address.interface';
 import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interface';
-import { SuccessMessageInterface } from '../../models/Responses/successMessage.interface';
 
 export const addressActions = createActionGroup({
   source: 'address',

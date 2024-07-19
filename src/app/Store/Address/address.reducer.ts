@@ -39,7 +39,7 @@ export const addressFeature = createFeature({
       validationErrors: null,
       currentUser: {
         ...state.currentUser!,
-        address: [...state.currentUser!.address, action.payload],
+        address: [...state.currentUser!.addresses, action.payload],
       },
     })),
     on(addressActions.updateAddressSuccess, (state, action) => ({
@@ -49,7 +49,7 @@ export const addressFeature = createFeature({
       currentUser: {
         ...state.currentUser!,
         address: [
-          ...state.currentUser!.address.map((address) =>
+          ...state.currentUser!.addresses.map((address) =>
             address.addressId === action.payload.addressId
               ? action.payload
               : address,
@@ -64,7 +64,7 @@ export const addressFeature = createFeature({
       currentUser: {
         ...state.currentUser!,
         address: [
-          ...state.currentUser!.address.filter(
+          ...state.currentUser!.addresses.filter(
             (address) => address.addressId === action.payload.addressId,
           ),
         ],

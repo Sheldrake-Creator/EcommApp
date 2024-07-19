@@ -19,9 +19,9 @@
 
             <div class="flex items-center space-x-5">
                 <p class="text-lg">{{ product.discountedPrice }}$</p>
-                <p class="text-lg text-gray-700 line-through">{{ product.price }}</p>
-                <p class="text-green-400 font-semibold text-lg">
-                    {{ product.discountedPrice }}%
+                <p *ngIf="onSale" class="text-lg text-gray-700 line-through">{{ product.price }}</p>
+                <p *ngIf="onSale" class="text-green-400 font-semibold text-lg">
+                    {{ product.discountPresent }}%
                 </p>
             </div>
 
@@ -48,6 +48,9 @@
                     (click)="handleAddToCart()" mat-raised-button>
                     Add to Cart
                 </button>
+                <div *ngIf="showSizeError" class="text-red-500 mt-2">
+                    Please select a size before adding to cart.
+                </div>
                 <ng-template #signedOut>
                     <button style="padding: 1rem" class="w-full bg-gray-300 cursor-not-allowed"
                         matTooltip="Sign in to add item to cart" matTooltipPosition="above" mat-raised-button>

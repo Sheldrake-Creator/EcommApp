@@ -1,4 +1,10 @@
-import { FeatureConfig, createFeature, createReducer, on } from '@ngrx/store';
+import {
+  FeatureConfig,
+  createFeature,
+  createReducer,
+  createSelector,
+  on,
+} from '@ngrx/store';
 import { OrderStateInterface } from '../../models/State/orderState.interface';
 import { orderActions, orderAdminActions } from './order.actions';
 
@@ -162,3 +168,13 @@ export const {
   selectUserOrder,
   selectAdminOrder,
 } = orderFeature;
+
+export const selectOrder = createSelector(
+  selectUserOrder,
+  (state) => state.order,
+);
+
+export const selectOrders = createSelector(
+  selectUserOrder,
+  (state) => state.orders,
+);

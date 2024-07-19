@@ -11,8 +11,8 @@ export const createOrderEffect = createEffect(
   (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderActions.createOrderRequest),
-      switchMap(() => {
-        return orderService.createOrder().pipe(
+      switchMap(({ reqData }) => {
+        return orderService.createOrder(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['order'] as OrderInterface;
           }),
