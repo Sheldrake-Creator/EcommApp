@@ -3,9 +3,9 @@ import { CartItemInterface } from './cartItem.interface';
 
 export interface CartInterface {
   userId?: number;
-  cartId?: number;
+  cartId: number;
   cartItems: CartItemInterface[];
-  totalPrice?: number;
-  totalItems?: number;
-  totalDiscountedPrice?: number;
+  totalPrice: number;
+  totalItems: number;
+  totalDiscountedPrice: number;
 }

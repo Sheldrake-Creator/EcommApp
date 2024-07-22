@@ -5,40 +5,14 @@ import { OrderInterface } from '../../models/Order/order.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { SuccessMessageInterface } from '../../models/Responses/successMessage.interface';
 import { orderActions, orderAdminActions } from './order.actions';
-import { OrderServices } from './order.services';
-
-export const addAddressEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
-    return actions$.pipe(
-      ofType(orderActions.addAddressRequest),
-      switchMap(({ reqData }) => {
-        return orderService.addAddress(reqData).pipe(
-          map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.message as SuccessMessageInterface;
-          }),
-          map((payload: SuccessMessageInterface) => {
-            return orderActions.addAddressSuccess({ payload });
-          }),
-          catchError((errorResponse: HttpResponseInterface) => {
-            return of(
-              orderActions.addAddressFailure({
-                errors: errorResponse.message,
-              }),
-            );
-          }),
-        );
-      }),
-    );
-  },
-  { functional: true },
-);
+import { OrderService } from './order.services';
 
 export const createOrderEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderActions.createOrderRequest),
-      switchMap(() => {
-        return orderService.createOrder().pipe(
+      switchMap(({ reqData }) => {
+        return orderService.createOrder(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['order'] as OrderInterface;
           }),
@@ -60,13 +34,13 @@ export const createOrderEffect = createEffect(
 );
 
 export const findOrderByIdEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderActions.findOrderByIdRequest),
       switchMap(({ reqData }) => {
         return orderService.findOrderById(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['orders'] as OrderInterface;
+            return httpResponse.data['order'] as OrderInterface;
           }),
           map((payload: OrderInterface) => {
             return orderActions.findOrderByIdSuccess({ payload });
@@ -86,7 +60,7 @@ export const findOrderByIdEffect = createEffect(
 );
 
 export const getOrderHistoryEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderActions.orderHistoryRequest),
       switchMap(() => {
@@ -112,7 +86,7 @@ export const getOrderHistoryEffect = createEffect(
 );
 
 export const getAllOrdersEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderAdminActions.getAllOrdersRequest),
       switchMap(() => {
@@ -138,7 +112,7 @@ export const getAllOrdersEffect = createEffect(
 );
 
 export const getConfirmedOrdersEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderAdminActions.confirmedOrdersRequest),
       switchMap(({ reqData }) => {
@@ -164,7 +138,7 @@ export const getConfirmedOrdersEffect = createEffect(
 );
 
 export const getShippingOrdersEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderAdminActions.shippedOrdersRequest),
       switchMap(({ reqData }) => {
@@ -190,7 +164,7 @@ export const getShippingOrdersEffect = createEffect(
 );
 
 export const getDeliveredOrdersEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderAdminActions.deliveredOrdersRequest),
       switchMap(({ reqData }) => {
@@ -216,7 +190,7 @@ export const getDeliveredOrdersEffect = createEffect(
 );
 
 export const cancelOrderEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderAdminActions.cancelOrderRequest),
       switchMap(({ reqData }) => {
@@ -242,7 +216,7 @@ export const cancelOrderEffect = createEffect(
 );
 
 export const deleteOrderEffect = createEffect(
-  (actions$ = inject(Actions), orderService = inject(OrderServices)) => {
+  (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
       ofType(orderAdminActions.deleteOrderRequest),
       switchMap(({ reqData }) => {

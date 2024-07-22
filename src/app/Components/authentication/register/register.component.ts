@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
@@ -34,6 +35,7 @@ import { AuthStateInterface } from '../../../models/State/authState.interface';
     MatButtonModule,
     BackendErrorsComponent,
     CommonModule,
+    MatInputModule,
   ],
 })
 export class RegisterComponent {

@@ -11,6 +11,21 @@ export const color = [
 
 export const filters = [
   {
+    id: 'brand',
+    name: 'Brand',
+    options: [
+      { value: 'white', label: 'White' },
+      { value: 'beige', label: 'Beige' },
+      { value: 'blue', label: 'Blue' },
+      { value: 'brown', label: 'Brown' },
+      { value: 'green', label: 'Green' },
+      { value: 'purple', label: 'Purple' },
+      { value: 'yellow', label: 'Yellow' },
+      { value: 'black', label: 'Black' },
+    ],
+  },
+
+  {
     id: 'color',
     name: 'Color',
     options: [
@@ -47,11 +62,11 @@ export const singleFilter = [
     id: 'price',
     name: 'Price',
     options: [
-      { value: '159-399', label: '7159 To 7399' },
-      { value: '399-999', label: '7399 To 7999' },
-      { value: '999-1999', label: '7999 To 11999' },
-      { value: '1999-2999', label: '1999 To 2999' },
-      { value: '3999-4999', label: '3999 To 74999' },
+      { value: '1-49', label: '1 To 49' },
+      { value: '50-199', label: '50 To 199' },
+      { value: '200-499', label: '200 To 499' },
+      { value: '500-999', label: '1999 To 999' },
+      { value: '1000-2000', label: '1000 To 2000' },
     ],
   },
   {

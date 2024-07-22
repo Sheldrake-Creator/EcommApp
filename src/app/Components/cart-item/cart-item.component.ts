@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../Store/AppState';
 import { cartActions } from '../../Store/Cart/cart.actions';
 import { CartService } from '../../Store/Cart/cart.services';
 import { CartItemInterface } from '../../models/Cart/cartItem.interface';
+import { OrderItemInterface } from '../../models/Order/orderItem.interface';
 import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
 
 @Component({
@@ -21,7 +23,10 @@ export class CartItemComponent {
   @Input() showButton: any;
   @Input() cartItem!: CartItemInterface;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private router: Router,
+    private store: Store<AppState>,
+  ) {}
 
   updateCartItem(num: number): void {
     console.log('num', num);

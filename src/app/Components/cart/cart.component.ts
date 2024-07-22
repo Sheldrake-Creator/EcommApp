@@ -9,6 +9,7 @@ import { Observable, filter, map } from 'rxjs';
 import { AppState } from '../../Store/AppState';
 import { cartActions } from '../../Store/Cart/cart.actions';
 import { selectCart } from '../../Store/Cart/cart.reducer';
+import { calculateDiscountPercent } from '../../Util/utilFunctions';
 import { CartInterface } from '../../models/Cart/cart.interface';
 import { CartItemInterface } from '../../models/Cart/cartItem.interface';
 import { CartItemComponent } from '../cart-item/cart-item.component';
@@ -28,7 +29,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 })
 export class CartComponent implements OnInit {
   cart$: Observable<CartInterface | undefined>;
-  cartItems$!: Observable<CartItemInterface[] | undefined>;
+  cartItems$: Observable<CartItemInterface[] | undefined> | undefined;
 
   constructor(
     private router: Router,
@@ -42,11 +43,23 @@ export class CartComponent implements OnInit {
     this.store.dispatch(cartActions.getCartRequest());
 
     this.cartItems$ = this.cart$.pipe(
-      filter((cart): cart is CartInterface => cart !== undefined),
-      map((cart) => cart.cartItems),
+      filter((cart): cart is CartInterface => cart?.cartItems !== undefined),
+      map((cart) => {
+        return cart.cartItems.map((cartItem) => {
+          // Calculate the discount percentage for each cart item
+          const discountPresent = calculateDiscountPercent(
+            cartItem.price,
+            cartItem.discountedPrice,
+          );
+          // Return a new cart item object with the discount percentage
+          return {
+            ...cartItem,
+            discountPresent,
+          };
+        });
+      }),
     );
   }
-
   navigateToCheckout() {
     this.router.navigate(['checkout']);
   }

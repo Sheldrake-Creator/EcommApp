@@ -8,4 +8,5 @@ export interface CartItemInterface {
   price: number;
   discountedPrice: number;
   cartId: number;
+  discountPresent: number;
 }

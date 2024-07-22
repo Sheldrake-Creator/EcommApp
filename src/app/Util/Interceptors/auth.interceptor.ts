@@ -19,8 +19,8 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   });
   return next(request).pipe(
     catchError((error: HttpErrorResponse) => {
-      if (error.status === 401) {
-        persistenceService.set('accessToken ', null);
+      if (error.status === 403) {
+        persistenceService.set('accessToken', null);
         router.navigate(['/']);
       }
       return throwError(() => error);

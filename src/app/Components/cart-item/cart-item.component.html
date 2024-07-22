@@ -2,9 +2,7 @@
     <div class="p-5 shadow-lg">
         <div class="flex items-center">
             <div class="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]">
-                <img class="w-full h-full object-cover object-top"
-                    [src]="cartItem.product.imageUrl"
-                    alt="">
+                <img class="w-full h-full object-cover object-top" [src]="cartItem.product.imageUrl" alt="">
             </div>
             <div class="ml-5 space-y-1">
                 <p class="font-semibold">
@@ -15,7 +13,7 @@
                 <div class="flex space-x-2 items-center pt-3">
                     <p class="text-gray-500 line-through">{{cartItem.product.price}}</p>
                     <p class="font-semibold">${{cartItem.product.discountedPrice}}</p>
-                    <p class="text-green-600 font-semibold">{{cartItem.product.discountedPrice}}% off</p>
+                    <p class="text-green-600 font-semibold">{{cartItem.discountPresent}}% Off</p>
                 </div>
             </div>
         </div>
@@ -23,8 +21,8 @@
     <div *ngIf="showButton" class="flex items-center lg:space-x-10 pt-4 justify-between">
         <div class="flex items-center space-x-2">
             <div class="example-button-container">
-                <button mat-mini-fab color="accent" (click)="updateCartItem(cartItem.quantity-1)" [disabled]="cartItem.quantity === 1"
-                    aria-label="Example icon button with a plus one icon">
+                <button mat-mini-fab color="accent" (click)="updateCartItem(cartItem.quantity-1)"
+                    [disabled]="cartItem.quantity === 1" aria-label="Example icon button with a plus one icon">
                     <mat-icon>remove</mat-icon>
                 </button>
             </div>

@@ -1,3 +1,4 @@
+import { AddressStateInterface } from '../models/State/addressState.interface';
 import { AuthStateInterface } from '../models/State/authState.interface';
 import { CartStateInterface } from '../models/State/cartState.interface';
 import { OrderStateInterface } from '../models/State/orderState.interface';
@@ -10,6 +11,7 @@ export interface AppState {
   product: ProductStateInterface;
   cart: CartStateInterface;
   order: OrderStateInterface;
+  address: AddressStateInterface;
 }
 
 // export const appReducer = {

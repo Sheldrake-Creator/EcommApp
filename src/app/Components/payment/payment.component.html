@@ -1,0 +1,45 @@
+<div class="mt-24 space-y-5 px-5 lg:px-20'">
+
+    <ng-container *ngIf="order$ | async as order">
+        <section class="p-5 shadow-1g rounded-md box my-5'">
+
+            <app-address-card [address]="order.shippingAddress" showButton="false" />
+
+        </section>
+
+        <section class="grid grid-cols-1 gap-5 lg:grid-cols-3 relative justify-between py-5">
+            <div class="col-span-2 object-center">
+                <div class="space-y-3 box rounded-md">
+                    <div *ngFor="let orderItem of order.orderItems; let last = last">
+                        <app-order-card [orderItems]="orderItem"></app-order-card>
+                        <!-- <mat-divider *ngIf="!last"></mat-divider> -->
+                    </div>
+                </div>
+            </div>
+
+            <section class="col-span-1 px-5 sticky top-0 h-[100vh] mt-5 lg:mt-0">
+                <div class="box p-5 rounded-md">
+                    <p class="font-bold text-gray-500 pb-2">Price Details</p>
+                    <mat-divider></mat-divider>
+
+                    <div class="space-y-3">
+                        <div class="flex justify-between pt-3">
+                            <span>Total Price</span>
+                            <span [innerText]="order.totalPrice"></span>
+                        </div>
+                        <div class="flex justify-between pt-3">
+                            <span>Discount</span>
+                            <span [innerText]="order.totalDiscountedPrice"></span>
+                        </div>
+                        <div class="flex justify-between pt-3">
+                            <span>Delivery Charges</span>
+                            <span class="text-green-700">Free</span>
+                        </div>
+                    </div>
+                    <button style="padding: 1.5rem;" class="text-lg mt-8 p-28 px-10 w-full bg-[#63e5a6]"
+                        mat-raised-button>CHECKOUT</button>
+                </div>
+            </section>
+        </section>
+    </ng-container>
+</div>

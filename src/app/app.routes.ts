@@ -5,6 +5,12 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { LoginComponent } from './Components/authentication/login/login.component';
 import { RegisterComponent } from './Components/authentication/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { OrderTrackerComponent } from './Components/order-tracker/order-tracker.component';
+import { OrderDetailsComponent } from './Components/order/order-details/order-details.component';
+import { OrderComponent } from './Components/order/order.component';
+import { PaymentSuccessComponent } from './Components/payment/payment-success/payment-success.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 import { ProductDetailsComponent } from './Components/products/product-details/product-details.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { ProfileComponent } from './Components/profile/profile.component';
@@ -17,8 +23,15 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
-  { path: ':levelone/:levelTwo/:levelThree', component: ProductsComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'checkout/payment/:orderId', component: PaymentComponent },
+  { path: 'payment-success', component: PaymentSuccessComponent },
+  { path: 'orderTracker', component: OrderTrackerComponent },
+  { path: 'account/orders', component: OrderComponent },
+  { path: 'order/:orderId', component: OrderDetailsComponent },
   { path: 'admin', component: AdminComponent },
+  { path: ':levelOne/:levelTwo/:levelThree', component: ProductsComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

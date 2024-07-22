@@ -1,4 +1,10 @@
-import { FeatureConfig, createFeature, createReducer, on } from '@ngrx/store';
+import {
+  FeatureConfig,
+  createFeature,
+  createReducer,
+  createSelector,
+  on,
+} from '@ngrx/store';
 import { OrderStateInterface } from '../../models/State/orderState.interface';
 import { orderActions, orderAdminActions } from './order.actions';
 
@@ -25,7 +31,6 @@ export const orderFeature = createFeature({
   reducer: createReducer(
     initialState,
     on(
-      orderActions.addAddressRequest,
       orderActions.createOrderRequest,
       orderActions.findOrderByIdRequest,
       orderActions.orderHistoryRequest,
@@ -49,7 +54,6 @@ export const orderFeature = createFeature({
       }),
     ),
     on(
-      orderActions.addAddressFailure,
       orderActions.findOrderByIdFailure,
       orderActions.createOrderFailure,
       orderActions.orderHistoryFailure,
@@ -72,15 +76,6 @@ export const orderFeature = createFeature({
         },
       }),
     ),
-    on(orderActions.addAddressSuccess, (state, action) => ({
-      ...state,
-      userOrder: {
-        ...state.userOrder,
-        isLoading: false,
-        validationErrors: null,
-        // Add any other state updates specific to addAddressSuccess
-      },
-    })),
     on(orderActions.createOrderSuccess, (state, action) => ({
       ...state,
       userOrder: {
@@ -162,3 +157,13 @@ export const {
   selectUserOrder,
   selectAdminOrder,
 } = orderFeature;
+
+export const selectOrder = createSelector(
+  selectUserOrder,
+  (state) => state.order,
+);
+
+export const selectOrders = createSelector(
+  selectUserOrder,
+  (state) => state.orders,
+);

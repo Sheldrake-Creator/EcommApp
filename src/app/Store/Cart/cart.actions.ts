@@ -1,5 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { CartInterface } from '../../models/Cart/cart.interface';
+import { CartItemInterface } from '../../models/Cart/cartItem.interface';
 import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interface';
 import { AddItemRequestInterface } from '../../models/Requests/addItemRequest.interface';
 import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
@@ -14,10 +15,10 @@ export const cartActions = createActionGroup({
     'AddCartItem Success': props<{ payload: CartInterface }>(),
     'AddCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
     RemoveCartItemRequest: props<{ reqData: number }>(),
-    'RemoveCartItem Success': props<{ payload: CartInterface }>(),
+    'RemoveCartItem Success': props<{ payload: CartItemInterface }>(),
     'RemoveCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
     UpdateCartItemRequest: props<{ reqData: UpdateCartItemRequestInterface }>(),
-    'UpdateCartItem Success': props<{ payload: CartInterface }>(),
+    'UpdateCartItem Success': props<{ payload: CartItemInterface }>(),
     'UpdateCartItem Failure': props<{ errors: BackendErrorsInterface }>(),
   },
 });

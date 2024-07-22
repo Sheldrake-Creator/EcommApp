@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { AddressInterface } from '../../models/Address/address.interface';
+import { CreateOrderRequest } from '../../models/Requests/createOrderRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 
 @Injectable({
@@ -15,19 +16,12 @@ export class OrderService {
 
   //******* ORDER SERVICES *******//
 
-  addAddress(
-    shippingAddress: AddressInterface,
-  ): Observable<HttpResponseInterface> {
-    return this.http.post<HttpResponseInterface>(
-      `${this.API_URL}/api/orders/add`,
-      shippingAddress,
-    );
-  }
-
   //Might need to adjust this method to take in the cart model as a parameter
-  createOrder(): Observable<HttpResponseInterface> {
-    return this.http.get<HttpResponseInterface>(
+  createOrder(req: CreateOrderRequest): Observable<HttpResponseInterface> {
+    console.log('Req: ', req);
+    return this.http.post<HttpResponseInterface>(
       `${this.API_URL}/api/orders/`,
+      req,
       //  cart: CartInterface cart, //? Might want to add cart to this later
     );
   }

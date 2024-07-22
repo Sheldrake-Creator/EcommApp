@@ -1,7 +1,8 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
 import { CartInterface } from '../../models/Cart/cart.interface';
+import { CartItemInterface } from '../../models/Cart/cartItem.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { cartActions } from './cart.actions';
 import { CartService } from './cart.services';
@@ -65,10 +66,10 @@ export const removeCartItemEffect = createEffect(
       switchMap(({ reqData }) => {
         return cartService.removeCartItem(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['cartItem'];
+            return httpResponse.data['cartItem'] as CartItemInterface;
           }),
-          map((payload) => {
-            return cartActions.removeCartItemSuccess(payload);
+          map((payload: CartItemInterface) => {
+            return cartActions.removeCartItemSuccess({ payload });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
@@ -91,7 +92,7 @@ export const updateCartItemEffect = createEffect(
       switchMap(({ reqData }) => {
         return cartService.updateCartItem(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['cart'] as CartInterface;
+            return httpResponse.data['cartItem'] as CartItemInterface;
           }),
           map((payload) => {
             return cartActions.updateCartItemSuccess({ payload });
@@ -104,6 +105,22 @@ export const updateCartItemEffect = createEffect(
             );
           }),
         );
+      }),
+    );
+  },
+  { functional: true },
+);
+
+export const updateCartStateEffect = createEffect(
+  (actions$ = inject(Actions)) => {
+    return actions$.pipe(
+      ofType(
+        cartActions.addCartItemSuccess,
+        cartActions.removeCartItemSuccess,
+        cartActions.updateCartItemSuccess,
+      ),
+      mergeMap(() => {
+        return [cartActions.getCartRequest()];
       }),
     );
   },

@@ -2,15 +2,13 @@ import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { AddressInterface } from '../../models/Address/address.interface';
 import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interface';
 import { OrderInterface } from '../../models/Order/order.interface';
+import { CreateOrderRequest } from '../../models/Requests/createOrderRequest.interface';
 import { SuccessMessageInterface } from '../../models/Responses/successMessage.interface';
 
 export const orderActions = createActionGroup({
   source: 'userOrder',
   events: {
-    AddAddressRequest: props<{ reqData: AddressInterface }>(),
-    'AddAddress Success': props<{ payload: SuccessMessageInterface }>(),
-    'AddAddress Failure': props<{ errors: BackendErrorsInterface }>(),
-    CreateOrderRequest: emptyProps(), //? I might want this to take cart model as input
+    CreateOrderRequest: props<{ reqData: CreateOrderRequest }>(), //? I might want this to take cart model as input
     'CreateOrder Success': props<{ payload: OrderInterface }>(),
     'CreateOrder Failure': props<{ errors: BackendErrorsInterface }>(),
     FindOrderByIdRequest: props<{ reqData: number }>(),
