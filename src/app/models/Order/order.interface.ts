@@ -5,8 +5,8 @@ export interface OrderInterface {
   orderId: number;
   orderItems: OrderItemInterface[];
   shippingAddress: AddressInterface;
-  orderPrice: number;
-  discountedOrderPrice: number;
+  totalPrice: number;
+  totalDiscountedPrice: number;
   discountPresent: number;
   orderStatus: string;
   color: string;

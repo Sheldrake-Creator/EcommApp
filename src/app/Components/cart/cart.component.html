@@ -32,7 +32,7 @@
                             <span class="text-green-700">Free</span>
                         </div>
                     </div>
-                    <button (click)="navigateToCheckout()" style="padding: 1.5rem;"
+                    <button *ngIf="cart.cartItems.length !>= 1" (click)="navigateToCheckout()" style="padding: 1.5rem;"
                         class="text-lg mt-8 p-28 px-10 w-full" color="accent" mat-raised-button>CHECKOUT</button>
                 </div>
             </ng-container>

@@ -40,7 +40,7 @@ export const findOrderByIdEffect = createEffect(
       switchMap(({ reqData }) => {
         return orderService.findOrderById(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
-            return httpResponse.data['orders'] as OrderInterface;
+            return httpResponse.data['order'] as OrderInterface;
           }),
           map((payload: OrderInterface) => {
             return orderActions.findOrderByIdSuccess({ payload });

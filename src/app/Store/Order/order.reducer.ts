@@ -31,7 +31,6 @@ export const orderFeature = createFeature({
   reducer: createReducer(
     initialState,
     on(
-      orderActions.addAddressRequest,
       orderActions.createOrderRequest,
       orderActions.findOrderByIdRequest,
       orderActions.orderHistoryRequest,
@@ -55,7 +54,6 @@ export const orderFeature = createFeature({
       }),
     ),
     on(
-      orderActions.addAddressFailure,
       orderActions.findOrderByIdFailure,
       orderActions.createOrderFailure,
       orderActions.orderHistoryFailure,
@@ -78,15 +76,6 @@ export const orderFeature = createFeature({
         },
       }),
     ),
-    on(orderActions.addAddressSuccess, (state, action) => ({
-      ...state,
-      userOrder: {
-        ...state.userOrder,
-        isLoading: false,
-        validationErrors: null,
-        // Add any other state updates specific to addAddressSuccess
-      },
-    })),
     on(orderActions.createOrderSuccess, (state, action) => ({
       ...state,
       userOrder: {

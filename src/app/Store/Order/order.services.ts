@@ -16,17 +16,9 @@ export class OrderService {
 
   //******* ORDER SERVICES *******//
 
-  addAddress(
-    shippingAddress: AddressInterface,
-  ): Observable<HttpResponseInterface> {
-    return this.http.post<HttpResponseInterface>(
-      `${this.API_URL}/api/orders/add`,
-      shippingAddress,
-    );
-  }
-
   //Might need to adjust this method to take in the cart model as a parameter
   createOrder(req: CreateOrderRequest): Observable<HttpResponseInterface> {
+    console.log('Req: ', req);
     return this.http.post<HttpResponseInterface>(
       `${this.API_URL}/api/orders/`,
       req,

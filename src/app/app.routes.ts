@@ -23,14 +23,15 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
-  { path: ':levelOne/:levelTwo/:levelThree', component: ProductsComponent },
-  { path: 'admin', component: AdminComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'orderTracker', component: OrderTrackerComponent },
+  { path: 'checkout/payment/:orderId', component: PaymentComponent },
   { path: 'payment-success', component: PaymentSuccessComponent },
-  { path: 'checkout/payment/:id', component: PaymentComponent },
+  { path: 'orderTracker', component: OrderTrackerComponent },
   { path: 'account/orders', component: OrderComponent },
   { path: 'order/:orderId', component: OrderDetailsComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: ':levelOne/:levelTwo/:levelThree', component: ProductsComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -8,9 +8,6 @@ import { SuccessMessageInterface } from '../../models/Responses/successMessage.i
 export const orderActions = createActionGroup({
   source: 'userOrder',
   events: {
-    AddAddressRequest: props<{ reqData: AddressInterface }>(),
-    'AddAddress Success': props<{ payload: SuccessMessageInterface }>(),
-    'AddAddress Failure': props<{ errors: BackendErrorsInterface }>(),
     CreateOrderRequest: props<{ reqData: CreateOrderRequest }>(), //? I might want this to take cart model as input
     'CreateOrder Success': props<{ payload: OrderInterface }>(),
     'CreateOrder Failure': props<{ errors: BackendErrorsInterface }>(),

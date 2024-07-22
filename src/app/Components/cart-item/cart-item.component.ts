@@ -9,6 +9,7 @@ import { AppState } from '../../Store/AppState';
 import { cartActions } from '../../Store/Cart/cart.actions';
 import { CartService } from '../../Store/Cart/cart.services';
 import { CartItemInterface } from '../../models/Cart/cartItem.interface';
+import { OrderItemInterface } from '../../models/Order/orderItem.interface';
 import { UpdateCartItemRequestInterface } from '../../models/Requests/updateCartItemRequest.interface';
 
 @Component({
@@ -45,6 +46,5 @@ export class CartItemComponent {
     this.store.dispatch(
       cartActions.removeCartItemRequest({ reqData: this.cartItem.cartItemId }),
     );
-    // this.router.navigate(['cart']);
   }
 }

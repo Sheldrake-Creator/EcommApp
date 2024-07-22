@@ -18,6 +18,7 @@ import {
   selectProduct,
 } from '../../../Store/Product/product.reducer';
 import { selectCurrentUser } from '../../../Store/selectors';
+import { calculateDiscountPercent } from '../../../Util/utilFunctions';
 import { ProductInterface } from '../../../models/Product/product.interface';
 import { AddItemRequestInterface } from '../../../models/Requests/addItemRequest.interface';
 import { CurrentUserInterface } from '../../../models/User/currentUser.interface';
@@ -85,7 +86,7 @@ export class ProductDetailsComponent implements OnInit {
     this.product$ = this.store.select(selectProduct).pipe(
       map((product) => {
         if (product) {
-          const discountPresent = this.calculateDiscountPercent(
+          const discountPresent = calculateDiscountPercent(
             product.price,
             product.discountedPrice,
           );
@@ -121,12 +122,12 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   //? This logic should probably be handled on the backend. I just wanted to see if this was possible.
-  private calculateDiscountPercent(
-    price: number,
-    discountedPrice: number,
-  ): number {
-    return ((price - discountedPrice) / price) * 100;
-  }
+  // private calculateDiscountPercent(
+  //   price: number,
+  //   discountedPrice: number,
+  // ): number {
+  //   return ((price - discountedPrice) / price) * 100;
+  // }
   // radioChange(MdRadioChange: Event) {
   //   this.isSubmitButtonEnabled = MdRadioChange.value;
   // }

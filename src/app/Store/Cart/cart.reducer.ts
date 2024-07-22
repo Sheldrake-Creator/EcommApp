@@ -44,7 +44,7 @@ export const cartFeature = createFeature({
       ...state,
       isLoading: false,
       cart: {
-        ...state.cart,
+        ...state.cart!,
         cartItems: state.cart!.cartItems.filter(
           (item) => item.cartItemId !== action.payload.cartItemId,
         ),
@@ -54,7 +54,7 @@ export const cartFeature = createFeature({
       ...state,
       isLoading: false,
       cart: {
-        ...state.cart,
+        ...state.cart!,
         cartItems: state.cart!.cartItems.map((item) =>
           item.cartItemId === action.payload.cartItemId ? action.payload : item,
         ),
