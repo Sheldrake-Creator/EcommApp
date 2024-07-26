@@ -44,7 +44,7 @@
                 <!-- *ngIf="currentUser$ | async as currentUser" -->
                 <button style="padding: 1rem" class="w-full bg-[#69f0ae]"
                     *ngIf="currentUser$ | async as currentUser; else signedOut" [ngClass]="{
-            'bg-[#69f0ae]': currentUser,}" [disabled]="quantity === null || quantity === undefined"
+            'bg-[#63e5a6]': currentUser,}" [disabled]="quantity === null || quantity === undefined"
                     (click)="handleAddToCart()" mat-raised-button>
                     Add to Cart
                 </button>
