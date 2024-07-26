@@ -2,6 +2,6 @@
 **/dist
 **/.git
 **/.gitignore
-**/Dockerfile
+# **/Dockerfile
 **/README.md
 **/.env

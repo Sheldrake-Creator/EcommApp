@@ -22,7 +22,7 @@ RUN npm run build -- --configuration=development
 FROM nginx:1.21-alpine
 
 # Copy the built app from Stage 1 into the nginx web server
-COPY --from=builder /app/dist/ecomm-app/ /usr/share/nginx/html
+COPY --from=builder /app/dist/ecomm-app/browser/ /usr/share/nginx/html/
 
 # Copy nginx configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
