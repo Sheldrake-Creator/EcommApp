@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { AppState } from '../AppState';
 
@@ -16,7 +17,7 @@ import { selectCurrentUser, selectCurrentUserId } from '../selectors';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = Constants.API_BASE_URL;
+  API_URL = environment.API_URL;
 
   constructor(
     private http: HttpClient,
@@ -29,7 +30,7 @@ export class UserService {
     return this.store.select(selectCurrentUserId).pipe(
       switchMap((userId) => {
         return this.http
-          .post<CurrentUserInterface>(this.apiUrl + Constants.GET_USER_BY_ID, {
+          .post<CurrentUserInterface>(this.API_URL + Constants.GET_USER_BY_ID, {
             userId,
           })
           .pipe(
@@ -42,10 +43,10 @@ export class UserService {
 
   onRegister(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
     return this.http
-      .post<UserResponseInterface>(this.apiUrl + '/register', data)
+      .post<UserResponseInterface>(this.API_URL + '/register', data)
       .pipe(map((response) => response.user));
   }
 }
 
-// .get<UserResponseInterface>(`${this.apiUrl}/users/profile`, data)
+// .get<UserResponseInterface>(`${this.API_URL}/users/profile`, data)
 // .pipe(map((response)=> response.user))
