@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'http://76.148.147.36:8080',
+  API_URL: '${{ secrets.API_URL }}',
 };
