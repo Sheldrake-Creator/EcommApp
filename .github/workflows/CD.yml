@@ -1,28 +1,28 @@
-# name: Angular CD with EC2
+name: Angular CD with EC2
 
-# on:
-#   workflow_run:
-#     workflows: ["Java CI with Maven"]
-#     types:
-#       - completed
-# jobs:
-#   build:
-#     runs-on: self-hosted
-#     steps:
-#       - name: Pull Docker Image
-#         run: sudo docker pull sheldrakecreator/ecommrepo:clientside
-#       - name: Delete Old Docker Container
-#         run: sudo docker rm -f angular-frontend || true
+on:
+  workflow_run:
+    workflows: ["Java CI with Maven"]
+    types:
+      - completed
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Pull Docker Image
+        run: sudo docker pull sheldrakecreator/ecommrepo:clientside
+      - name: Delete Old Docker Container
+        run: sudo docker rm -f angular-frontend || true
 
-#       - name: Stop and remove existing container
-#         run: |
-#           if [ "$(sudo docker ps -q -f name=angular-frontend)" ]; then
-#             sudo docker stop angular-frontend
-#             sudo docker rm angular-frontend
-#           fi
-#       - name: Run New Docker Container
-#         run: |
-#           docker run -d --name angular-frontend -p 80:80 sheldrakecreator/ecommrepo:clientside
+      - name: Stop and remove existing container
+        run: |
+          if [ "$(sudo docker ps -q -f name=angular-frontend)" ]; then
+            sudo docker stop angular-frontend
+            sudo docker rm angular-frontend
+          fi
+      - name: Run New Docker Container
+        run: |
+          docker run -d --name angular-frontend -p 80:80 sheldrakecreator/ecommrepo:clientside
 
-#       - name: Verify Docker Container is Running
-#         run: sudo docker ps -a | grep angular-frontend
+      - name: Verify Docker Container is Running
+        run: sudo docker ps -a | grep angular-frontend
