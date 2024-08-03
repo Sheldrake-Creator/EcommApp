@@ -2,7 +2,7 @@ name: Angular CD with EC2
 
 on:
   workflow_run:
-    workflows: ["Java CI with Maven"]
+    workflows: ["Angular CI"]
     types:
       - completed
 jobs:
