@@ -9,8 +9,6 @@ COPY package.json package-lock.json ./
 # Install dependencies
 RUN npm install
 
-# Angular CLI  
-RUN npx ngcc --properties es2023 browser module main --first-only -- create-ivy-entry-points
 
 # Copy the rest of the application code
 COPY . .

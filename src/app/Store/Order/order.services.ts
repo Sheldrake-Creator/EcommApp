@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { AddressInterface } from '../../models/Address/address.interface';
 import { CreateOrderRequest } from '../../models/Requests/createOrderRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';

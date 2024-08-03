@@ -22,7 +22,7 @@ jobs:
           fi
       - name: Run New Docker Container
         run: |
-          docker run -d --name angular-frontend -p 80:80 sheldrakecreator/ecommrepo:clientside
+          sudo docker run -d --name angular-frontend -p 80:80 sheldrakecreator/ecommrepo:clientside
 
       - name: Verify Docker Container is Running
         run: sudo docker ps -a | grep angular-frontend
