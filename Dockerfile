@@ -16,7 +16,7 @@ RUN npx ngcc --properties es2023 browser module main --first-only -- create-ivy-
 COPY . .
 
 # Build the Angular app with production configuration
-RUN npm run build -- --configuration=development
+RUN npm run build -- --configuration=production
 
 # Stage 2: Serve the Angular application
 FROM nginx:1.21-alpine
