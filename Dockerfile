@@ -25,8 +25,13 @@ COPY --from=builder /app/dist/ecomm-app/browser/ /usr/share/nginx/html/
 # Copy nginx configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80 to the Docker host
-EXPOSE 80
+# Copy SSL certificates
+# COPY path/to/your/ssl/fullchain.pem /etc/nginx/ssl/fullchain.pem
+# COPY path/to/your/ssl/privkey.pem /etc/nginx/ssl/privkey.pem
+
+
+# Expose port 80 and 443 to the Docker host
+EXPOSE 80 443
 
 # Start nginx server
 CMD ["nginx", "-g", "daemon off;"]
