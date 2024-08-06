@@ -3,7 +3,7 @@ name: Dispatch Event to Deploy Repo
 on:
   push:
     branches:
-      - main
+      - EcommApp-Main
 
 jobs:
   dispatch:
