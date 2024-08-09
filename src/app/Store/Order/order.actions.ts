@@ -17,6 +17,9 @@ export const orderActions = createActionGroup({
     OrderHistoryRequest: emptyProps(),
     'OrderHistory Success': props<{ payload: OrderInterface[] }>(),
     'OrderHistory Failure': props<{ errors: BackendErrorsInterface }>(),
+    ConfirmOrderRequest: props<{ reqData: number }>(), //? I might want this to take cart model as input
+    'ConfirmOrder Success': props<{ payload: OrderInterface }>(),
+    'ConfirmOrder Failure': props<{ errors: BackendErrorsInterface }>(),
   },
 });
 

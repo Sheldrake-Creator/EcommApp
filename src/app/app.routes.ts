@@ -9,6 +9,7 @@ import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { OrderTrackerComponent } from './Components/order-tracker/order-tracker.component';
 import { OrderDetailsComponent } from './Components/order/order-details/order-details.component';
 import { OrderComponent } from './Components/order/order.component';
+import { PaymentInfoComponent } from './Components/payment/payment-info/payment-info.component';
 import { PaymentSuccessComponent } from './Components/payment/payment-success/payment-success.component';
 import { PaymentComponent } from './Components/payment/payment.component';
 import { ProductDetailsComponent } from './Components/products/product-details/product-details.component';
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'checkout/payment/:orderId', component: PaymentComponent },
+  { path: 'checkout/payment/:orderId/info', component: PaymentInfoComponent },
   { path: 'payment-success', component: PaymentSuccessComponent },
   { path: 'orderTracker', component: OrderTrackerComponent },
   { path: 'account/orders', component: OrderComponent },

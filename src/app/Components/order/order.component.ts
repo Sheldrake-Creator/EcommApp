@@ -4,6 +4,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { orderActions } from '../../Store/Order/order.actions';
 import { selectOrder, selectOrders } from '../../Store/Order/order.reducer';
 import { OrderInterface } from '../../models/Order/order.interface';
 import { filters } from '../products/FilterData';
@@ -19,6 +20,7 @@ import { OrderCardComponent } from './order-card/order-card.component';
 export class OrderComponent implements OnInit {
   orders$?: Observable<OrderInterface[] | undefined>;
   orderFilter = [
+    { value: 'pending', label: 'Pending' },
     { value: 'on_the _way', label: 'On The Way' },
     { value: 'delivered', label: 'Deliverd' },
     { value: 'cancelled', label: 'Cancelled' },
@@ -32,7 +34,10 @@ export class OrderComponent implements OnInit {
     this.orders$ = this.store.select(selectOrders);
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.store.dispatch(orderActions.orderHistoryRequest());
+    this.orders$ = this.store.select(selectOrders);
+  }
 
   navigateToOrderDetails(orderId: Number) {
     this.router.navigate([`/order/${orderId}`]);

@@ -1,7 +1,7 @@
 export const NavBarContent = {
   pointless: {
-    id: 'women',
-    name: 'Women',
+    id: 'pointless',
+    name: 'Pointless',
 
     // featured: [
     //   {
@@ -65,8 +65,8 @@ export const NavBarContent = {
   },
 
   dangerous: {
-    id: 'men',
-    name: 'Men',
+    id: 'dangerous',
+    name: 'Dangerous',
 
     // featured: [
     //   {

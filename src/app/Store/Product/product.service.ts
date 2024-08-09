@@ -6,6 +6,7 @@ import { ProductInterface } from '../../models/Product/product.interface';
 import { CreateProductRequestInterface } from '../../models/Requests/createProductRequest';
 import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
+import { HttpResponsePaginatedInterface } from '../../models/Responses/httpResponsePaginated.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -91,6 +92,11 @@ export class ProductServices {
   deleteProduct(productId: number): Observable<HttpResponseInterface> {
     return this.http.delete<HttpResponseInterface>(
       `${this.API_URL}/api/admin/products/id/${productId}/delete`,
+    );
+  }
+  getAllProductsPaginated(page: number): Observable<HttpResponseInterface> {
+    return this.http.get<HttpResponsePaginatedInterface>(
+      `${this.API_URL}/api/products/all/${page}`,
     );
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
@@ -12,7 +12,7 @@ import { Store } from '@ngrx/store';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Observable } from 'rxjs';
-import { Pants } from '../../../assets/Data/HomePageJSONs/pants';
+import { Injurious } from '../../../assets/Data/HomePageJSONs/injurious';
 
 import { selectIsLoading } from '../../Store/Auth/auth.reducer';
 import { productActions } from '../../Store/Product/product.action';
@@ -20,6 +20,8 @@ import { selectProducts } from '../../Store/Product/product.reducer';
 import { ProductServices } from '../../Store/Product/product.service';
 import { ProductInterface } from '../../models/Product/product.interface';
 import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
+import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
+import { HttpResponsePaginatedInterface } from '../../models/Responses/httpResponsePaginated.interface';
 import { ProductStateInterface } from '../../models/State/productState.interface';
 import { filters, singleFilter } from './FilterData';
 import { ProductCardComponent } from './product-card/product-card.component';
@@ -46,10 +48,13 @@ export class ProductsComponent implements OnInit {
   filterData: any;
   singleFilter: any;
   products: any;
-  manPants: any;
   levelThree: any;
   allProducts$!: Observable<ProductInterface[] | undefined>;
   isLoading$!: Observable<boolean>;
+  productList: ProductInterface[] = [];
+  page = 0;
+  loading = false;
+  productService: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -64,12 +69,12 @@ export class ProductsComponent implements OnInit {
         this.store.dispatch(productActions.getAllProductsRequest());
         this.allProducts$ = this.store.select(selectProducts);
         this.isLoading$ = this.store.select(selectIsLoading);
+        this.loadMoreProducts();
       }
     });
 
     this.filterData = filters;
     this.singleFilter = singleFilter;
-    this.manPants = Pants;
 
     // this.activatedRoute.paramMap.subscribe((params) => {
     //   console.log('params ', params);
@@ -149,5 +154,31 @@ export class ProductsComponent implements OnInit {
     const queryParams = { ...this.activatedRoute.snapshot.queryParams };
     queryParams[sectionId] = value;
     this.router.navigate([], { queryParams });
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(): void {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      this.loadMoreProducts();
+    }
+  }
+
+  loadMoreProducts(): void {
+    if (this.loading) {
+      return;
+    }
+
+    this.loading = true;
+    this.productService.getAllProductsPaginated(this.page).subscribe(
+      (response: HttpResponsePaginatedInterface) => {
+        const paginatedProducts = response.data;
+        this.products = this.products.concat(paginatedProducts.content); // Assuming your Page model has a content array
+        this.page++;
+        this.loading = false;
+      },
+      () => {
+        this.loading = false; // On error, also stop loading
+      },
+    );
   }
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { AddressInterface } from '../../models/Address/address.interface';
+import { OrderInterface } from '../../models/Order/order.interface';
 import { CreateOrderRequest } from '../../models/Requests/createOrderRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 
@@ -22,6 +23,13 @@ export class OrderService {
     return this.http.post<HttpResponseInterface>(
       `${this.API_URL}/api/orders/`,
       req,
+      //  cart: CartInterface cart, //? Might want to add cart to this later
+    );
+  }
+  confirmOrder(orderId: number): Observable<HttpResponseInterface> {
+    return this.http.post<HttpResponseInterface>(
+      `${this.API_URL}/api/orders/${orderId}/confirm`,
+      orderId,
       //  cart: CartInterface cart, //? Might want to add cart to this later
     );
   }

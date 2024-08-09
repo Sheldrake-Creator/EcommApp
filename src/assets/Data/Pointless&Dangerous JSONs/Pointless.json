@@ -1,5 +1,25 @@
 [
   {    
+    "title": "Love Peninsula",
+    "imageUrl": "https://www.ohnuts.com/noapp/showImage.cfm/zoom/Brown%20M&M%27s%20Chocolate%20Candy.jpg",
+    "brand": "Sterling Cooper",
+    "color":"Grey",
+    "price": 30,
+    "discountedPrice": 25,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Pointless",
+    "secondLevelCategory": "Silly",
+    "thirdLevelCategory": " ",
+    "description": "Do you love M&M's but hate the fact that they come in a bunch of non-uniform colors. Well, that's a very specific and niche opionion to have. You might be the only one. You're like a snowflake amoungst opinion havers. Thankfully for you, someone had the courage to step up and make thing incredibly specific thing for you and you alone. ",
+    "discountPresent": 10
+  },
+  {    
     "title": "All Brown M&Ms",
     "imageUrl": "https://www.ohnuts.com/noapp/showImage.cfm/zoom/Brown%20M&M%27s%20Chocolate%20Candy.jpg",
     "brand": "Sterling Cooper",
@@ -236,7 +256,7 @@
     "firstLevelCategory": "Pointless",
     "secondLevelCategory": "Genuinely Unpleasant",
     "thirdLevelCategory": " ",
-    "description": " ",
+    "description": "Made by horses, for horses, of horses ",
     "discountPresent": 0
   },
   {    

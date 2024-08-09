@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,600,0,0" />
 <div class="relative">
     <div class="carousel-container overflow-x-hidden">
         <div class="carousel" [style.transform]="'translateX(-'+(currentSlide*100)+'%)'">
@@ -11,14 +12,16 @@
                     <!-- <button e-rarrowright class="leftButton z-10 object-left-bottom">Hi</button> -->
                 </a>
 
-            
+
             </ng-container>
         </div>
         <div>
-            <button class="leftButton material-symbols-outlined" (click)="nextSlide()">arrow_forward</button>
+            <button class="leftButton material-symbols-outlined size-10 bg-white rounded-lg"
+                (click)="nextSlide()">arrow_forward</button>
         </div>
         <div>
-            <button class="rightButton material-symbols-outlined" (click)="prevSlide()">arrow_back</button>
+            <button class="rightButton material-symbols-outlined size-10 bg-white rounded-lg"
+                (click)="prevSlide()">arrow_back</button>
         </div>
 
     </div>
