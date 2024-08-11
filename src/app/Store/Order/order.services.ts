@@ -26,14 +26,6 @@ export class OrderService {
       //  cart: CartInterface cart, //? Might want to add cart to this later
     );
   }
-  confirmOrder(orderId: number): Observable<HttpResponseInterface> {
-    return this.http.post<HttpResponseInterface>(
-      `${this.API_URL}/api/orders/${orderId}/confirm`,
-      orderId,
-      //  cart: CartInterface cart, //? Might want to add cart to this later
-    );
-  }
-
   findOrderById(orderId: number): Observable<HttpResponseInterface> {
     return this.http.get<HttpResponseInterface>(
       `${this.API_URL}/api/orders/${orderId}`,
@@ -54,9 +46,10 @@ export class OrderService {
     );
   }
 
-  getConfirmedOrders(orderId: number): Observable<HttpResponseInterface> {
-    return this.http.get<HttpResponseInterface>(
-      `${this.API_URL}/api/admin/orders/${orderId}/confirmed/`,
+  confirmOrder(orderId: number): Observable<HttpResponseInterface> {
+    return this.http.post<HttpResponseInterface>(
+      `${this.API_URL}/api/admin/orders/confirmed/`,
+      orderId,
     );
   }
 

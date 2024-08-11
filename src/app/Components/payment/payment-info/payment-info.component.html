@@ -65,9 +65,10 @@
                                 </mat-form-field>
                             </div>
                             <div class="col-span-2 border-slate-700">
-                                <mat-checkbox formControlName="useSameAddress">
-                                    Use Same Address As Mailing
+                                <mat-checkbox id="useSameAddressCheckbox" #useSameAddressCheckbox>
+                                    Same Address As Mailing
                                 </mat-checkbox>
+
                             </div>
 
                             <div class="col-span-2">
@@ -90,7 +91,7 @@
                             <div class="col-span-3">
                                 <mat-form-field appearance="fill" class="w-full">
                                     <mat-label>Please Don't Actually Put A Real Card #</mat-label>
-                                    <input matInput formControlName="CardNum" placeholder="CardNum"
+                                    <input matInput formControlName="cardNum" placeholder="CardNum"
                                         autocomplete="given-name" type="text" />
                                 </mat-form-field>
                             </div>

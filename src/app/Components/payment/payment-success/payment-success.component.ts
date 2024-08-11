@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { OrderInterface } from '../../../models/Order/order.interface';
-import { OrderStateInterface } from '../../../models/State/orderState.interface';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
-import { orderActions } from '../../../Store/Order/order.actions';
-import { selectOrders } from '../../../Store/Order/order.reducer';
+import { orderAdminActions } from '../../../Store/Order/order.actions';
+import { selectOrder } from '../../../Store/Order/order.reducer';
 
 @Component({
   selector: 'app-payment-success',
@@ -20,7 +19,8 @@ import { selectOrders } from '../../../Store/Order/order.reducer';
 })
 export class PaymentSuccessComponent implements OnInit {
   order: any;
-  userOrders$?: Observable<OrderInterface[] | undefined>;
+  userOrder$?: Observable<OrderInterface | undefined>;
+  id!: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -29,8 +29,23 @@ export class PaymentSuccessComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.store.dispatch(orderActions.orderHistoryRequest());
-    this.userOrders$ = this.store.select(selectOrders);
+    this.userOrder$ = this.store.select(selectOrder);
+    this.userOrder$
+      .pipe(
+        map((order: OrderInterface | undefined) => {
+          if (order) {
+            this.id = order.orderId;
+            console.log('id: ', this.id); // Log the retrieved id
+          }
+          return order;
+        }),
+      )
+      .subscribe();
+
+    this.store.dispatch(
+      orderAdminActions.confirmOrderRequest({ reqData: this.id }),
+    );
+
     this.store.dispatch(cartActions.getCartRequest());
   }
 }

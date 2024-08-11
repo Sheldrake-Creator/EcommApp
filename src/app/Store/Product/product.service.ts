@@ -94,7 +94,9 @@ export class ProductServices {
       `${this.API_URL}/api/admin/products/id/${productId}/delete`,
     );
   }
-  getAllProductsPaginated(page: number): Observable<HttpResponseInterface> {
+  getAllProductsPaginated(
+    page: number,
+  ): Observable<HttpResponsePaginatedInterface> {
     return this.http.get<HttpResponsePaginatedInterface>(
       `${this.API_URL}/api/products/all/${page}`,
     );

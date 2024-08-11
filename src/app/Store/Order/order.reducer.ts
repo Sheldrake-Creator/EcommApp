@@ -34,9 +34,8 @@ export const orderFeature = createFeature({
       orderActions.createOrderRequest,
       orderActions.findOrderByIdRequest,
       orderActions.orderHistoryRequest,
-      orderActions.confirmOrderRequest,
       orderAdminActions.cancelOrderRequest,
-      orderAdminActions.confirmedOrdersRequest,
+      orderAdminActions.confirmOrderRequest,
       orderAdminActions.deleteOrderRequest,
       orderAdminActions.deliveredOrdersRequest,
       orderAdminActions.shippedOrdersRequest,
@@ -58,9 +57,9 @@ export const orderFeature = createFeature({
       orderActions.findOrderByIdFailure,
       orderActions.createOrderFailure,
       orderActions.orderHistoryFailure,
-      orderActions.confirmOrderFailure,
+
       orderAdminActions.cancelOrderFailure,
-      orderAdminActions.confirmedOrdersFailure,
+      orderAdminActions.confirmOrderFailure,
       orderAdminActions.deliveredOrdersFailure,
       orderAdminActions.getAllOrdersFailure,
       orderAdminActions.shippedOrdersFailure,
@@ -105,7 +104,7 @@ export const orderFeature = createFeature({
         validationErrors: null,
       },
     })),
-    on(orderActions.confirmOrderSuccess, (state, action) => ({
+    on(orderAdminActions.confirmOrderSuccess, (state, action) => ({
       ...state,
       userOrder: {
         ...state.userOrder,
@@ -116,15 +115,6 @@ export const orderFeature = createFeature({
     })),
 
     on(orderAdminActions.cancelOrderSuccess, (state, action) => ({
-      ...state,
-      adminOrder: {
-        ...state.adminOrder,
-        isLoading: false,
-        order: action.payload,
-        validationErrors: null,
-      },
-    })),
-    on(orderAdminActions.confirmedOrdersSuccess, (state, action) => ({
       ...state,
       adminOrder: {
         ...state.adminOrder,

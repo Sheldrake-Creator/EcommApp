@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -16,7 +22,10 @@ import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../Store/AppState';
-import { orderActions } from '../../../Store/Order/order.actions';
+import {
+  orderActions,
+  orderAdminActions,
+} from '../../../Store/Order/order.actions';
 import { selectUserOrder } from '../../../Store/Order/order.reducer';
 import { AddressCardComponent } from '../../address-card/address-card.component';
 import { AddressFormComponent } from '../../checkout/address-form/address-form.component';
@@ -40,12 +49,12 @@ import { AddressFormComponent } from '../../checkout/address-form/address-form.c
   templateUrl: './payment-info.component.html',
   styleUrl: './payment-info.component.scss',
 })
-export class PaymentInfoComponent implements OnInit {
+export class PaymentInfoComponent implements OnInit, AfterViewInit {
   myRadios!: NodeListOf<HTMLElement>;
   setCheck: HTMLInputElement | null = null;
-  @ViewChild('useSameAddressCheckbox', { static: true })
-  useSameAddressCheckbox!: ElementRef<HTMLElement>;
+  @ViewChild('useSameAddressCheckbox') useSameAddressCheckbox!: ElementRef;
   orderId!: number;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -55,10 +64,27 @@ export class PaymentInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.myRadios = document.querySelectorAll<HTMLInputElement>('.tabs2');
-    this.setCheckHandler();
     const id = this.activatedRoute.snapshot.paramMap.get('orderId');
     console.log('orderId ', id);
     this.orderId = parseInt(id!);
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    if (this.useSameAddressCheckbox?.nativeElement) {
+      this.useSameAddressCheckbox.nativeElement.addEventListener(
+        'change',
+        (event: Event) => {
+          const checkbox = event.target as HTMLInputElement;
+          if (checkbox.checked) {
+            this.closeAccordion();
+          }
+        },
+      );
+    } else {
+      console.log('useSameAddressCheckbox native element is not defined');
+    }
   }
 
   billingAddress: FormGroup = this.formBuilder.group({
@@ -89,15 +115,6 @@ export class PaymentInfoComponent implements OnInit {
         }
       });
     });
-    this.useSameAddressCheckbox.nativeElement.addEventListener(
-      'change',
-      (event: Event) => {
-        const checkbox = event.target as HTMLInputElement;
-        if (checkbox.checked) {
-          this.closeAccordion();
-        }
-      },
-    );
   }
 
   closeAccordion(): void {
@@ -111,7 +128,7 @@ export class PaymentInfoComponent implements OnInit {
 
   completePayment() {
     this.store.dispatch(
-      orderActions.confirmOrderRequest({ reqData: this.orderId }),
+      orderAdminActions.confirmOrderRequest({ reqData: this.orderId }),
     );
     this.router.navigate(['payment-success']);
   }

@@ -111,21 +111,21 @@ export const getAllOrdersEffect = createEffect(
   { functional: true },
 );
 
-export const getConfirmedOrdersEffect = createEffect(
+export const getconfirmOrderEffect = createEffect(
   (actions$ = inject(Actions), orderService = inject(OrderService)) => {
     return actions$.pipe(
-      ofType(orderAdminActions.confirmedOrdersRequest),
+      ofType(orderAdminActions.confirmOrderRequest),
       switchMap(({ reqData }) => {
-        return orderService.getConfirmedOrders(reqData).pipe(
+        return orderService.confirmOrder(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['orders'] as OrderInterface;
           }),
           map((payload: OrderInterface) => {
-            return orderAdminActions.confirmedOrdersSuccess({ payload });
+            return orderAdminActions.confirmOrderSuccess({ payload });
           }),
           catchError((errorResponse: HttpResponseInterface) => {
             return of(
-              orderAdminActions.confirmedOrdersFailure({
+              orderAdminActions.confirmOrderFailure({
                 errors: errorResponse.message,
               }),
             );

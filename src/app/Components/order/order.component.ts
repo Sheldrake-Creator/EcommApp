@@ -9,11 +9,12 @@ import { selectOrder, selectOrders } from '../../Store/Order/order.reducer';
 import { OrderInterface } from '../../models/Order/order.interface';
 import { filters } from '../products/FilterData';
 import { OrderCardComponent } from './order-card/order-card.component';
+import { OrderTableComponent } from './order-table/order-table.component';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [CommonModule, MatCheckbox, OrderCardComponent],
+  imports: [CommonModule, MatCheckbox, OrderCardComponent, OrderTableComponent],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss',
 })
@@ -30,9 +31,7 @@ export class OrderComponent implements OnInit {
   constructor(
     private router: Router,
     private store: Store,
-  ) {
-    this.orders$ = this.store.select(selectOrders);
-  }
+  ) {}
 
   ngOnInit() {
     this.store.dispatch(orderActions.orderHistoryRequest());

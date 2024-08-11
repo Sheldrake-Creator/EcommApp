@@ -2,10 +2,11 @@
 
     <h1 class="text-lg font-bold text-center py-10">My Orders</h1>
 
-    <div class="lg:grid grid-cols-4 gap-5">
-        <div class="col-span-1">
+    <div class="lg:grid grid-cols-6 gap-2">
+        <div class="col-span-6">
             <div class="">
-                <div *ngFor="let option of orderFilter">
+                <app-order-table />
+                <!-- <div *ngFor="let option of orderFilter">
                     <div class="flex items-center">
                         <mat-checkbox [value]="option.value" [id]="option.value">Checkbox
 
@@ -14,16 +15,16 @@
                             </span>
                         </mat-checkbox>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="col-span-3 space-y-5" *ngIf="orders$ | async as orders">
+        <!-- <div class="col-span-3 space-y-5" *ngIf="orders$ | async as orders">
             <div class="space-y-5" *ngFor="let order of orders">
                 <div class="cursor-pointer" (click)="navigateToOrderDetails(order.orderId)">
                     <!-- *ngFor="let orderItem of order"> -->
-                    <app-order-card *ngFor="let orderItem of order.orderItems"></app-order-card>
+        <!-- <app-order-card *ngFor="let orderItem of order.orderItems"></app-order-card>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/Home/home.component';
+import { AboutComponent } from './Components/about/about.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { LoginComponent } from './Components/authentication/login/login.component';
 import { RegisterComponent } from './Components/authentication/register/register.component';
@@ -22,6 +23,8 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'checkout', component: CheckoutComponent },
@@ -31,8 +34,9 @@ export const routes: Routes = [
   { path: 'orderTracker', component: OrderTrackerComponent },
   { path: 'account/orders', component: OrderComponent },
   { path: 'order/:orderId', component: OrderDetailsComponent },
-  { path: 'admin', component: AdminComponent },
+
   { path: ':levelOne/:levelTwo/:levelThree', component: ProductsComponent },
+
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
