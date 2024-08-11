@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { productActions } from '../../../Store/Product/product.action';
+import {
+  NavBarContentInterface,
+  SectionInterface,
+} from '../../../models/NavContent/navContent.interface';
 import {
   FindProductsByCategoryRequest,
   createFindProductsByCategoryRequest,
@@ -18,14 +22,22 @@ import { NavBarContent } from './nav-content';
   styleUrl: './nav-content.component.scss',
 })
 export class NavContentComponent implements OnInit {
-  categories: any;
+  [x: string]: any;
+  navContent: any;
 
-  @Input() selectedCategory!: any;
-  @Input() subCategoryList!: any;
+  @Input() selectedSection: any;
+  @Input() subCategoryList: any;
 
   ngOnInit(): void {
-    this.categories = NavBarContent;
-    console.log('selected Sections', this.selectedCategory);
+    this.navContent = NavBarContent;
+
+    console.log('NavBar: ', this.navContent);
+    console.log('Selected Section:', this.selectedSection);
+
+    console.log(
+      'Categories:',
+      this.navContent[this.selectedSection].categories,
+    );
   }
 
   constructor(

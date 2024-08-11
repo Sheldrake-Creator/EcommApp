@@ -3,63 +3,63 @@ export const NavBarContent = {
     id: 'pointless',
     name: 'Pointless',
 
-    // featured: [
-    //   {
-    //     name: 'New Arrivals',
-    //     href: '/',
-    //     imageSrc:
-    //       'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
-    //     imageAlt:
-    //       'Models sitting back to back, wearing Basic Tee in black and bone.',
-    //   },
-    //   {
-    //     name: 'Basic Tees',
-    //     href: '/',
-    //     imageSrc:
-    //       'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-    //     imageAlt:
-    //       'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-    //   },
-    // ],
     categories: [
       {
         categoryId: 'clothing',
-        name: 'Clothing',
+        name: 'Categories',
         items: [
-          { name: 'Tops', id: 'top', href: `{women/clothing/tops}` },
-          { name: 'Dresses', id: 'women_dress', href: '#' },
-          { name: 'Women Jeans', id: 'women_jeans' },
-          { name: 'Lengha Choli', id: 'lengha_choli' },
-          { name: 'Sweaters', id: 'sweater' },
-          { name: 'T-Shirts', id: 't-shirt' },
-          { name: 'Jackets', id: 'jacket' },
-          { name: 'Activewear', id: '#' },
-          { name: 'Sarees', id: 'saree' },
-          { name: 'Kurtas', id: 'kurtas' },
-        ],
-      },
-      {
-        id: 'accessories',
-        name: 'Accessories',
-        items: [
-          { name: 'Watches', id: 'watch' },
-          { name: 'Wallets', id: 'wallet' },
-          { name: 'Bags', id: 'bag' },
-          { name: 'Sunglasses', id: 'sunglasses' },
-          { name: 'Hats', id: 'hat' },
-          { name: 'Belts', id: 'belt' },
+          { value: 'GenuinelyUnpleasant', label: 'Genuinely Unpleasant' },
+          { value: 'Novelty', label: 'Novelty' },
+          { value: 'Frivolous', label: 'Frivolous' },
+          { value: 'Psychicdamange', label: 'Psychic Damange' },
+          { value: 'Unhinged', label: 'Unhinged' },
+          { value: 'MildlyUpsetting', label: 'Mildly Upsetting' },
+          { value: 'Ill-Concieved', label: 'Ill-Concieved' },
+          { value: 'Confusing', label: 'Confusing' },
+          { value: 'Silly', label: 'Silly' },
         ],
       },
       {
         id: 'brands',
         name: 'Brands',
         items: [
-          { name: 'Full Nelson', id: '#' },
-          { name: 'My Way', id: '#' },
-          { name: 'Re-Arranged', id: '#' },
-          { name: 'Counterfeit', id: '#' },
-          { name: 'Significant Other', id: '#' },
+          { value: '', label: 'Scheinhardt Wig Company' },
+          { value: '', label: 'ACME' },
+          { value: '', label: 'Burns Industries' },
+          { value: '', label: 'Sterling Cooper' },
+          { value: '', label: 'The Bluth Company' },
+          { value: '', label: 'Brawndo' },
+          { value: '', label: 'Vandelay Industries' },
+          { value: '', label: 'Aperture Science' },
+          { value: '', label: 'Susquehana Hat Co.' },
         ],
+      },
+      {
+        id: 'stock',
+        name: 'Real or Fake',
+        items: [
+          { value: 'real', label: 'Real' },
+          { value: 'fake', label: 'Fake' },
+        ],
+      },
+    ],
+
+    featured: [
+      {
+        name: 'Nicholas Page Face Pillow',
+        href: '/',
+        imageSrc:
+          'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1632326476-51qsxODMtYL._SL500_.jpg?crop=1xw:1.00xh;center,top&resize=980:*',
+        imageAlt:
+          'Models sitting back to back, wearing Basic Tee in black and bone.',
+      },
+      {
+        name: 'I Heart Microplastics T-Shirt',
+        href: '/',
+        imageSrc:
+          'https://ae-pic-a1.aliexpress-media.com/kf/Sb00745585ce64d71979a15f21d6aa6414/Funny-I-Love-Microplastics-Heart-T-Shirts-Summer-Graphic-Cotton-Streetwear-Short-Sleeve-Birthday-Gifts-T.jpg_.webp',
+        imageAlt:
+          'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
       },
     ],
   },
@@ -68,59 +68,61 @@ export const NavBarContent = {
     id: 'dangerous',
     name: 'Dangerous',
 
-    // featured: [
-    //   {
-    //     name: 'New Arrivals',
-    //     id: '#',
-    //     imageSrc:
-    //       'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-    //     imageAlt:
-    //       'Drawstring top with elastic loop closure and textured interior padding.',
-    //   },
-    //   {
-    //     name: 'Artwork Tees',
-    //     id: '#',
-    //     imageSrc:
-    //       'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-    //     imageAlt:
-    //       'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-    //   },
-    // ],
     categories: [
       {
-        id: 'clothing',
-        name: 'Clothing',
+        id: 'categories',
+        name: 'Categories',
         items: [
-          { name: 'Mens Kurtas', id: 'mens_kurta' },
-          { name: 'Shirt', id: 'shirt' },
-          { name: 'Men Jeans', id: 'men_jeans' },
-          { name: 'Sweaters', id: '#' },
-          { name: 'T-Shirts', id: 't-shirt' },
-          { name: 'Jackets', id: '#' },
-          { name: 'Activewear', id: '#' },
-        ],
-      },
-      {
-        id: 'accessories',
-        name: 'Accessories',
-        items: [
-          { name: 'Watches', id: '#' },
-          { name: 'Wallets', id: '#' },
-          { name: 'Bags', id: '#' },
-          { name: 'Sunglasses', id: '#' },
-          { name: 'Hats', id: '#' },
-          { name: 'Belts', id: '#' },
+          { value: 'GenuinelyUnpleasant', label: 'Genuinely Unpleasant' },
+          { value: 'PotentiallyLethal', label: 'Potentially Lethal' },
+          { value: 'MostlyDeleterious', label: 'Mostly Deleterious' },
+          { value: 'Psychicdamange', label: 'Psychic Damange' },
+          { value: 'Unhinged', label: 'Unhinged' },
+          { value: 'MildlyUpsetting', label: 'Mildly Upsetting' },
+          { value: 'Confusing', label: 'Confusing' },
+          { value: 'Silly', label: 'Silly' },
+          { value: 'InPoorTaste', label: 'In Poor Taste' },
         ],
       },
       {
         id: 'brands',
         name: 'Brands',
         items: [
-          { name: 'Re-Arranged', id: '#' },
-          { name: 'Counterfeit', id: '#' },
-          { name: 'Full Nelson', id: '#' },
-          { name: 'My Way', id: '#' },
+          { value: '', label: 'Scheinhardt Wig Company' },
+          { value: '', label: 'ACME' },
+          { value: '', label: 'Burns Industries' },
+          { value: '', label: 'Sterling Cooper' },
+          { value: '', label: 'The Bluth Company' },
+          { value: '', label: 'Brawndo' },
+          { value: '', label: 'Vandelay Industries' },
+          { value: '', label: 'Aperture Science' },
+          { value: '', label: 'Susquehana Hat Co.' },
         ],
+      },
+      {
+        id: 'stock',
+        name: 'Real or Fake',
+        items: [
+          { value: 'real', label: 'Real' },
+          { value: 'fake', label: 'Fake' },
+        ],
+      },
+    ],
+
+    featured: [
+      {
+        name: 'Miscellaneous Teeth',
+        id: '#',
+        imageSrc: '/assets/Data/Homescreen_Products/miscellaniousTeeth.png',
+        imageAlt: 'Cage!',
+      },
+      {
+        name: 'Non-Ornamental Lawn Ornament',
+        id: '#',
+        imageSrc:
+          '/assets/Data/Homescreen_Products/non-ornamental-ornament.png',
+        imageAlt:
+          'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
       },
     ],
   },

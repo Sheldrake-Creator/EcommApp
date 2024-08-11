@@ -79,7 +79,7 @@ export class ProductsComponent implements OnInit {
   onScroll(): void {
     const container =
       this.scrollContainer?.nativeElement || document.documentElement;
-    const scrollTop = window.pageYOffset || container.scrollTop;
+    const scrollTop = window.scrollY || container.scrollTop;
     const scrollHeight = container.scrollHeight;
     const offsetHeight = container.clientHeight;
 
@@ -92,35 +92,65 @@ export class ProductsComponent implements OnInit {
     if (this.currentPage < this.totalPages && !this.loading) {
       this.loading = true;
       console.log('Loading products for page:', this.currentPage);
-      this.productService.getAllProductsPaginated(this.currentPage).subscribe(
-        (response: HttpResponsePaginatedInterface) => {
+
+      this.productService.getAllProductsPaginated(this.currentPage).subscribe({
+        next: (response: HttpResponsePaginatedInterface) => {
           console.log('API response:', response);
           const currentProductsPage = response.data.pages;
+          // Handle the current page data
+          // this.products.push(...currentProductsPage); // Example handling
 
-          // Concatenate the content of the new page to the existing allProducts array
           this.allProducts = [
             ...this.allProducts,
             ...currentProductsPage.content,
           ];
 
-          // Push new page data to the pages$
-          const currentPages = this.pages$.getValue();
-          this.pages$.next([...currentPages, currentProductsPage]);
-
-          // Update page details
           this.totalPages = currentProductsPage.totalPages;
           this.currentPage++;
-
-          // Reset the loading flag
           this.loading = false;
         },
-        (error) => {
-          console.error('API call failed:', error);
+        error: (err) => {
+          console.error('Error loading products:', err);
           this.loading = false;
         },
-      );
+        complete: () => {
+          console.log('Finished loading products.');
+        },
+      });
     }
   }
+  //   if (this.currentPage < this.totalPages && !this.loading) {
+  //     this.loading = true;
+  //     console.log('Loading products for page:', this.currentPage);
+  //     this.productService.getAllProductsPaginated(this.currentPage).subscribe(
+  //       (response: HttpResponsePaginatedInterface) => {
+  //         console.log('API response:', response);
+  //         const currentProductsPage = response.data.pages;
+
+  //         // Concatenate the content of the new page to the existing allProducts array
+  //         this.allProducts = [
+  //           ...this.allProducts,
+  //           ...currentProductsPage.content,
+  //         ];
+
+  //         // Push new page data to the pages$
+  //         const currentPages = this.pages$.getValue();
+  //         this.pages$.next([...currentPages, currentProductsPage]);
+
+  //         // Update page details
+  //         this.totalPages = currentProductsPage.totalPages;
+  //         this.currentPage++;
+
+  //         // Reset the loading flag
+  //         this.loading = false;
+  //       },
+  //       (error) => {
+  //         console.error('API call failed:', error);
+  //         this.loading = false;
+  //       },
+  //     );
+  //   }
+  // }
 
   handleMultipleSelectFilter(value: string, sectionId: string) {
     const queryParams = { ...this.activatedRoute.snapshot.queryParams };

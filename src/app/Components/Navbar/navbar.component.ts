@@ -15,6 +15,7 @@ import { selectCurrentUser } from '../../Store/Auth/auth.reducer';
 import { cartActions } from '../../Store/Cart/cart.actions';
 import { selectCartItemCount } from '../../Store/Cart/cart.reducer';
 import { productActions } from '../../Store/Product/product.action';
+import { SectionInterface } from '../../models/NavContent/navContent.interface';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { AuthComponent } from '../authentication/auth/auth.component';
 import { NavContentComponent } from './nav-content/nav-content.component';

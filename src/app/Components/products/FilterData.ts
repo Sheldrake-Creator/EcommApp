@@ -1,35 +1,45 @@
-export const color = [
-  'white',
-  'Black',
-  'Red',
-  'marun',
-  'Being',
-  'Pink',
-  'Green',
-  'Yellow',
-];
+export const color = [];
 
 export const filters = [
   {
-    id: 'color',
-    name: 'Color',
+    id: 'category',
+    name: 'Category',
     options: [
-      { value: 'white', label: 'White' },
-      { value: 'beige', label: 'Beige' },
-      { value: 'blue', label: 'Blue' },
-      { value: 'brown', label: 'Brown' },
-      { value: 'green', label: 'Green' },
-      { value: 'purple', label: 'Purple' },
-      { value: 'yellow', label: 'Yellow' },
-      { value: 'black', label: 'Black' },
+      { value: 'GenuinelyUnpleasant', label: 'Genuinely Unpleasant' },
+      { value: 'Novelty', label: 'Novelty' },
+      { value: 'Frivolous', label: 'Frivolous' },
+      { value: 'PotentiallyLethal', label: 'Potentially Lethal' },
+      { value: 'MostlyDeleterious', label: 'Mostly Deleterious' },
+      { value: 'Psychicdamange', label: 'Psychic Damange' },
+      { value: 'Unhinged', label: 'Unhinged' },
+      { value: 'MildlyUpsetting', label: 'Mildly Upsetting' },
+      { value: 'Ill-Concieved', label: 'Ill-Concieved' },
+      { value: 'Confusing', label: 'Confusing' },
+      { value: 'Silly', label: 'Silly' },
+      { value: 'InPoorTaste', label: 'In Poor Taste' },
+    ],
+  },
+  {
+    id: 'brand',
+    name: 'Brand',
+    options: [
+      { value: '', label: 'Scheinhardt Wig Company' },
+      { value: '', label: 'ACME' },
+      { value: '', label: 'Burns Industries' },
+      { value: '', label: 'Sterling Cooper' },
+      { value: '', label: 'The Bluth Company' },
+      { value: '', label: 'Brawndo' },
+      { value: '', label: 'Vandelay Industries' },
+      { value: '', label: 'Aperture Science' },
+      { value: '', label: 'Susquehana Hat Co.' },
     ],
   },
   {
     id: 'stock',
     name: 'Real or Fake',
     options: [
-      { value: 'in_stock', label: 'In Stock' },
-      { value: 'out of_stock', label: 'Out Of Stock' },
+      { value: 'real', label: 'Real' },
+      { value: 'fake', label: 'Fake' },
     ],
   },
   {
@@ -47,11 +57,11 @@ export const singleFilter = [
     id: 'price',
     name: 'Price',
     options: [
-      { value: '159-399', label: '$1 To $50' },
-      { value: '399-999', label: '$51 To $100' },
-      { value: '999-1999', label: '$101 To $200' },
-      { value: '1999-2999', label: '$201 To $500' },
-      { value: '3999-4999', label: '$500+' },
+      { value: '1-50', label: '$1 To $50' },
+      { value: '51-100', label: '$51 To $100' },
+      { value: '101-200', label: '$101 To $200' },
+      { value: '201-500', label: '$201 To $500' },
+      { value: '501+', label: '$500+' },
     ],
   },
   {
@@ -66,14 +76,6 @@ export const singleFilter = [
         value: '1',
         label: 'False',
       },
-    ],
-  },
-  {
-    id: 'stock',
-    name: 'Real or Fake',
-    options: [
-      { value: 'in_stock', label: 'Real Products' },
-      { value: 'out_of_stock', label: 'Fake Products' },
     ],
   },
 ];

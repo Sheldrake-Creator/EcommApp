@@ -33,40 +33,49 @@
                     (click)="navigateTo('/admin')" mat-button>
                     Admin Panel
                 </button>
+                <button
+                    class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="navigateTo('/about')" mat-button>
+                    About
+                </button>
             </div>
         </div>
 
         <!-- Mobile Menu Button   [ngClass]="{ hidden: !isMobileMenuOpen, flex: isMobileMenuOpen }"-->
 
-        <section id="mobile-menu">
+        <section id="mobile-menu"
+            class="flex md:hidden -ml-5 mr-2 bg-[#57df9d] absolute top-0 w-full text-5xl flex-col justify-center origin-top animate-open-menu">
             <!-- Close (X) Button -->
-            <!-- Close (X) Button (Visible when the menu is open) -->
             <ng-container *ngIf="!isMobileMenuOpen; else showHamburger">
-                <button
-                    class="bg-black absolute top-0 w-full text-5xl flex flex-col justify-center origin-top animate-open-menu text-violet-700 self-start px-6"
-                    (click)="toggleMobileMenu()">
-                    &times;
-                </button>
-            </ng-container>
-
-            <!-- Hamburger Button (Visible when the menu is closed) -->
-            <ng-template #showHamburger>
-                <button class="" (click)="toggleMobileMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                <button (click)="toggleMobileMenu()">
+                    <svg class="w-7 h-7 mt-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
+
+            </ng-container>
+
+            <!-- Hamburger Button (Visible when the menu is closed) -->
+            <ng-template #showHamburger class="">
+                <button class="text-violet-700 self-start ml-2" (click)="toggleMobileMenu()">
+                    &times;
+                </button>
+                <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+                    <a href="#Pointless" class="w-full text-center py-6 hover:opacity-90">Pointless</a>
+                    <a href="#Dangerous" class="w-full text-center py-6 hover:opacity-90">Dangerous</a>
+                    <a href="#Pointless&Dangerous" class="w-full text-center py-6 hover:opacity-90">Pointless &
+                        Dangerous</a>
+                    <a href="/admin" class="w-full text-center py-6 hover:opacity-90">Admin Panel</a>
+                    <a href="/about" class="w-full text-center py-6 hover:opacity-90">About</a>
+                    <a href="/" class="w-full text-center py-6 hover:opacity-90">Home</a>
+                </nav>
+
             </ng-template>
+
             <!-- Navigation Links or other content -->
-            <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
-                <a href="#Pointless" class="w-full text-center py-6 hover:opacity-90">Pointless</a>
-                <a href="#Dangerous" class="w-full text-center py-6 hover:opacity-90">Dangerous</a>
-                <a href="#Pointless&Dangerous" class="w-full text-center py-6 hover:opacity-90">Pointless &
-                    Dangerous</a>
-                <a href="#admin" class="w-full text-center py-6 hover:opacity-90">Admin Panel</a>
-            </nav>
+
         </section>
 
 
@@ -132,5 +141,5 @@
 </div>
 
 <div class="modal-container" *ngIf="isNavbarContentOpen">
-    <app-nav-content [selectedCategory]="currentSection" />
+    <app-nav-content [selectedSection]="currentSection" />
 </div>
