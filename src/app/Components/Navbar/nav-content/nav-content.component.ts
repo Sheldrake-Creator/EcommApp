@@ -30,14 +30,6 @@ export class NavContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.navContent = NavBarContent;
-
-    console.log('NavBar: ', this.navContent);
-    console.log('Selected Section:', this.selectedSection);
-
-    console.log(
-      'Categories:',
-      this.navContent[this.selectedSection].categories,
-    );
   }
 
   constructor(
@@ -46,6 +38,8 @@ export class NavContentComponent implements OnInit {
   ) {}
   handleNavigate = (path: any) => {
     this.router.navigate([path]);
+    console.log('IS THIS WORKING?');
+    console.log(path);
   };
 
   getByCategoryHandler() {

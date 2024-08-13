@@ -43,7 +43,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
   persistenceService: any;
   actionsSubscription: Subscription = new Subscription();
   currentUser$: Observable<CurrentUserInterface | null | undefined>;
-  itemCount$: Observable<number | undefined>;
+  itemCount$?: Observable<number | undefined>;
   routerSubscription: Subscription | undefined;
 
   //<AppState/>

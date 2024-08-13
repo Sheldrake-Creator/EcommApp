@@ -102,7 +102,7 @@
           </form>
         </div>
 
-        <div class="lg:col-span-3" #scrollContainer>
+        <div class="lg:col-span-5" #scrollContainer>
           <div class="flex flex-wrap justify-evenly">
             <!-- Loading spinner -->
             <div *ngIf="loading">
@@ -110,7 +110,7 @@
               <p>Loading...</p>
             </div>
 
-            <ng-container *ngIf="allProducts">
+            <ng-container *ngIf="allProducts$ | async as allProducts">
               <div *ngFor="let product of allProducts">
                 <app-product-card [product]="product"></app-product-card>
               </div>

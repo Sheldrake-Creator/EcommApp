@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -17,9 +18,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
+import { productActions } from '../../Store/Product/product.action';
+import { selectProducts } from '../../Store/Product/product.reducer';
 import { ProductServices } from '../../Store/Product/product.service';
 import { ProductInterface } from '../../models/Product/product.interface';
+import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { HttpResponsePaginatedInterface } from '../../models/Responses/httpResponsePaginated.interface';
 import { ProductPageInterface } from '../../models/Responses/page.interface';
 import { ProductStateInterface } from '../../models/State/productState.interface';
@@ -45,12 +49,15 @@ import { ProductCardComponent } from './product-card/product-card.component';
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
   filterData: any;
   singleFilter: any;
   levelThree: any;
+  singleCategory?: any;
   isLoading$!: Observable<boolean>;
   page = 0;
+  allProducts$?: Observable<ProductInterface[] | undefined>;
+  SingleSearchArray?: string[];
 
   @ViewChild('scrollContainer') scrollContainer?: ElementRef;
   allProducts: ProductInterface[] = [];
@@ -68,12 +75,46 @@ export class ProductsComponent implements OnInit {
     private store: Store<ProductStateInterface>,
     private productService: ProductServices,
   ) {}
+  ngOnDestroy(): void {
+    // throw new Error('Method not implemented.');
+  }
 
   ngOnInit() {
-    this.loadProducts();
-    this.filterData = filters;
+    // Using snapshot to capture the query parameter once when the component is initialized
     this.singleFilter = singleFilter;
+    this.filterData = filters;
+
+    const showAll = this.activatedRoute.snapshot.queryParams['showAll'];
+    const params = this.activatedRoute.snapshot.params;
+
+    if (showAll) {
+      console.log('showAll:', showAll);
+      this.store.dispatch(productActions.getAllProductsRequest());
+      this.allProducts$ = this.store.select(selectProducts);
+    } else if (params) {
+      this.allProducts$ = this.activatedRoute.params.pipe(
+        switchMap((params) => {
+          const case1 = params['levelOne'] || '';
+          const case2 = params['levelTwo'] || '';
+          const case3 = params['levelThree'] || '';
+          console.log('case3 ', case3);
+          ['levelThree'] || '';
+          return this.productService
+            .singleCategorySearch(case1, case2, case3)
+            .pipe(
+              // Transform the response if needed
+              map(
+                (response: HttpResponseInterface) =>
+                  response.data['products'] as ProductInterface[],
+              ), // Adjust according to your response structure
+            );
+        }),
+      );
+    }
   }
+  // if (singleCategory){
+  //   this.allProducts$ = singleCategory
+  // }
 
   @HostListener('window:scroll', [])
   onScroll(): void {
@@ -119,38 +160,6 @@ export class ProductsComponent implements OnInit {
       });
     }
   }
-  //   if (this.currentPage < this.totalPages && !this.loading) {
-  //     this.loading = true;
-  //     console.log('Loading products for page:', this.currentPage);
-  //     this.productService.getAllProductsPaginated(this.currentPage).subscribe(
-  //       (response: HttpResponsePaginatedInterface) => {
-  //         console.log('API response:', response);
-  //         const currentProductsPage = response.data.pages;
-
-  //         // Concatenate the content of the new page to the existing allProducts array
-  //         this.allProducts = [
-  //           ...this.allProducts,
-  //           ...currentProductsPage.content,
-  //         ];
-
-  //         // Push new page data to the pages$
-  //         const currentPages = this.pages$.getValue();
-  //         this.pages$.next([...currentPages, currentProductsPage]);
-
-  //         // Update page details
-  //         this.totalPages = currentProductsPage.totalPages;
-  //         this.currentPage++;
-
-  //         // Reset the loading flag
-  //         this.loading = false;
-  //       },
-  //       (error) => {
-  //         console.error('API call failed:', error);
-  //         this.loading = false;
-  //       },
-  //     );
-  //   }
-  // }
 
   handleMultipleSelectFilter(value: string, sectionId: string) {
     const queryParams = { ...this.activatedRoute.snapshot.queryParams };
@@ -187,6 +196,39 @@ export interface ProductsPaginator {
   page: number;
   hasMorePages: boolean;
 }
+
+//   if (this.currentPage < this.totalPages && !this.loading) {
+//     this.loading = true;
+//     console.log('Loading products for page:', this.currentPage);
+//     this.productService.getAllProductsPaginated(this.currentPage).subscribe(
+//       (response: HttpResponsePaginatedInterface) => {
+//         console.log('API response:', response);
+//         const currentProductsPage = response.data.pages;
+
+//         // Concatenate the content of the new page to the existing allProducts array
+//         this.allProducts = [
+//           ...this.allProducts,
+//           ...currentProductsPage.content,
+//         ];
+
+//         // Push new page data to the pages$
+//         const currentPages = this.pages$.getValue();
+//         this.pages$.next([...currentPages, currentProductsPage]);
+
+//         // Update page details
+//         this.totalPages = currentProductsPage.totalPages;
+//         this.currentPage++;
+
+//         // Reset the loading flag
+//         this.loading = false;
+//       },
+//       (error) => {
+//         console.error('API call failed:', error);
+//         this.loading = false;
+//       },
+//     );
+//   }
+// }
 
 // this.activatedRoute.paramMap.subscribe((params) => {
 //   console.log('params ', params);
@@ -236,14 +278,4 @@ export interface ProductsPaginator {
 // this.store.subscribe((product) => {
 //   this.products = product.product;
 //   console.log('store data ', product.product);
-// });
-
-// this.activatedRoute.queryParams.subscribe((params) => {
-//   const showAll = params['showAll'];
-//   if (showAll) {
-//     this.store.dispatch(productActions.getAllProductsRequest());
-//     this.allProducts$ = this.store.select(selectProducts);
-//     this.isLoading$ = this.store.select(selectIsLoading);
-//     this.loadMoreProducts();
-//   }
 // });

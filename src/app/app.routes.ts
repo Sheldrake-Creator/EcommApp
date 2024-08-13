@@ -26,6 +26,7 @@ export const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'about', component: AboutComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'products/item', component: ProductsComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'checkout/payment/:orderId', component: PaymentComponent },

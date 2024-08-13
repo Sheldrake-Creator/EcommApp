@@ -101,4 +101,13 @@ export class ProductServices {
       `${this.API_URL}/api/products/all/${page}`,
     );
   }
+  singleCategorySearch(
+    params1: string,
+    params2: string,
+    params3: string,
+  ): Observable<HttpResponseInterface> {
+    return this.http.get<HttpResponseInterface>(
+      `${this.API_URL}/api/${params1}/${params2}/${params3}`,
+    );
+  }
 }

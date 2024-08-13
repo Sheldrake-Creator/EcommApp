@@ -5,33 +5,34 @@ export const NavBarContent = {
 
     categories: [
       {
-        categoryId: 'clothing',
+        categoryId: '1',
         name: 'Categories',
         items: [
-          { value: 'GenuinelyUnpleasant', label: 'Genuinely Unpleasant' },
-          { value: 'Novelty', label: 'Novelty' },
-          { value: 'Frivolous', label: 'Frivolous' },
-          { value: 'Psychicdamange', label: 'Psychic Damange' },
-          { value: 'Unhinged', label: 'Unhinged' },
-          { value: 'MildlyUpsetting', label: 'Mildly Upsetting' },
-          { value: 'Ill-Concieved', label: 'Ill-Concieved' },
-          { value: 'Confusing', label: 'Confusing' },
-          { value: 'Silly', label: 'Silly' },
+          { value: 14, label: 'Genuinely Unpleasant' },
+          { value: 19, label: 'Baffling' },
+          { value: 22, label: 'Unhinged' },
+          { value: 20, label: 'Mildly Upsetting' },
+          { value: 9, label: 'Ill-Concieved' },
+          { value: 11, label: 'Confusing' },
+          { value: 11, label: 'Silly' },
         ],
       },
       {
         id: 'brands',
         name: 'Brands',
         items: [
-          { value: '', label: 'Scheinhardt Wig Company' },
-          { value: '', label: 'ACME' },
-          { value: '', label: 'Burns Industries' },
-          { value: '', label: 'Sterling Cooper' },
-          { value: '', label: 'The Bluth Company' },
-          { value: '', label: 'Brawndo' },
-          { value: '', label: 'Vandelay Industries' },
-          { value: '', label: 'Aperture Science' },
-          { value: '', label: 'Susquehana Hat Co.' },
+          {
+            value: 'Scheinhardt Wig Company',
+            label: 'Scheinhardt Wig Company',
+          },
+          { value: 'ACME', label: 'ACME' },
+          { value: 'Burn Industries', label: 'Burns Industries' },
+          { value: 'Sterling Cooper', label: 'Sterling Cooper' },
+          { value: 'The Bluth Company', label: 'The Bluth Company' },
+          { value: 'Brawndo', label: 'Brawndo' },
+          { value: 'Vandelay Industries', label: 'Vandelay Industries' },
+          { value: 'Aperture Science', label: 'Aperture Science' },
+          { value: 'Susquehana Hat Co.', label: 'Susquehana Hat Co.' },
         ],
       },
       {
@@ -47,7 +48,7 @@ export const NavBarContent = {
     featured: [
       {
         name: 'Nicholas Page Face Pillow',
-        href: '/',
+        href: '/products/item',
         imageSrc:
           'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1632326476-51qsxODMtYL._SL500_.jpg?crop=1xw:1.00xh;center,top&resize=980:*',
         imageAlt:
@@ -70,17 +71,16 @@ export const NavBarContent = {
 
     categories: [
       {
-        id: 'categories',
+        id: '2',
         name: 'Categories',
         items: [
-          { value: 'GenuinelyUnpleasant', label: 'Genuinely Unpleasant' },
-          { value: 'PotentiallyLethal', label: 'Potentially Lethal' },
-          { value: 'MostlyDeleterious', label: 'Mostly Deleterious' },
+          { value: 21, label: 'Genuinely Unpleasant' },
+          { value: 13, label: 'Potentially Lethal' },
+          { value: '', label: 'Mostly Deleterious' },
           { value: 'Psychicdamange', label: 'Psychic Damange' },
           { value: 'Unhinged', label: 'Unhinged' },
           { value: 'MildlyUpsetting', label: 'Mildly Upsetting' },
-          { value: 'Confusing', label: 'Confusing' },
-          { value: 'Silly', label: 'Silly' },
+          { value: 13, label: 'Confusing' },
           { value: 'InPoorTaste', label: 'In Poor Taste' },
         ],
       },
@@ -88,15 +88,18 @@ export const NavBarContent = {
         id: 'brands',
         name: 'Brands',
         items: [
-          { value: '', label: 'Scheinhardt Wig Company' },
-          { value: '', label: 'ACME' },
-          { value: '', label: 'Burns Industries' },
-          { value: '', label: 'Sterling Cooper' },
-          { value: '', label: 'The Bluth Company' },
-          { value: '', label: 'Brawndo' },
-          { value: '', label: 'Vandelay Industries' },
-          { value: '', label: 'Aperture Science' },
-          { value: '', label: 'Susquehana Hat Co.' },
+          {
+            value: 'Scheinhardt Wig Company',
+            label: 'Scheinhardt Wig Company',
+          },
+          { value: 'ACME', label: 'ACME' },
+          { value: 'Burn Industries', label: 'Burns Industries' },
+          { value: 'Sterling Cooper', label: 'Sterling Cooper' },
+          { value: 'The Bluth Company', label: 'The Bluth Company' },
+          { value: 'Brawndo', label: 'Brawndo' },
+          { value: 'Vandelay Industries', label: 'Vandelay Industries' },
+          { value: 'Aperture Science', label: 'Aperture Science' },
+          { value: 'Susquehana Hat Co.', label: 'Susquehana Hat Co.' },
         ],
       },
       {
