@@ -1,72 +1,139 @@
 <div class="fixed top-0 z-50 right-0 left-0 bg-[#57df9d]">
-
     <div class="px-5 lg:px-20 h-16 flex items-center justify-between">
         <div class="flex items-center">
             <div class="mr-5">
                 <button>
-                    <img class="w-8" src="./assets/MoogleFFIXConcept.png" alt="Silas Code" (click)="navigateTo('/')">
+                    <img class="hidden md:flex w-8" src="./assets/MoogleFFIXConcept.png" alt="Silas Code"
+                        (click)="navigateTo('/')" />
                 </button>
             </div>
 
-            <div class="">
-                <div class="flex space-x-4 mt-2">
-                    <a routerlink="/" class="text-purple-600 font-bold pt-2">
-                        Shop with Silas
-                    </a>
-                    <div>
-                        <button
-                            class="open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1 text-purple-600"
-                            (click)="openNavbarContent('pointless')" mat-button>Pointless</button>
-                    </div>
-                    <div>
-                        <button
-                            class="open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
-                            (click)="openNavbarContent('dangerous')" mat-button>Dangerous</button>
-                    </div>
-                    <div>
-                        <button
-                            class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
-                            (click)="navigateToProducts()" mat-button>Pointless &
-                            <span>Dangerous</span>
-                        </button>
-                    </div>
-                    <div>
-                        <button
-                            class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
-                            (click)="navigateTo('/admin')" mat-button>Admin Panel</button>
-                    </div>
-                </div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-4 mt-2">
+                <a routerlink="/" class="text-purple-600 font-bold pt-2">
+                    Shop with Silas
+                </a>
+                <button
+                    class="open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1 text-purple-600"
+                    (click)="openNavbarContent('pointless')" mat-button>
+                    Pointless
+                </button>
+                <button
+                    class="open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="openNavbarContent('dangerous')" mat-button>
+                    Dangerous
+                </button>
+                <button
+                    class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="navigateToProducts()" mat-button>
+                    Pointless & <span>Dangerous</span>
+                </button>
+                <button
+                    class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="navigateTo('/admin')" mat-button>
+                    Admin Panel
+                </button>
+                <button
+                    class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="navigateTo('/about')" mat-button>
+                    About
+                </button>
             </div>
         </div>
 
-        <div class="flex items-center">
+        <!-- Mobile Menu Button   [ngClass]="{ hidden: !isMobileMenuOpen, flex: isMobileMenuOpen }"-->
 
-            <button (click)="handleOpenLogin()" *ngIf="!(currentUser$ | async)" mat-raised-button
-                color="accent">LOGIN</button>
+        <section id="mobile-menu"
+            class="flex md:hidden -ml-5 mr-2 bg-[#57df9d] absolute top-0 w-full text-5xl flex-col justify-center origin-top animate-open-menu">
+            <!-- Close (X) Button -->
+            <ng-container *ngIf="!isMobileMenuOpen; else showHamburger">
+                <button (click)="toggleMobileMenu()">
+                    <svg class="w-7 h-7 mt-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+
+            </ng-container>
+
+            <!-- Hamburger Button (Visible when the menu is closed) -->
+            <ng-template #showHamburger class="">
+                <button class="text-violet-700 self-start ml-2" (click)="toggleMobileMenu()">
+                    &times;
+                </button>
+                <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+                    <a href="#Pointless" class="w-full text-center py-6 hover:opacity-90">Pointless</a>
+                    <a href="#Dangerous" class="w-full text-center py-6 hover:opacity-90">Dangerous</a>
+                    <a href="#Pointless&Dangerous" class="w-full text-center py-6 hover:opacity-90">Pointless &
+                        Dangerous</a>
+                    <a href="/admin" class="w-full text-center py-6 hover:opacity-90">Admin Panel</a>
+                    <a href="/about" class="w-full text-center py-6 hover:opacity-90">About</a>
+                    <a href="/" class="w-full text-center py-6 hover:opacity-90">Home</a>
+                </nav>
+
+            </ng-template>
+
+            <!-- Navigation Links or other content -->
+
+        </section>
+
+
+
+        <!-- Mobile Menu -->
+        <!-- <div [ngClass]="{ hidden: !isMobileMenuOpen, block: isMobileMenuOpen }" class="md:hidden">
+                <a routerlink="/" class="block text-purple-600 font-bold pt-2">Shop with Silas</a>
+                <button
+                    class="block w-full text-left open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1 text-purple-600"
+                    (click)="openNavbarContent('pointless')" mat-button>
+                    Pointless
+                </button>
+                <button
+                    class="block w-full text-left open-button cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="openNavbarContent('dangerous')" mat-button>
+                    Dangerous
+                </button>
+                <button
+                    class="block w-full text-left cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="navigateToProducts()" mat-button>
+                    Pointless & <span>Dangerous</span>
+                </button>
+                <button
+                    class="block w-full text-left cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
+                    (click)="navigateTo('/admin')" mat-button>
+                    Admin Panel
+                </button>
+            </div> -->
+
+        <div class="flex items-center">
+            <button (click)="handleOpenLogin()" *ngIf="!(currentUser$ | async)" mat-raised-button color="accent">
+                LOGIN
+            </button>
 
             <div *ngIf="currentUser$ | async as userProfile" class="relative ml-3 flex items-center">
-
-
                 <ng-container class="flex items-center space-x-3">
-
-                    <span class="font-bold text-gray-800 text-lg">{{userProfile.userName}}</span>
+                    <span class="font-bold text-gray-800 text-lg">{{
+                        userProfile.userName
+                        }}</span>
                     <button class="bg-slate-700" (click)="navigateTo('cart')" mat-icon-button>
-                        <mat-icon [class.hide-badge]="!(itemCount$ | async)" matBadge="{{itemCount$ | async}}"
+                        <mat-icon [class.hide-badge]="!(itemCount$ | async)" matBadge="{{ itemCount$ | async }}"
                             matBadgeColor="primary" matBadgeSize="small" matBadgeOverlap="true">shopping_cart
                         </mat-icon>
                     </button>
                     <button mat-button [matMenuTriggerFor]="profileMenu">
                         <img class="h-7 w-7"
-                            src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt="">
+                            src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" alt="" />
                     </button>
-
                     <mat-menu #profileMenu="matMenu">
-                        <button (click)="navigateTo('account/orders')" mat-menu-item>Orders</button>
-                        <button (click)="navigateTo('profile')" mat-menu-item>Profile</button>
+                        <button (click)="navigateTo('account/orders')" mat-menu-item>
+                            Orders
+                        </button>
+                        <button (click)="navigateTo('profile')" mat-menu-item>
+                            Profile
+                        </button>
                         <button mat-menu-item (click)="navigateTo('cart')">Cart</button>
                         <button mat-menu-item (click)="handleLogOut()">Logout</button>
                     </mat-menu>
-
                 </ng-container>
             </div>
         </div>
@@ -74,7 +141,5 @@
 </div>
 
 <div class="modal-container" *ngIf="isNavbarContentOpen">
-
-    <app-nav-content [selectedCategory]="currentSection" />
-
+    <app-nav-content [selectedSection]="currentSection" />
 </div>

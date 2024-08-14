@@ -4,6 +4,7 @@ import { OrderItemInterface } from './orderItem.interface';
 export interface OrderInterface {
   orderId: number;
   orderItems: OrderItemInterface[];
+  totalItems: number;
   shippingAddress: AddressInterface;
   totalPrice: number;
   totalDiscountedPrice: number;
@@ -11,6 +12,6 @@ export interface OrderInterface {
   orderStatus: string;
   color: string;
   deliveryDate: Date;
-  orderDate: Date;
+  orderDate: string;
   userId: number;
 }

@@ -1,25 +1,25 @@
 <div class="w-full">
-    <div class="bg-gray-950 text-white w-full h-1/2 shadow-lg p-6">
-        <div class="flex justify-around pt-7" >
-            <div class="flex flex-col" *ngFor="let category of categories[selectedCategory].categories">
-                <h1 class="text center">{{category.name}}</h1>
-                <button (click)="handleNavigate('/'+selectedCategory+'/'+category.id+'/'+category.id)" mat-button *ngFor="let category of category.items" class="py-1">
-                {{category.name}}
-                </button>
-            </div>
-            <div class="hidden lg:block">
-                <div class="mb-5">
-                    <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md" src="https://uproxx.com/wp-content/uploads/2016/12/snl_well.jpg?w=640" alt="Hasbro Well for Boys">             
+    <div class="bg-gray-950 text-white w-full shadow-lg p-6">
+        <div class="flex flex-wrap justify-between pt-7 space-x-8">
+            <div class="flex flex-row space-x-4 items-start">
+                <div class="flex-1 space-y-2" *ngFor="let section of navContent[selectedSection].categories">
+                    <h2 class="text-lg font-semibold text-left">{{ section.name }}</h2>
+
+                    <div class="flex flex-col space-y-2">
+                        <button mat-button *ngFor="let category of section.items; let j = index" class="text-left py-1"
+                            (click)="handleNavigate('/' + 'products' + '/' + selectedSection + '/' + category.value)">
+                            {{ category.label }}
+                        </button>
+                    </div>
                 </div>
-                <p class="text-gray-600 font-bold">Fisher Price: Well for Boys</p>
-                <p class="text-gray-600">New Arrival!</p>
             </div>
-            <div class="hidden lg:block">
+
+            <div class="flex-1 hidden lg:block" *ngFor="let feature of navContent[selectedSection].featured">
                 <div class="mb-5">
-                    <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md" src="https://i.pinimg.com/474x/1c/3f/81/1c3f817e530b83150ba340bb58ea7f2a.jpg" alt="Teapot">             
+                    <img class="w-[19rem] h-[20rem] object-cover object-top rounded-md" src="{{ feature.imageSrc }}"
+                        alt="{{ feature.imageAlt }}" />
+                    <p class="text-gray-600 font-bold">{{ feature.name }}</p>
                 </div>
-                <p class="text-gray-600 font-bold">Poorly Designed Teapot</p>
-                <p class="text-gray-600">New Arrival!</p>
             </div>
         </div>
     </div>

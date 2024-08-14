@@ -1,0 +1,930 @@
+[
+  {
+    "title": "Poorly Designed Teapot",
+    "imageUrl": "https://i.pinimg.com/236x/5b/d1/66/5bd1660263ab8b89d07d4084c690e4da.jpg",
+    "brand": "Scheinhardt Wig Company",
+    "color": " ",
+    "price": 35,
+    "discountedPrice": 30,
+    "size": [
+      {
+        "name": "M",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Injurious",
+    "description": "Do you ever get the desire to drink a cup of tea while also potentially causing moderate to severe burns? If so, look no further, this teapot is the only one of its kind to deliver that outcome every time!",
+    "discountPresent": 0
+  },
+  {
+    "title": "1970's Lead-Based Paint",
+    "imageUrl": "https://greenorchardgroup.com/wp-content/uploads/2022/02/When-was-lead-paint-banned.jpg",
+    "brand": "Weyland Yutani Corporation",
+    "color": " ",
+    "price": 80,
+    "discountedPrice": 74,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Injurious",
+    "description": "The 70's was a decade that contained some of the best music and films of the 20th Century. Now you too can relive that era of history with some of the lovely lead based, from our select pre-1978 vintage!",
+    "discountPresent": 0
+  },
+  {
+    "title": "Insulin, that does work on Poor People",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Inzul%C3%ADn.jpg/800px-Inzul%C3%ADn.jpg",
+    "brand": "Hosaka Corporation",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Potentially Lethal",
+    "description": "Isn't strange how nearly every president since Jimmy Carter has explicitly run on the promise of lowering the price of insulin and yet it never seems to happen? Well, we wanna keep it that way, so we're introducing a new formulation which specifically doesn't work unless you meet a six-figure income threshold.",
+    "discountPresent": 0
+  },
+  {
+    "title": "BEES!?",
+    "imageUrl": "/assets/Data/Homescreen_Products/bees.png",
+    "brand": "ACME",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Potentially Lethal",
+    "description": "BEES!",
+    "discountPresent": 0
+  },
+  {
+    "title": "Trip to The Elmer's Glue, Sticky Waterpark",
+    "imageUrl": "https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/9945fb16023aae28e30f8110939dbb75.jpg",
+    "brand": "Burns Industries",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "L",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Ill-Concieved",
+    "description": "They all told me a glue based waterpark was a foolish idea! 'It'll never work', they said. 'Can you even call it a waterpark if all the rides use glue' they asked? Well I did not yield to naysayers of this, or any other world. I WILL FACE GOD AND WALK BACKWARDS INTO HELL!",
+    "discountPresent": 0
+  },
+  {
+    "title": "Meat Freshener",
+    "imageUrl": "https://i.kinja-img.com/image/upload/c_fit,q_60,w_645/23ecf42c2355e09ba6ee6d25cdeed4b5.jpg",
+    "brand": "Hosaka Corporation",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Mildly Upsetting",
+    "description": "The ONLY air freshner marketed for specific use on raw meat.",
+    "discountPresent": 0
+  },
+  {
+    "title": "'Real' Snake Oil",
+    "imageUrl": "https://bucksspices.com/cdn/shop/products/snakeoil1.webp?v=1705768631",
+    "brand": "Sterling Cooper",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Confusing",
+    "description": "Is it oil that's meant for snakes or an oil made from snakes? Unclear! Guess you'll just have to buy some in order to find out!",
+    "discountPresent": 0
+  },
+  {
+    "title": "Friendship Scissor",
+    "imageUrl": "https://www.photocase.com/photos/237690-half-half-scissors-metal-old-authentic-simple-photocase-stock-photo-large.jpeg",
+    "brand": "The Bluth Company",
+    "color": " ",
+    "price": 15,
+    "discountedPrice": 12,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Ill-Concieved",
+    "description": "Most scissors come in pairs so they can acomplish their designed purpose. But we at the ---- decided that in these deviscive times was more important to try and bring folks together. To wit, the friendship scissor which only comes with half a scissor requiring you to go out and make friends with another person who purchased their own friendship scissor....or you can always just buy two.    ",
+    "discountPresent": 0
+  },
+  {
+    "title": "Egg (Mystery Animal)",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Waved-albatross-egg.jpg",
+    "brand": "Vandelay Industries",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Confusing",
+    "description": " Its an egg! What animal is going to come out of it? Not even we know! The world's first and only double blind egg vendors in the United States",
+    "discountPresent": 0
+  },
+  {
+    "title": "Pile of Dynamite Dressed to resemble like a pretty girl rabbit",
+    "imageUrl": "/assets/Data/Homescreen_Products/dynamite.png",
+    "brand": "ACME",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "L",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Silly",
+    "description": "Don't you just hate it when the wascally wabbit your chasing gets one over on you through cunning and subterfuge? Why not try returning favor by seeing if he'll confuse a pile of dynamite for a lady.",
+    "discountPresent": 0
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  {
+    "title": "Nicotine Toothpaste",
+    "imageUrl": "/assets/Data/Homescreen_Products/Zyn-Paste.png",
+    "brand": "Aperture Science",
+    "color": " ",
+    "price": 40,
+    "discountedPrice": 35,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Ill-Concieved",
+    "description": "Are you dissatisfied with conventional toothpaste that doesn't deliver nictone into your blood first thing in the morning? If so, you may want to seek help. But until then, why not brush with Uncle Shaky's toothpaste now with extra nicotine, for that fresh mouth sensation!  ",
+    "discountPresent": 0
+  },
+  {
+    "title": "Love Peninsula DVD Box Set",
+    "imageUrl": "https://upsco.imgix.net/upsco/ys/uploads/2009/02/i-love-upper-peninsula.gif?fm=jpg&q=85&w=760",
+    "brand": "Sterling Cooper",
+    "color": " ",
+    "price": 30,
+    "discountedPrice": 25,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Silly",
+    "description": "The collected unaired episodes of a TV reality series that was intended to act as a starter series to what eventually become the 'Love Island' Series. The contestants were led to believe they were on a dating show set on deserted island, when in a shocking twist, it turns out they were never actually on an island, it was actually just a Peninsula. This sadly, did not prove to make for satisfying television and show was canceled before making it to air.",
+    "discountPresent": 10
+  },
+  {
+    "title": "All Brown M&Ms",
+    "imageUrl": "https://www.ohnuts.com/noapp/showImage.cfm/zoom/Brown%20M&M%27s%20Chocolate%20Candy.jpg",
+    "brand": "Sterling Cooper",
+    "color": " ",
+    "price": 20,
+    "discountedPrice": 15,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Silly",
+    "description": "Do you love M&M's but hate the fact that they come in a bunch of non-uniform colors. Well, that's a very specific and niche opionion to have. You might be the only one. You're like a snowflake amoungst opinion havers. Thankfully for you, someone had the courage to step up and make thing incredibly specific thing for you and you alone. ",
+    "discountPresent": 10
+  },
+
+
+
+
+
+
+
+
+
+  {
+    "title": "Indecisive Magic 8-Ball",
+    "imageUrl": "https://m.media-amazon.com/images/I/51dgcWrNq-L._AC_UF894,1000_QL80_.jpg",
+    "brand": "The Bluth Company",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Silly",
+    "description": "Its a standard magic 8-ball except every side reads 'Answer looks Hazy, try again later.' For the person who's not looking for answers, so much as ",
+    "discountPresent": 10
+  },
+  {
+    "title": "Canned Koala Meat",
+    "imageUrl": "https://live.staticflickr.com/217/477398316_94b3e271d2_z.jpg",
+    "brand": "Vandelay Industries",
+    "color": " ",
+    "price": 75,
+    "discountedPrice": 70,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "I think this might be Australian version of an eating an Ortolan? Vegemite not included.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Placebo",
+    "imageUrl": "https://www.arthritiswa.org.au/wp-content/uploads/2021/02/Placebo-scaled-1000x563.jpg",
+    "brand": "Aperture Science",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": " ",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Confusing",
+    "description": "For anyone who intentionally want to consume a placebo. Which I guess makes it a nocebo.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Milton-Bradley's Well for Boys",
+    "imageUrl": "https://uproxx.com/wp-content/uploads/2016/12/snl_well.jpg?w=640",
+    "brand": "Scheinhardt Wig Company",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "L",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Silly",
+    "description": "Some kids want to play with trucks, some kids prefer dolls, others would rather play pretend. However, the discerning child might enjoy a well. For the child who just longs to be understood. For the sensitive boy in your life who wish for a dark hole in the ground to wish, conifide and reflect in. Some children like to play. Others simply wait for adulthood. No doubt, a rich full life will one day beckon upon him. Filled with creative passion and success. However, that's not going to be for a while, until then they can enjoy a quite spot to contemplate the complexities and contradictions of their own sapience.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Non-Ornamental Lawn Ornament",
+    "imageUrl": "/assets/Data/Homescreen_Products/non-ornamental-ornament.png",
+    "brand": "The Bluth Company",
+    "color": "",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "M",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Confusing",
+    "description": "For the Avant-Gardner!",
+    "discountPresent": 0
+  },
+  {
+    "title": "Tennis Helmet",
+    "imageUrl": "https://payload.cargocollective.com/1/2/77842/3057678/Funheads-02_2000_c.jpg",
+    "brand": "Susquehana Hat Co.",
+    "color": "",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Ill-Concieved",
+    "description": "Is Tennis too much of a contact sport?",
+    "discountPresent": 0
+  },
+  {
+    "title": "Bag of Miscellanious Teeth",
+    "imageUrl": "/assets/Data/Homescreen_Products/miscellaniousTeeth.png",
+    "brand": "Weyland Yutani Corporation",
+    "color": "",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Mildly Upsetting",
+    "description": "I'm gonna be honest, I don't really have a joke for this one. I just think the image of bag of strange teeth is funny in of itself.",
+    "discountPresent": 0
+  },
+  {
+    "title": "87 piece rake set",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdOhq1O1Tx1U3ypNufwjIi46nADOyCLs2o9A&s",
+    "brand": "Burns Industries",
+    "color": "",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Ill-Concieved",
+    "description": "Don't you just hate not having the exact, specific kind of rake to accomplish given task? Never feel that way again.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Travel-sized Fireplace",
+    "imageUrl": "/assets/Data/Homescreen_Products/narhwal_skull.png",
+    "brand": "ACME",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Silly",
+    "description": "Awwwww, this one's kinda cute actually. If you're a mouse its just like having a normal fireplace.",
+    "discountPresent": 0
+  },
+  {
+    "title": "See-through Hat",
+    "imageUrl": "/assets/Data/Homescreen_Products/see-through hat.png",
+    "brand": "Susquehana Hat Co.",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Injurious",
+    "description": "It actually magnifies the sun's rays. Making going outside on a bright day even more uncomfortable",
+    "discountPresent": 0
+  },
+  {
+    "title": "Horse Juice",
+    "imageUrl": "/assets/Data/Homescreen_Products/horse-juice.png",
+    "brand": "Sterling Cooper",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "Made by horses, for horses, of horses.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Deceased Rat-Scented Air Freshener",
+    "imageUrl": "https://i.pinimg.com/originals/6e/31/98/6e3198c66d3738d455af2fa6440c6d67.jpg",
+    "brand": "Burns Industries",
+    "color": " ",
+    "price": 10,
+    "discountedPrice": 8,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Fake",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "RIP Mr. Rat!",
+    "discountPresent": 0
+  },
+
+  {
+    "title": "Finger Covers for Snacks",
+    "imageUrl": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1668105544-41LDuDI3quS._SL500_.jpg?crop=0.774xw:1.00xh;0,0&resize=980:*",
+    "brand": "Brawndo",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Baffling",
+    "description": "Sometimes you want to eat snacks without having to worry about cheese dust. This is totally normal, you're weird.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Ranch Dressing Soda",
+    "imageUrl": "/assets/Data/Homescreen_Products/ranch_sode.webp",
+    "brand": "Brawndo",
+    "color": "S",
+    "price": 5,
+    "discountedPrice": 5,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Mildly Unpleasant",
+    "description": "Creamy?!",
+    "discountPresent": 0
+  },
+
+  {
+    "title": "Your own Haunted Doll",
+    "imageUrl": "https://i.ebayimg.com/images/g/RFEAAOSwQsNmsarz/s-l1600.webp",
+    "brand": "Weyland Yutani Corporation",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "You're entitled to a refund. If you can prove its NOT haunted.",
+    "discountPresent": 0
+  },
+  {
+    "title": "500,000 Water Bottles",
+    "imageUrl": "https://m.media-amazon.com/images/I/71dS3hQUQ7L._AC_SX679_.jpg",
+    "brand": "Burns Industries",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "L",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Baffling",
+    "description": "Do you have a habit of losing water bottles? Don't worry about it. By owning 500,000 water bottles, you can basically treat them as a disposable commodity. Does that defeat the purpose of carrying around a reusable bottle in the first place? Perhaps.  ",
+    "discountPresent": 0
+  },
+  {
+    "title": "'I Heart Microplastics' T-Shirt",
+    "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Sb00745585ce64d71979a15f21d6aa6414/Funny-I-Love-Microplastics-Heart-T-Shirts-Summer-Graphic-Cotton-Streetwear-Short-Sleeve-Birthday-Gifts-T.jpg_.webp",
+    "brand": "Hosaka Corporation",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 20
+      },
+      {
+        "name": "L",
+        "quantity": 20
+      },
+      {
+        "name": "XL",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Baffling",
+    "description": "Weird flex, but okay. Way to be an iconoclast!",
+    "discountPresent": 0
+  },
+  {
+    "title": "Actual Human Bones",
+    "imageUrl": "https://ih1.redbubble.net/image.4905811447.8675/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+    "brand": "Susquehana Hat Co.",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 20
+      },
+      {
+        "name": "L",
+        "quantity": 20
+      },
+      {
+        "name": "XL",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "This was one was upsetting. So officially it is completely illegal to purchase human bones. The only legal way to acquire them is through donation. With that said, there many places where you can buy actual human bones. It was waaaaaayyyy to easy to find. Not sure why this allowed to happen. Someone should probably do something about this.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Radioactive Uranium",
+    "imageUrl": "https://i.pinimg.com/originals/6e/31/98/6e3198c66d3738d455af2fa6440c6d67.jpg",
+    "brand": "Aperture Science",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Potentially Lethal",
+    "description": "If you buy this, you are definitely going on a watchlist.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Anatomically Accurate Bathing Suit",
+    "imageUrl": "https://i.pinimg.com/originals/6e/31/98/6e3198c66d3738d455af2fa6440c6d67.jpg",
+    "brand": "Burns Industries",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 20
+      },
+      {
+        "name": "L",
+        "quantity": 20
+      },
+      {
+        "name": "XL",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Mildly Unpleasant",
+    "description": "For the very literal minded person.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Electric Hot Potato",
+    "imageUrl": "https://i.pinimg.com/originals/6e/31/98/6e3198c66d3738d455af2fa6440c6d67.jpg",
+    "brand": "Scheinhardt Wig Company",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "Someone looked at the game of hot potato and thought, 'Too easy, needs an update'.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Narwhal Skull",
+    "imageUrl": "/assets/Data/Homescreen_Products/narhwal_skull.png",
+    "brand": "Sterling Cooper",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "L",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Confusing",
+    "description": "Why do so many folks want to acquire bones?",
+    "discountPresent": 0
+  },
+  {
+    "title": "Thanos Bathing Suit",
+    "imageUrl": "https://i.pinimg.com/originals/6e/31/98/6e3198c66d3738d455af2fa6440c6d67.jpg",
+    "brand": "Pied Piper",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 20
+      },
+      {
+        "name": "L",
+        "quantity": 20
+      },
+      {
+        "name": "XL",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Baffling",
+    "description": "Become inevitable",
+    "discountPresent": 0
+  },
+  {
+    "title": "Wolverine Meat Claws",
+    "imageUrl": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com1571689550-51Q0xuEOjRL.jpg?crop=1xw:1.00xh;center,top&resize=980:*",
+    "brand": "The Bluth Company",
+    "color": "",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Injurious",
+    "description": "I bet it feels satisfying to obliterate meat with these.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Nic Cage Sequence Pillow Case",
+    "imageUrl": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1632326476-51qsxODMtYL._SL500_.jpg?",
+    "brand": "Brawndo",
+    "color": "",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Unhinged",
+    "description": "This is like the product in this store I'd actually like to own. Imagine what kind of dreams you'd have if you slept on it.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Cat Mask",
+    "imageUrl": "http://www.weirdshityoucanbuy.com/uploads/7/0/8/8/70881739/cat-face-mask_orig.jpg",
+    "brand": "Scheinhardt Wig Company",
+    "color": " ",
+    "price": 50,
+    "discountedPrice": 40,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      },
+      {
+        "name": "M",
+        "quantity": 20
+      },
+      {
+        "name": "L",
+        "quantity": 20
+      },
+      {
+        "name": "XL",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Mildly Unpleasant",
+    "description": "Awwww, poor cat.",
+    "discountPresent": 0
+  },
+  {
+    "title": "4,500 Ladybugs",
+    "imageUrl": "https://d3a0uqnd170kn6.cloudfront.net/wp-content/uploads/2022/03/11132412/Ladybug-Facts-for-Kids-687x1030.png",
+    "brand": "Toha Heavy Industries",
+    "color": "",
+    "price": 40,
+    "discountedPrice": 35,
+    "size": [
+      {
+        "name": "L",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "There's probably a lot of legitimate reasons to buy 4,500 ladybugs. I don't know of any myself, but I'm they're out there.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Rube-Goldberg Mousetrap",
+    "imageUrl": "/assets/Data/Homescreen_Products/mousetrap.png",
+    "brand": "ACME",
+    "color": "",
+    "price": 20,
+    "discountedPrice": 16,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Pointless",
+    "thirdLevelCategory": "Potentially Lethal",
+    "description": "You know a standard mousetrap has an efficacy rate of 100% after a period of 24 hours and yet there are thousands of new patents filed for mousetraps every single year. Not so much as joke just an interesting fact I learned in the process of researching things for this project.",
+    "discountPresent": 0
+  },
+  {
+    "title": "Tapeworm Eggs",
+    "imageUrl": "/assets/Data/Homescreen_Products/tapeworm.jpeg",
+    "brand": "Susquehana Hat Co.",
+    "color": "",
+    "price": 40,
+    "discountedPrice": 35,
+    "size": [
+      {
+        "name": "S",
+        "quantity": 20
+      }
+    ],
+    "numInStock": 50,
+    "firstLevelCategory": "Real",
+    "secondLevelCategory": "Dangerous",
+    "thirdLevelCategory": "Genuinely Unpleasant",
+    "description": "I think everyone knows that tapeworms were once sold as a diet plan in the early 20th century, but apparently its still a thing. Another product that was too easy to find given a bit of online digging. Ironically, you can also find tapeworm eggs by litterally digging.",
+    "discountPresent": 0
+  }
+]

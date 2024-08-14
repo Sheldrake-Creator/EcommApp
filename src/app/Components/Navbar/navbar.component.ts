@@ -5,16 +5,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription, merge } from 'rxjs';
+import { Observable, Subscription, filter, merge } from 'rxjs';
 import { AppState } from '../../Store/AppState';
 import { authActions } from '../../Store/Auth/auth.actions';
 import { selectCurrentUser } from '../../Store/Auth/auth.reducer';
 import { cartActions } from '../../Store/Cart/cart.actions';
 import { selectCartItemCount } from '../../Store/Cart/cart.reducer';
 import { productActions } from '../../Store/Product/product.action';
+import { SectionInterface } from '../../models/NavContent/navContent.interface';
 import { CurrentUserInterface } from '../../models/User/currentUser.interface';
 import { AuthComponent } from '../authentication/auth/auth.component';
 import { NavContentComponent } from './nav-content/nav-content.component';
@@ -35,13 +36,15 @@ import { NavContentComponent } from './nav-content/nav-content.component';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnDestroy, OnInit {
+  isMobileMenuOpen = false;
   currentSection: any;
   isNavbarContentOpen: any;
   userProfile: any;
   persistenceService: any;
   actionsSubscription: Subscription = new Subscription();
   currentUser$: Observable<CurrentUserInterface | null | undefined>;
-  itemCount$: Observable<number | undefined>;
+  itemCount$?: Observable<number | undefined>;
+  routerSubscription: Subscription | undefined;
 
   //<AppState/>
   constructor(
@@ -74,6 +77,16 @@ export class NavbarComponent implements OnDestroy, OnInit {
       this.dialog.closeAll();
       this.store.dispatch(cartActions.getCartRequest());
     });
+
+    this.routerSubscription = this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        // Check if the current URL is the one where you need to reset itemCount$
+        if (event.urlAfterRedirects === '/payment-success') {
+          // Adjust the URL as necessary
+          this.store.dispatch(cartActions.getCartRequest());
+        }
+      });
     //! this.store.dispatch();
   }
 
@@ -121,18 +134,11 @@ export class NavbarComponent implements OnDestroy, OnInit {
   navigateToProducts() {
     this.router.navigate(['/products'], { queryParams: { showAll: true } });
   }
-  // handleLoadCategories() {
-  //   this.store.dispatch(productAdminActions.getAllProductsRequest());
-  // }
 
   loadNavContentHandler() {}
-}
 
-// getUserProfile(){
-//   return null;
-
-// }
-
-function getUserProfile() {
-  throw new Error('Function not implemented.');
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    console.log('isMobileMenuOpen:', this.isMobileMenuOpen);
+  }
 }

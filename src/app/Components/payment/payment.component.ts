@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDivider } from '@angular/material/divider';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
 import { OrderInterface } from '../../models/Order/order.interface';
@@ -35,6 +35,7 @@ export class PaymentComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store<AppState>,
+    private router: Router,
   ) {
     this.order$ = this.store
       .select(selectOrder)
@@ -45,14 +46,18 @@ export class PaymentComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('orderId');
     console.log('orderId ', id);
     this.orderId = parseInt(id!);
-
     this.loadUserOrder(this.orderId);
   }
+
   private loadUserOrder(orderId: number) {
     console.log('loading Order Data...');
 
     this.store.dispatch(
       orderActions.findOrderByIdRequest({ reqData: orderId }),
     );
+  }
+
+  redirectToPayment() {
+    this.router.navigate([`checkout/payment/${this.orderId}/info`]);
   }
 }

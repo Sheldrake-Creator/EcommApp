@@ -1,0 +1,25 @@
+<div class="shadow-lg rounded-xl overflow-x-scroll no-scrollbar mx-auto px-2 sm:px-4 lg:px-8 py-8">
+    <table class="table-auto w-full rounded-xl">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="py-4 px-3 text-left text-gray-600 font-bold uppercase">Order#</th>
+                <th class="py-4 px-3 text-left text-gray-600 font-bold uppercase">ItemCount</th>
+                <th class="py-4 px-3 text-left text-gray-600 font-bold uppercase">OrderDate</th>
+                <th class="py-4 px-3 text-left text-gray-600 font-bold uppercase">Status</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white" *ngFor="let order of orders$ | async as orders">
+            <tr>
+                <td class="py-4 px-3 border-b text-black border-gray-200">{{order.orderId}}</td>
+                <td class="py-4 px-3 border-b text-black border-gray-200 truncate">{{order.totalItems}}</td>
+                <td class="py-4 px-3 border-b text-black border-gray-200 truncate">{{order.orderDate}}</td>
+                <td class="py-4 px-3 border-b text-black border-gray-200">
+                    <span [ngClass]="assignColor(order)" class="text-white py-1 px-2 rounded-full text-xs">
+                        {{order.orderStatus}}
+                    </span>
+                </td>
+            </tr>
+            <!-- Add more rows here -->
+        </tbody>
+    </table>
+</div>
