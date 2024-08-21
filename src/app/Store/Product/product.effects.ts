@@ -39,7 +39,7 @@ export const findProductsByCategoryEffect = createEffect(
     return actions$.pipe(
       ofType(productActions.findProductByCategoryRequest),
       switchMap(({ reqData }) => {
-        return productService.findProductsByCategory(reqData).pipe(
+        return productService.findProductsByCategoryPage(reqData).pipe(
           map((httpResponse: HttpResponseInterface) => {
             return httpResponse.data['products'] as ProductInterface[];
           }),

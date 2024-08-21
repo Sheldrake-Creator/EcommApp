@@ -4,13 +4,9 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { productActions } from '../../../Store/Product/product.action';
 import {
-  NavBarContentInterface,
-  SectionInterface,
-} from '../../../models/NavContent/navContent.interface';
-import {
-  FindProductsByCategoryRequest,
-  createFindProductsByCategoryRequest,
-} from '../../../models/Requests/findProductsByCategoryRequest.interface';
+  FindProductsByCategoryPageRequest,
+  createFindProductsByCategoryPageRequest,
+} from '../../../models/Requests/findProductsByCategoryPageRequest.interface';
 import { ProductStateInterface } from '../../../models/State/productState.interface';
 import { NavBarContent } from './nav-content';
 
@@ -38,16 +34,11 @@ export class NavContentComponent implements OnInit {
   ) {}
   handleNavigate = (path: any) => {
     this.router.navigate([path]);
-    console.log('IS THIS WORKING?');
-    console.log(path);
   };
 
   getByCategoryHandler() {
-    const customRequest: Partial<FindProductsByCategoryRequest> = {
-      // colors: 'red,blue',
-      // minPrice: 100,
-    };
-    const reqData = createFindProductsByCategoryRequest(customRequest);
+    const customRequest: Partial<FindProductsByCategoryPageRequest> = {};
+    const reqData = createFindProductsByCategoryPageRequest(customRequest);
     this.store.dispatch(
       productActions.findProductByCategoryRequest({ reqData }),
     );

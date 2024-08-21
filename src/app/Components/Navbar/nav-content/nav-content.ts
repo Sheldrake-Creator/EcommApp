@@ -36,8 +36,8 @@ export const NavBarContent = {
         ],
       },
       {
-        id: 'stock',
-        name: 'Real or Fake',
+        id: 'veracity',
+        name: 'Veracity',
         items: [
           { value: 'real', label: 'Real' },
           { value: 'fake', label: 'Fake' },
@@ -131,7 +131,91 @@ export const NavBarContent = {
   },
 };
 
-// pages: [
-//   { name: 'Company', id: '/' },
-//   { name: 'Stores', id: '/' },
-// ],
+export const NavBarContentMobilePointless = [
+  {
+    id: 'categories',
+    name: 'Categories',
+    items: [
+      { value: '14', label: 'Genuinely Unpleasant' },
+      { value: '19', label: 'Baffling' },
+      { value: '22', label: 'Unhinged' },
+      { value: '20', label: 'Mildly Upsetting' },
+      { value: '9', label: 'Ill-Concieved' },
+      { value: '11', label: 'Confusing' },
+      { value: '11', label: 'Silly' },
+    ],
+  },
+
+  {
+    id: 'brands',
+    name: 'Brands',
+    items: [
+      {
+        value: 'Scheinhardt Wig Company',
+        label: 'Scheinhardt Wig Company',
+      },
+      { value: 'ACME', label: 'ACME' },
+      { value: 'Burn Industries', label: 'Burns Industries' },
+      { value: 'Sterling Cooper', label: 'Sterling Cooper' },
+      { value: 'The Bluth Company', label: 'The Bluth Company' },
+      { value: 'Brawndo', label: 'Brawndo' },
+      { value: 'Vandelay Industries', label: 'Vandelay Industries' },
+      { value: 'Aperture Science', label: 'Aperture Science' },
+      { value: 'Susquehana Hat Co.', label: 'Susquehana Hat Co.' },
+    ],
+  },
+
+  {
+    id: 'veracity',
+    name: 'Real or Fake',
+    items: [
+      { value: 'real', label: 'Real' },
+      { value: 'fake', label: 'Fake' },
+    ],
+  },
+];
+
+export const NavBarContentMobileDangerous = [
+  {
+    id: 'categories',
+    name: 'Categories',
+    items: [
+      { value: 21, label: 'Genuinely Unpleasant' },
+      { value: 13, label: 'Potentially Lethal' },
+      { value: '', label: 'Mostly Deleterious' },
+      { value: 'Psychicdamange', label: 'Psychic Damange' },
+      { value: 'Unhinged', label: 'Unhinged' },
+      { value: 'MildlyUpsetting', label: 'Mildly Upsetting' },
+      { value: 13, label: 'Confusing' },
+      { value: 'InPoorTaste', label: 'In Poor Taste' },
+    ],
+  },
+
+  {
+    id: 'brands',
+    name: 'Brands',
+    items: [
+      {
+        value: 'Scheinhardt Wig Company',
+        label: 'Scheinhardt Wig Company',
+      },
+      { value: 'ACME', label: 'ACME' },
+      { value: 'Burn Industries', label: 'Burns Industries' },
+      { value: 'Sterling Cooper', label: 'Sterling Cooper' },
+      { value: 'The Bluth Company', label: 'The Bluth Company' },
+      { value: 'Brawndo', label: 'Brawndo' },
+      { value: 'Vandelay Industries', label: 'Vandelay Industries' },
+      { value: 'Aperture Science', label: 'Aperture Science' },
+      { value: 'Susquehana Hat Co.', label: 'Susquehana Hat Co.' },
+    ],
+  },
+
+  {
+    id: 'veracity',
+    name: 'Real or Fake',
+    items: [
+      { value: 'real', label: 'Real' },
+      { value: 'fake', label: 'Fake' },
+    ],
+  },
+];

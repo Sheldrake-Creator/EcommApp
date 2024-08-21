@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ProductInterface } from '../../models/Product/product.interface';
 import { CreateProductRequestInterface } from '../../models/Requests/createProductRequest';
-import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
+import { FindProductsByCategoryPageRequest } from '../../models/Requests/findProductsByCategoryPageRequest.interface';
+import { QueryParams } from '../../models/Requests/QueryParams.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { HttpResponsePaginatedInterface } from '../../models/Responses/httpResponsePaginated.interface';
 
@@ -25,29 +26,34 @@ export class ProductServices {
   }
 
   findProductsByCategory(
-    reqData: FindProductsByCategoryRequest,
+    reqData: QueryParams,
+  ): Observable<HttpResponseInterface> {
+    return this.http.get<HttpResponseInterface>(
+      `${this.API_URL}/api/products`,
+      { params: reqData },
+    );
+  }
+
+  findProductsByCategoryPage(
+    reqData: FindProductsByCategoryPageRequest,
   ): Observable<HttpResponseInterface> {
     const {
-      colors,
-      sizes,
+      categories,
       minPrice,
       maxPrice,
       minDiscount,
-      category,
-      stock,
+      brands,
       sort,
       pageNumber,
       pageSize,
     } = reqData;
 
     let params = new HttpParams()
-      .set('color', colors)
-      .set('size', sizes)
+      .set('categories', categories)
       .set('minPrice', minPrice)
       .set('maxPrice', maxPrice)
       .set('minDiscount', minDiscount)
-      .set('category', category!)
-      .set('stock', stock)
+      .set('brands', brands)
       .set('sort', sort)
       .set('pageNumber', pageNumber)
       .set('pageSize', pageSize);

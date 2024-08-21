@@ -1,7 +1,7 @@
-<div class="flex flex-col items-center">
-  <main class="px-4 sm:px-6 max-w-7xl pb-10">
+<div class="min-h-screen flex flex-col items-start">
+  <main class="sm:px-4 pb-5 md:px-8 md:max-w-7xl md:pb-12">
     <div class="flex items-baseline justify-between border-gray-200 pb-6 pt-24">
-      <h1 class="text-4xl font-bold text-white">Products</h1>
+      <h1 class="text-4xl pl-4 font-bold text-white">Products</h1>
 
       <div class="flex items-center">
         <div>
@@ -18,13 +18,31 @@
       </div>
     </div>
     <mat-divider></mat-divider>
-    <!-- Products -->
-    <section class="pt-6">
-      <div class="grid grid-cols-2 gap-8 gap-y-10 lg:grid-cols-6">
+
+    <!-- Mobile View -->
+    <section id="mobile-menu" class="grid md:hidden grid-col items-start justify-betweens">
+      <div class="grid grid-cols-4">
         <div>
           <div class="flex items-start justify-between">
-            <p class="text-lg">Filters</p>
-            <mat-icon>filter_list</mat-icon>
+            <button mat-raised-button class="text-lg">
+              Filters
+              <mat-icon>filter_list</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Desktop View -->
+    <section id="desktop-menu" class="hidden md:flex pt-6 pl-4">
+      <div class="grid grid-cols-2 gap-8 gap-y-10 md:grid-cols-6">
+        <div>
+          <div class="flex items-start justify-between">
+            <p class="text-base">Filters</p>
+            <button mat-raised-button btn-primary class="bg-primary-content pb-2" style="bottom: 0.3rem"
+              (click)="filterProducts()">
+              Filter
+            </button>
           </div>
           <form class="hidden lg:block" action="">
             <cdk-accordion class="example-accordion">
@@ -45,17 +63,32 @@
                           [attr.aria-labelledby]="'accordion-header-' + i">
                           <div *ngFor="let option of item.options">
                             <div class="flex items-center">
-                              <mat-checkbox id="'filter - '+ option.value" [name]="item.id" [value]="option.value"
-                                (click)="
-                                  handleSingleSelectFilter(
-                                    option.value,
-                                    item.id
-                                  )
+                              <!-- Use radio button if item.id is 'veracity' -->
+                              <ng-container *ngIf="
+                                  item.id === 'veracity';
+                                  else checkboxTemplate
                                 ">
-                                <span class="text-sm text-gray-500">
-                                  {{ option.label }}
-                                </span>
-                              </mat-checkbox>
+                                <mat-radio-button [name]="item.id" [value]="option.value"
+                                  (change)="handleSingleSelectFilter(option.value, item.id)">
+                                  <span class="text-sm text-gray-500">
+                                    {{ option.label }}
+                                  </span>
+                                </mat-radio-button>
+                              </ng-container>
+
+                              <!-- Checkbox template for other sections -->
+                              <ng-template #checkboxTemplate>
+                                <mat-checkbox [name]="item.id" [value]="option.value" (click)="
+                                    handleMultipleSelectFilter(
+                                      option.value,
+                                      item.id
+                                    )
+                                  ">
+                                  <span class="text-sm text-gray-500">
+                                    {{ option.label }}
+                                  </span>
+                                </mat-checkbox>
+                              </ng-template>
                             </div>
                           </div>
                         </div>
@@ -109,12 +142,28 @@
               <mat-spinner></mat-spinner>
               <p>Loading...</p>
             </div>
-
             <ng-container *ngIf="allProducts$ | async as allProducts">
               <div *ngFor="let product of allProducts">
                 <app-product-card [product]="product"></app-product-card>
               </div>
             </ng-container>
+
+            <ng-container *ngIf="navContentProducts$ | async as navProducts">
+              <div *ngFor="let product of navProducts">
+                <app-product-card [product]="product"></app-product-card>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="someProducts$ | async as someProducts">
+              <ng-container *ngIf="someProducts.length > 0; else noResults">
+                <div *ngFor="let product of someProducts">
+                  <app-product-card [product]="product"></app-product-card>
+                </div>
+              </ng-container>
+            </ng-container>
+            <ng-template #noResults>
+              <div>No Results Found</div>
+            </ng-template>
           </div>
         </div>
       </div>
