@@ -1,5 +1,6 @@
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
+import { HttpParams, HttpResponse } from '@angular/common/http';
 import {
   Component,
   ElementRef,
@@ -16,13 +17,21 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  ParamMap,
+  Params,
+  Router,
+} from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
 import { productActions } from '../../Store/Product/product.action';
 import { selectProducts } from '../../Store/Product/product.reducer';
 import { ProductServices } from '../../Store/Product/product.service';
 import { ProductInterface } from '../../models/Product/product.interface';
+import { QueryParams } from '../../models/Requests/QueryParams.interface';
+import { FindProductsByCategoryPageRequest } from '../../models/Requests/findProductsByCategoryPageRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
 import { HttpResponsePaginatedInterface } from '../../models/Responses/httpResponsePaginated.interface';
 import { ProductPageInterface } from '../../models/Responses/page.interface';
@@ -50,6 +59,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent implements OnInit, OnDestroy {
+  isFilterOpen = false;
   filterData: any;
   singleFilter: any;
   levelThree: any;
@@ -57,16 +67,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
   isLoading$!: Observable<boolean>;
   page = 0;
   allProducts$?: Observable<ProductInterface[] | undefined>;
+  navContentProducts$?: Observable<ProductInterface[] | undefined>;
   SingleSearchArray?: string[];
-
   @ViewChild('scrollContainer') scrollContainer?: ElementRef;
-  allProducts: ProductInterface[] = [];
-  pages$: BehaviorSubject<ProductPageInterface[]> = new BehaviorSubject<
-    ProductPageInterface[]
-  >([]);
-
-  currentPage = 0;
-  totalPages = 0;
+  someProducts$?: Observable<ProductInterface[] | undefined>;
+  selectedOptions: { [key: string]: any[] } = {};
   loading = false;
 
   constructor(
@@ -75,127 +80,166 @@ export class ProductsComponent implements OnInit, OnDestroy {
     private store: Store<ProductStateInterface>,
     private productService: ProductServices,
   ) {}
-  ngOnDestroy(): void {
-    // throw new Error('Method not implemented.');
-  }
+
+  ngOnDestroy(): void {}
 
   ngOnInit() {
-    // Using snapshot to capture the query parameter once when the component is initialized
+    // Using snapshot to capture the itemId parameter once when the component is initialized
     this.singleFilter = singleFilter;
     this.filterData = filters;
 
     const showAll = this.activatedRoute.snapshot.queryParams['showAll'];
     const params = this.activatedRoute.snapshot.params;
 
+    this.activatedRoute.queryParams.subscribe((params) => {
+      console.log('Current itemId Params:', params);
+
+      //  Debugging Helper param changes
+      //   if (params['category']) {
+      //     console.log('Category:', params['category']);
+      //   }
+      //   if (params['brands']) {
+      //     console.log('Brand:', params['brand']);
+      //   }
+      //   if (params['veracity']) {
+      //     console.log('Veracity:', params['veracity']);
+      //   }
+    });
+    //Show All Products if NavbarButton is pressed
     if (showAll) {
       console.log('showAll:', showAll);
       this.store.dispatch(productActions.getAllProductsRequest());
       this.allProducts$ = this.store.select(selectProducts);
+
+      //If the User is searching using the navContent
     } else if (params) {
-      this.allProducts$ = this.activatedRoute.params.pipe(
+      this.navContentProducts$ = this.activatedRoute.params.pipe(
         switchMap((params) => {
           const case1 = params['levelOne'] || '';
           const case2 = params['levelTwo'] || '';
           const case3 = params['levelThree'] || '';
+          console.log('case1 ', case1);
+          console.log('case2 ', case2);
           console.log('case3 ', case3);
           ['levelThree'] || '';
           return this.productService
             .singleCategorySearch(case1, case2, case3)
             .pipe(
-              // Transform the response if needed
               map(
                 (response: HttpResponseInterface) =>
                   response.data['products'] as ProductInterface[],
-              ), // Adjust according to your response structure
+              ),
             );
         }),
       );
     }
   }
-  // if (singleCategory){
-  //   this.allProducts$ = singleCategory
-  // }
 
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    const container =
-      this.scrollContainer?.nativeElement || document.documentElement;
-    const scrollTop = window.scrollY || container.scrollTop;
-    const scrollHeight = container.scrollHeight;
-    const offsetHeight = container.clientHeight;
+  collectRouteParams(router: Router) {
+    let queryParams = {};
+    let stack: ActivatedRouteSnapshot[] = [
+      this.router.routerState.snapshot.root,
+    ];
 
-    if (scrollTop + offsetHeight >= scrollHeight - 1) {
-      this.loadProducts();
+    while (stack.length > 0) {
+      const route = stack.pop()!;
+      console.log('Current route: ', route);
+      console.log('Route params: ', route.queryParams);
+
+      queryParams = { ...queryParams, ...route.queryParams };
+      console.log('Accumulated params: ', queryParams);
+
+      stack.push(...route.children);
+      console.log('Updated stack: ', stack);
     }
+    return queryParams;
   }
 
-  loadProducts(): void {
-    if (this.currentPage < this.totalPages && !this.loading) {
-      this.loading = true;
-      console.log('Loading products for page:', this.currentPage);
+  //Filter Button Search
+  filterProducts() {
+    console.log('clicked!');
+    this.allProducts$ = null;
+    this.navContentProducts$ = null;
 
-      this.productService.getAllProductsPaginated(this.currentPage).subscribe({
-        next: (response: HttpResponsePaginatedInterface) => {
-          console.log('API response:', response);
-          const currentProductsPage = response.data.pages;
-          // Handle the current page data
-          // this.products.push(...currentProductsPage); // Example handling
-
-          this.allProducts = [
-            ...this.allProducts,
-            ...currentProductsPage.content,
-          ];
-
-          this.totalPages = currentProductsPage.totalPages;
-          this.currentPage++;
-          this.loading = false;
-        },
-        error: (err) => {
-          console.error('Error loading products:', err);
-          this.loading = false;
-        },
-        complete: () => {
-          console.log('Finished loading products.');
-        },
-      });
-    }
+    const qParams: QueryParams = this.collectRouteParams(this.router);
+    console.log('qParams: ', qParams);
+    this.someProducts$ = this.productService
+      .findProductsByCategory(qParams)
+      .pipe(
+        map(
+          (httpResponse: HttpResponseInterface) =>
+            httpResponse.data['products'] as ProductInterface[],
+        ),
+      );
+    this.someProducts$.forEach((product) => console.log(product));
   }
 
-  handleMultipleSelectFilter(value: string, sectionId: string) {
-    const queryParams = { ...this.activatedRoute.snapshot.queryParams };
-    console.log('queryParams ', queryParams);
+  //Checkbox Buttons
+  handleMultipleSelectFilter(value: string, itemId: string) {
+    if (!this.selectedOptions[itemId]) {
+      this.selectedOptions[itemId] = [];
+    }
+    const index = this.selectedOptions[itemId].indexOf(value);
 
-    const filterValues = queryParams[sectionId]
-      ? queryParams[sectionId].split(',')
-      : [];
-
-    const valueIndex = filterValues.indexOf(value);
-
-    if (valueIndex != -1) {
-      filterValues.splice(valueIndex, 1, '');
+    if (index === -1) {
+      // If the value is not in the array, add it
+      this.selectedOptions[itemId].push(value);
     } else {
-      filterValues.push(value);
+      // If the value is in the array, remove it
+      this.selectedOptions[itemId].splice(index, 1);
     }
 
-    if (filterValues.length > 0) {
-      queryParams[sectionId] = filterValues.join(',');
-    } else {
-      delete queryParams[sectionId];
-    }
-    this.router.navigate([], { queryParams });
+    this.updateitemIdParams();
   }
 
-  handleSingleSelectFilter(value: string, sectionId: string) {
-    const queryParams = { ...this.activatedRoute.snapshot.queryParams };
-    queryParams[sectionId] = value;
-    this.router.navigate([], { queryParams });
+  //Radio Buttons
+  handleSingleSelectFilter(value: any, itemId: string) {
+    this.selectedOptions[itemId] = [value];
+
+    // Update the query params in the URL
+    this.updateitemIdParams();
+  }
+
+  //Updates current URI
+  updateitemIdParams() {
+    const queryParams: { [key: string]: string | null } = {};
+    // Remove showAll from queryParams
+    queryParams['showAll'] = null;
+
+    Object.keys(this.selectedOptions).forEach((itemId) => {
+      if (this.selectedOptions[itemId].length > 0) {
+        queryParams[itemId] = this.selectedOptions[itemId].join(',');
+      } else {
+        queryParams[itemId] = null;
+      }
+    });
+
+    this.router.navigate([], {
+      queryParams: queryParams,
+      queryParamsHandling: 'merge', // Merge with existing itemId params
+    });
+  }
+
+  //UnderConstruction
+  toggleMobileFilter() {
+    this.isFilterOpen = !this.isFilterOpen;
   }
 }
-export interface ProductsPaginator {
-  items: ProductInterface[];
-  page: number;
-  hasMorePages: boolean;
-}
+
+// @HostListener('window:scroll', [])
+// onScroll(): void {
+//   const container =
+//     this.scrollContainer?.nativeElement || document.documentElement;
+//   const scrollTop = window.scrollY || container.scrollTop;
+//   const scrollHeight = container.scrollHeight;
+//   const offsetHeight = container.clientHeight;
+//   console.log('scrolling!');
+
+//   if (scrollTop + offsetHeight >= scrollHeight - 1) {
+//     console.log('scrolled to the bottom');
+//     // this.loadProducts();
+//   }
+// }
 
 //   if (this.currentPage < this.totalPages && !this.loading) {
 //     this.loading = true;
@@ -230,52 +274,79 @@ export interface ProductsPaginator {
 //   }
 // }
 
-// this.activatedRoute.paramMap.subscribe((params) => {
-//   console.log('params ', params);
-//   this.levelThree = params.get('levelThree');
-//   const reqData: FindProductsByCategoryRequest = {
-//     category: params.get('levelThree'),
-//     colors: '',
-//     sizes: '',
-//     minPrice: 0,
-//     maxPrice: 10000,
-//     sort: false,
-//     minDiscount: 0,
-//     pageNumber: 1,
-//     pageSize: 10,
-//     stock: 0,
-//   };
-//   this.productService.findProductsByCategory(reqData);
-// });
+// Load Products Handler
 
-// this.activatedRoute.queryParams.subscribe((params) => {
-//   const color = params['color'];
-//   const size = params['size'];
-//   const price = params['price'];
-//   const discount = params['discount'];
-//   const stock = params['stock'];
-//   const sort = params['sort'];
-//   const pageNumber = params['pageNumber'];
-//   const minPrice = price?.split('-')[0];
-//   const maxPrice = price?.split('-')[1];
+// loadProducts(): void {
+//   if (this.currentPage < this.totalPages && !this.loading) {
+//     this.loading = true;
+//     console.log('Loading products for page:', this.currentPage);
 
-//   const reqData: FindProductsByCategoryRequest = {
-//     category: this.levelThree,
-//     colors: color ? [color].join(',') : '',
-//     sizes: size,
-//     minPrice: minPrice ? minPrice : 0,
-//     maxPrice: maxPrice ? maxPrice : 1000000,
-//     minDiscount: discount ? discount : 0,
-//     pageNumber: pageNumber ? pageNumber : 0,
-//     pageSize: 10,
-//     stock: stock,
-//     sort: sort ? sort : 'price',
-//   };
+//     this.productService.getAllProductsPaginated(this.currentPage).subscribe({
+//       next: (response: HttpResponsePaginatedInterface) => {
+//         console.log('API response:', response);
+//         const currentProductsPage = response.data.pages;
+//         // Handle the current page data
+//         // this.products.push(...currentProductsPage); // Example handling
 
-//   this.productService.findProductsByCategory(reqData);
-// });
+//         this.someProducts = [
+//           ...this.someProducts,
+//           ...currentProductsPage.content,
+//         ];
+
+//         this.totalPages = currentProductsPage.totalPages;
+//         this.currentPage++;
+//         this.loading = false;
+//       },
+//       error: (err) => {
+//         console.error('Error loading products:', err);
+//         this.loading = false;
+//       },
+//       complete: () => {
+//         console.log('Finished loading products.');
+//       },
+//     });
+//   }
+// }
 
 // this.store.subscribe((product) => {
 //   this.products = product.product;
 //   console.log('store data ', product.product);
+// });
+
+//Filter Products Paginated Results
+
+// this.activatedRoute.queryParams.subscribe((params) => {
+//   const categories = params['category'];
+//   console.log('categories:', categories);
+//   const brands = params['brand'];
+//   console.log('brands:', brands);
+//   const price = params['price'];
+//   const discount = params['discount'];
+//   const veracity = params['veracity'];
+//   const pageNumber = params['pageNumber'];
+//   const minPrice = price ? price.split('-')[0] : '0';
+//   const maxPrice = price ? price.split('-')[1] : '10000';
+//   const sort = params['sort'];
+
+//   // Create the request data object, ensuring 'categories' and 'brands' are arrays
+//   const reqData: FindProductsByCategoryRequest = {
+//     categories: categories.length > 0 ? categories : [],
+//     brands: brands.length > 0 ? brands : [],
+//     minPrice: minPrice,
+//     maxPrice: maxPrice,
+//     minDiscount: discount ? discount : 0,
+//     pageNumber: pageNumber ? pageNumber : 0,
+//     pageSize: 10,
+//     veracity: veracity,
+//     sort: sort ? sort : 'sort',
+//   };
+
+//   this.someProducts$ = this.productService
+//     .findProductsByCategory(reqData)
+//     .pipe(
+//       map(
+//         (httpResponse: HttpResponseInterface) =>
+//           httpResponse.data['products'].con,
+//       ),
+//     );
 // });

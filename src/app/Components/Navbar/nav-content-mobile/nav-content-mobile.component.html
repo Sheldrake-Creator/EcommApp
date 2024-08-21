@@ -1,0 +1,89 @@
+<button mat-button [matMenuTriggerFor]="products">Explore Site</button>
+<mat-menu #products="matMenu">
+    <!-- Pointless section -->
+    <button mat-menu-item [matMenuTriggerFor]="pointlessMenu">Pointless</button>
+
+    <!-- Dangerous section -->
+    <button mat-menu-item [matMenuTriggerFor]="dangerousMenu">Dangerous</button>
+    <!-- Other static menu items -->
+    <button mat-menu-item id="allProducts" (click)="handleNavigate('/products/?showAll=true')">
+        All Products
+    </button>
+    <button mat-menu-item id="admin" (click)="handleNavigate('/admin')">
+        Admin
+    </button>
+    <button mat-menu-item id="about" (click)="handleNavigate('/about')">
+        About
+    </button>
+</mat-menu>
+
+<mat-menu #pointlessMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="categories">Categories</button>
+    <button mat-menu-item [matMenuTriggerFor]="brands">Brands</button>
+    <button mat-menu-item [matMenuTriggerFor]="veracity">Veracity</button>
+
+    <mat-menu #categories="matMenu">
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', '19')">Baffling</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', '22')">Unhinged</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', '20')">Mildly Upsetting</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', '9')">Ill-Concieved</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', '14')">Confusing</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', '11')">Silly</button>
+    </mat-menu>
+
+    <mat-menu #brands="matMenu">
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', 'ACME')">ACME</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', 'Burns Industries')">Burns
+            Industries</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless','Sterling Cooper')">Sterling
+            Cooper</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', 'Brawndo')">Brawndo</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', 'Vandelay')">Vandelay
+            Industries</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', 'Aperture Science')">Aperture
+            Science</button>
+        <button mat-menu-item (click)="handleMobileNavigate('pointless', 'Susquehana Hat Co')">Susquehana Hat
+            Co.</button>
+    </mat-menu>
+
+    <mat-menu #veracity="matMenu">
+        <button mat-menu-item>Real</button>
+        <button mat-menu-item>Fake</button>
+    </mat-menu>
+</mat-menu>
+
+
+<mat-menu #dangerousMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="categoriesD">Categories</button>
+    <button mat-menu-item [matMenuTriggerFor]="brandsD">Brands</button>
+    <button mat-menu-item [matMenuTriggerFor]="veracityD">Veracity</button>
+
+
+    <mat-menu #categoriesD="matMenu">
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', '21')">Genuinely Unpleasant</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', '13')">Potentially Lethal</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'ACME')">Mostly Deleterious</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'ACME')">Psychic Damange</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'ACME')">Unhinged</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'ACME')">Mildly Upsetting</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'ACME')">Confusing</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'ACME')">In Poor Taste</button>
+    </mat-menu>
+
+    <mat-menu #brandsD="matMenu">
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'ACME')">ACME</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'Burns Industries')">Burns Industries</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'Sterling Cooper')">Sterling Cooper</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'Brawndo')">Brawndo</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'Vandelay Industries')">Vandelay
+            Industries</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'Aperture Science')">Aperture Science</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'Susquehana Hat Co.')">Susquehana Hat
+            Co.</button>
+    </mat-menu>
+
+    <mat-menu #veracityD="matMenu">
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'real')">Real</button>
+        <button mat-menu-item (click)="handleMobileNavigate('dangerous', 'fake')">Fake</button>
+    </mat-menu>
+</mat-menu>

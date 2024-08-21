@@ -7,11 +7,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable, map, take } from 'rxjs';
-import { LehengaCholi } from '../../../../assets/Data/Women/lehengaCholi';
 import { AppState } from '../../../Store/AppState';
 import { cartActions } from '../../../Store/Cart/cart.actions';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Confusing } from '../../../../assets/Data/HomePageJSONs/confusing';
 import { productActions } from '../../../Store/Product/product.action';
 import {
   selectIsLoading,
@@ -73,7 +73,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.relatedProducts = LehengaCholi;
+    this.relatedProducts = Confusing;
     const id = parseInt(this.stringId!, 10);
     console.log(id);
 

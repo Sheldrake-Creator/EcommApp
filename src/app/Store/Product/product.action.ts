@@ -7,7 +7,8 @@ import {
 import { BackendErrorsInterface } from '../../models/Errors/backendErrors.interface';
 import { ProductInterface } from '../../models/Product/product.interface';
 import { CreateProductRequestInterface } from '../../models/Requests/createProductRequest';
-import { FindProductsByCategoryRequest } from '../../models/Requests/findProductsByCategoryRequest.interface';
+
+import { FindProductsByCategoryPageRequest } from '../../models/Requests/findProductsByCategoryPageRequest.interface';
 import { SuccessMessageInterface } from '../../models/Responses/successMessage.interface';
 
 export const productActions = createActionGroup({
@@ -17,7 +18,7 @@ export const productActions = createActionGroup({
     'FindProductsById Success': props<{ payload: ProductInterface }>(),
     'FindProductsById Failure': props<{ errors: BackendErrorsInterface }>(),
     FindProductByCategoryRequest: props<{
-      reqData: FindProductsByCategoryRequest;
+      reqData: FindProductsByCategoryPageRequest;
     }>(),
     'FindProductByCategory Success': props<{ payload: ProductInterface[] }>(),
     'FindProductByCategory Failure': props<{

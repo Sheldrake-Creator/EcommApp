@@ -1,8 +1,8 @@
-<div class="fixed top-0 z-50 right-0 left-0 bg-[#57df9d]">
+<div data-theme="synthwave" class="fixed top-0 z-50 right-0 left-0 bg-gradient-to-tr from-cyan-600  to-slate-500">
     <div class="px-5 lg:px-20 h-16 flex items-center justify-between">
         <div class="flex items-center">
             <div class="mr-5">
-                <button>
+                <button class="">
                     <img class="hidden md:flex w-8" src="./assets/MoogleFFIXConcept.png" alt="Silas Code"
                         (click)="navigateTo('/')" />
                 </button>
@@ -10,7 +10,7 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-4 mt-2">
-                <a routerlink="/" class="text-purple-600 font-bold pt-2">
+                <a routerlink="/" class="text-green-900 font-extrabold pt-2">
                     Shop with Silas
                 </a>
                 <button
@@ -25,7 +25,7 @@
                 </button>
                 <button
                     class="cursor-pointer border-purple-300 focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 focus:outline-none sm:w-auto sm:px-6 border-text hover:shadow-lg hover:-translate-y-1"
-                    (click)="navigateToProducts()" mat-button>
+                    (click)="navigateTo('/products', { showAll: 'true' })" mat-button>
                     Pointless & <span>Dangerous</span>
                 </button>
                 <button
@@ -54,7 +54,6 @@
                             d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
-
             </ng-container>
 
             <!-- Hamburger Button (Visible when the menu is closed) -->
@@ -62,23 +61,11 @@
                 <button class="text-violet-700 self-start ml-2" (click)="toggleMobileMenu()">
                     &times;
                 </button>
-                <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
-                    <a href="#Pointless" class="w-full text-center py-6 hover:opacity-90">Pointless</a>
-                    <a href="#Dangerous" class="w-full text-center py-6 hover:opacity-90">Dangerous</a>
-                    <a href="#Pointless&Dangerous" class="w-full text-center py-6 hover:opacity-90">Pointless &
-                        Dangerous</a>
-                    <a href="/admin" class="w-full text-center py-6 hover:opacity-90">Admin Panel</a>
-                    <a href="/about" class="w-full text-center py-6 hover:opacity-90">About</a>
-                    <a href="/" class="w-full text-center py-6 hover:opacity-90">Home</a>
-                </nav>
+                <app-nav-content-mobile></app-nav-content-mobile>
 
+                <!-- Navigation Links or other content -->
             </ng-template>
-
-            <!-- Navigation Links or other content -->
-
         </section>
-
-
 
         <!-- Mobile Menu -->
         <!-- <div [ngClass]="{ hidden: !isMobileMenuOpen, block: isMobileMenuOpen }" class="md:hidden">
@@ -106,7 +93,8 @@
             </div> -->
 
         <div class="flex items-center">
-            <button (click)="handleOpenLogin()" *ngIf="!(currentUser$ | async)" mat-raised-button color="accent">
+            <button (click)="handleOpenLogin()" *ngIf="!(currentUser$ | async)" mat-raised-button
+                class="btn btn-primary">
                 LOGIN
             </button>
 
