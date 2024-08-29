@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 
-  daisyui: {
-    themes: [
-      "light",
-      "dark",
-      "synthwave",
-      "retro"],
-  },
+  // daisyui: {
+  //   themes: [
+  //     "light",
+  //     "dark",
+  //     "synthwave",
+  //     "retro"],
+  // },
 
   content: [
     "./src/**/*.{html,ts,js}"
@@ -32,6 +32,7 @@ module.exports = {
   },
   plugins:[
     require('@tailwindcss/typography'), 
-    require("daisyui")],
+    // require("daisyui")],
+  ],
   
 }

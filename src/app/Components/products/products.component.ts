@@ -1,10 +1,8 @@
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
-import { HttpParams, HttpResponse } from '@angular/common/http';
 import {
   Component,
   ElementRef,
-  HostListener,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -20,12 +18,18 @@ import { MatRadioModule } from '@angular/material/radio';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
-  ParamMap,
-  Params,
   Router,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
+import {
+  BehaviorSubject,
+  finalize,
+  map,
+  Observable,
+  startWith,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { productActions } from '../../Store/Product/product.action';
 import { selectProducts } from '../../Store/Product/product.reducer';
 import { ProductServices } from '../../Store/Product/product.service';
@@ -33,8 +37,6 @@ import { ProductInterface } from '../../models/Product/product.interface';
 import { QueryParams } from '../../models/Requests/QueryParams.interface';
 import { FindProductsByCategoryPageRequest } from '../../models/Requests/findProductsByCategoryPageRequest.interface';
 import { HttpResponseInterface } from '../../models/Responses/httpResponse.interface';
-import { HttpResponsePaginatedInterface } from '../../models/Responses/httpResponsePaginated.interface';
-import { ProductPageInterface } from '../../models/Responses/page.interface';
 import { ProductStateInterface } from '../../models/State/productState.interface';
 import { filters, singleFilter } from './FilterData';
 import { ProductCardComponent } from './product-card/product-card.component';
@@ -72,7 +74,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   @ViewChild('scrollContainer') scrollContainer?: ElementRef;
   someProducts$?: Observable<ProductInterface[] | undefined>;
   selectedOptions: { [key: string]: any[] } = {};
-  loading = false;
+  loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -157,12 +159,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   //Filter Button Search
   filterProducts() {
-    console.log('clicked!');
     this.allProducts$ = null;
     this.navContentProducts$ = null;
 
     const qParams: QueryParams = this.collectRouteParams(this.router);
     console.log('qParams: ', qParams);
+
+    this.loading$.next(false);
     this.someProducts$ = this.productService
       .findProductsByCategory(qParams)
       .pipe(
@@ -170,6 +173,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
           (httpResponse: HttpResponseInterface) =>
             httpResponse.data['products'] as ProductInterface[],
         ),
+        finalize(() => this.loading$.next(false)),
       );
     this.someProducts$.forEach((product) => console.log(product));
   }
@@ -223,6 +227,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
   //UnderConstruction
   toggleMobileFilter() {
     this.isFilterOpen = !this.isFilterOpen;
+  }
+
+  getLoading(): Observable<boolean> {
+    return this.loading$;
   }
 }
 
